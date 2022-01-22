@@ -79,17 +79,22 @@ public class PlayerMoves : MonoBehaviour
 		if(!(right ^ left))
 		{
 			moveState = MoveState.idle;
+			m_anim.SetBool("isMoving", false);
 		}
 		else if(right)
 		{
 			moveState = MoveState.right;
+			m_anim.SetBool("isMoving", true);
+
 		}
 		else if(left)
 		{
 			moveState = MoveState.left;
+			m_anim.SetBool("isMoving", true);
+
 		}
-		
-		if(interact)
+
+		if (interact)
 		{
 			handleInteraction();
 		}
@@ -110,36 +115,14 @@ public class PlayerMoves : MonoBehaviour
 
 	void animate()
 	{
-		//update sprite flipness
-		m_spriteRenderer.flipX = (Direction.right == direction);
-		//set animation state
+		
+			//set animation state
 		if (isMoving)
 		{
 			//toDo animation walk
-			if (moveState == MoveState.right)
-			{
-				m_anim.SetBool("LookRight", true);
-				m_anim.SetBool("LookLeft", false);
-				m_anim.SetBool("Idle", false);
+			
 
-			}
-			else if (moveState == MoveState.left)
-
-			{
-				m_anim.SetBool("LookRight", false);
-				m_anim.SetBool("LookLeft", true);
-				m_anim.SetBool("Idle", false);
-
-
-			}
-
-			else
-			{
-				m_anim.SetBool("LookRight", false);
-				m_anim.SetBool("LookLeft", false);
-				m_anim.SetBool("Idle", true);
-
-			}
+		
 		}
 	}
 
