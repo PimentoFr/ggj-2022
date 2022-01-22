@@ -22,10 +22,6 @@ public class KeyUI : MonoBehaviour
     Image key;
 
     bool isHardcoreMode = false;
-    float startHarcoreMode = 0.0f;
-    public float hardcoreMaxAmplitude = 20.0f;
-    public float hardcorePeriodInMs = 1.0f;
-    float offsetHardcoreMode = 0.0f;
 
     Vector3 originPosition;
     RectTransform rectTrans;
@@ -53,13 +49,6 @@ public class KeyUI : MonoBehaviour
 
     void Update()
     {
-        if(isHardcoreMode)
-        {
-            Vector3 editedPosition = transform.localPosition;
-            float deltaT = Time.realtimeSinceStartup - startHarcoreMode;
-            editedPosition.y = originPosition.y + hardcoreMaxAmplitude * Mathf.Cos(offsetHardcoreMode * 2 * Mathf.PI * deltaT / hardcorePeriodInMs);
-            transform.localPosition = editedPosition;
-        }
     }
 
     public void SetKeyText(string str)
@@ -108,14 +97,24 @@ public class KeyUI : MonoBehaviour
     public void SetHardcoreMode(bool hardcoreMode)
     {
         isHardcoreMode = hardcoreMode;
-        if(hardcoreMode)
-        {
-            originPosition = transform.localPosition;
-            startHarcoreMode = Time.realtimeSinceStartup;
-            offsetHardcoreMode = Random.Range(0.8f, 1.2f);
-        } else
-        {
-            transform.localPosition = originPosition;
-        }
     }
+
+    public void ShowArrow()
+    {
+        if (!isHardcoreMode)
+        {
+            return;
+        }
+        icon.gameObject.SetActive(true);
+    }
+
+    public void HideArrow()
+    {
+        if(!isHardcoreMode)
+        {
+            return;
+        }
+        icon.gameObject.SetActive(false);
+    }
+    
 }

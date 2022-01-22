@@ -81,6 +81,10 @@ public class KeysListUI : MonoBehaviour
         {
             key.Valid();
             current_key_index++;
+            if(!KeysListIsComplete())
+            {
+                keys_ui[current_key_index].ShowArrow();
+            }
         } else
         {
             key.Error();
@@ -100,7 +104,9 @@ public class KeysListUI : MonoBehaviour
         foreach(KeyUI key_ui in keys_ui)
         {
             key_ui.Clear();
+            key_ui.HideArrow();
         }
+        keys_ui[0].ShowArrow();
     }
 
     public void hide()
@@ -111,5 +117,6 @@ public class KeysListUI : MonoBehaviour
     public void show()
     {
         gameObject.SetActive(true);
+        cleanKeys();
     }
 }
