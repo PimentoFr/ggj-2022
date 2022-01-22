@@ -46,6 +46,12 @@ public class QTECreator : MonoBehaviour
     float startAskSlideUp;
     Vector3 originPosition;
 
+    /* Sound*/
+    public AudioClip failedSound;
+    public AudioClip validSound;
+    public AudioClip swipeSound;
+    AudioSource audioSource;
+
     RectTransform rect;
     GameObject box;
     Transform boxTrans;
@@ -55,6 +61,7 @@ public class QTECreator : MonoBehaviour
         rect = GetComponent<RectTransform>();
         box = transform.Find("Box").gameObject;
         boxTrans = box.GetComponent<Transform>();
+        audioSource = GetComponent<AudioSource>();
         CreateItems(new List<QTEItem>
         {
             new QTEItem("Remplir du papier", new List<string>{"UP", "DOWN", "LEFT", "UP"}),
@@ -179,11 +186,13 @@ public class QTECreator : MonoBehaviour
         if(res == false)
         {
             /* The key is wrong ... reset */
+            playSound(failedSound);
             AskCleanKeyList();
             return;
         } 
         if(qteItemUi.getKeysObj().GetComponent<KeysListUI>().KeysListIsComplete())
         {
+            playSound(validSound);
             /* Hide success key list */
             qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>().hide();
             /* Go to next item list */
@@ -217,5 +226,11 @@ public class QTECreator : MonoBehaviour
         askSlideUp = true;
         startAskSlideUp = Time.realtimeSinceStartup;
         originPosition = boxTrans.position;
+        playSound(swipeSound);
+    }
+
+    void playSound(AudioClip sound)
+    {
+        audioSource.PlayOneShot(sound);
     }
 }
