@@ -26,7 +26,6 @@ public class PlayerInterraction : MonoBehaviour
         {
             obj.GetComponent<PlayerMoves>().setInteractionCallback(m_callback);
         }
-        
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -36,6 +35,5 @@ public class PlayerInterraction : MonoBehaviour
         {
             obj.GetComponent<PlayerMoves>().setInteractionCallback(null);
         }
-        
     }
 }

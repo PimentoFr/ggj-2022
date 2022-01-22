@@ -27,7 +27,6 @@ public class PlayerMoves : MonoBehaviour
 	public Sprite chaosSprite;
 
 	private bool isChaos = false;
-	private bool isMoving = false;
 	private float moveSpeed;
 	private MoveState prevMoveState = MoveState.idle;
 	private MoveState moveState = MoveState.right;
@@ -37,12 +36,14 @@ public class PlayerMoves : MonoBehaviour
 	private Rigidbody2D m_rigidbody;
 	private SpriteRenderer m_spriteRenderer;
 	private Collider2D m_collider;
+	private Animator m_anim;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		m_spriteRenderer = GetComponent<SpriteRenderer>();
 		m_rigidbody = GetComponent<Rigidbody2D>();
+		m_anim = GetComponent<Animator>();
 		m_rigidbody.velocity = new Vector2(0,0);
 		m_velocity.x = 0;
 		setChaos(false);
@@ -86,8 +87,8 @@ public class PlayerMoves : MonoBehaviour
 		{
 			moveState = MoveState.left;
 		}
-		
-		if(interact)
+
+		if (interact)
 		{
 			handleInteraction();
 		}
@@ -95,7 +96,7 @@ public class PlayerMoves : MonoBehaviour
 
 	void move()
 	{
-		if(isMoving)
+		if(moveState != MoveState.idle)
 		{
 			m_velocity.x = moveSpeed * (int)direction;
 		}
@@ -108,17 +109,9 @@ public class PlayerMoves : MonoBehaviour
 
 	void animate()
 	{
-		//update sprite flipness
-		m_spriteRenderer.flipX = (Direction.right == direction);
 		//set animation state
-		if(isMoving)
-		{
-			//toDo animation walk
-		}
-		else
-		{
-			//toDo animation idle
-		}
+		m_anim.SetBool("isMoving", moveState != MoveState.idle);
+		m_spriteRenderer.flipX = (direction == Direction.left);
 	}
 
 	void handleMoveStateChange()
@@ -129,14 +122,11 @@ public class PlayerMoves : MonoBehaviour
 			{
 				case MoveState.right :
 					direction = Direction.right;
-					isMoving = true;
 					break;
 				case MoveState.left :
 					direction = Direction.left;
-					isMoving = true;
 					break;
 				case MoveState.idle :
-					isMoving = false;
 					break;
 			}
 			prevMoveState = moveState;
