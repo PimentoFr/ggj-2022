@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7721770584037976511}
   - component: {fileID: 5966676808880701637}
   - component: {fileID: 4613334958880144157}
+  - component: {fileID: 492903516042303097}
   m_Layer: 0
   m_Name: InteractablePoster
   m_TagString: Untagged
@@ -123,3 +124,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
+--- !u!114 &492903516042303097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065523609995937200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a7e79283414297caebc8e8a9bd2e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

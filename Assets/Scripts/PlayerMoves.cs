@@ -60,10 +60,8 @@ public class PlayerMoves : MonoBehaviour
 
 	void FixedUpdate()
 	{
-
 		animate();
 		move();
-
 	}
 
 	void handleInput()
