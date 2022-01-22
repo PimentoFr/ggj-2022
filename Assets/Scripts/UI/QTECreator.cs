@@ -69,7 +69,8 @@ public class QTECreator : MonoBehaviour
             new QTEItem("Recuperer impression", new List<string>{"UP", "UP", "LEFT", "DOWN"}),
         });
 
-        //SetHardcoreMode(true);
+        SetHardcoreMode(true);
+        CleanKeyList(false);
     }
 
 
@@ -99,7 +100,7 @@ public class QTECreator : MonoBehaviour
         {
             if((Time.realtimeSinceStartup - startAskClean) >= delayClean)
             {
-                CleanKeyList();
+                CleanKeyList(true);
             }
             return;
         }
@@ -164,11 +165,14 @@ public class QTECreator : MonoBehaviour
         qteItemUiList[0].GetKeysObj().GetComponent<KeysListUI>().show();
     }
 
-    void CleanKeyList()
+    void CleanKeyList(bool withReroll)
     {
         KeysListUI keyListUi = qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>();
         /* Reroll keys */
-        keyListUi.reroll();
+        if(withReroll)
+        {
+            keyListUi.reroll();
+        }
         /* Remove colors */
         keyListUi.cleanKeys();
         askClean = false;
