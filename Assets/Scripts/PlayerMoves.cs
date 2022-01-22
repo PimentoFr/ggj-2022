@@ -26,7 +26,12 @@ public class PlayerMoves : MonoBehaviour
 	public Sprite normalSprite;
 	public Sprite chaosSprite;
 
-	private bool isChaos = false;
+    //Suivi Camera
+    public GameObject poissonPilote_GO;
+    public float piloteCamSpeed = 0.5f;
+    public float piloteCamIdleSpeed = 0.2f;
+
+    private bool isChaos = false;
 	private float moveSpeed;
 	private MoveState prevMoveState = MoveState.idle;
 	private MoveState moveState = MoveState.right;
@@ -62,6 +67,7 @@ public class PlayerMoves : MonoBehaviour
 	{
 		animate();
 		move();
+        camFollow();
 	}
 
 	void handleInput()
@@ -112,6 +118,31 @@ public class PlayerMoves : MonoBehaviour
 		m_anim.SetBool("isChaos", isChaos);
 		m_spriteRenderer.flipX = (direction == Direction.left);
 	}
+
+    void camFollow()
+    {
+        switch (moveState)
+        {
+            case MoveState.right:
+                poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x + piloteCamSpeed,-6f,6f), 0f);
+                break;
+            case MoveState.left:
+                poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x - piloteCamSpeed, -6f, 6f), 0f);
+                break;
+
+            case MoveState.idle:
+                if (poissonPilote_GO.transform.localPosition.x < 0f)
+                {
+                    poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x + piloteCamIdleSpeed, -6f, 0f), 0f);
+                }
+                else if (poissonPilote_GO.transform.localPosition.x > 0f)
+                {
+                    poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x - piloteCamIdleSpeed, 0f, 6f), 0f);
+                }
+                break;
+        }
+
+    }
 
 	void handleMoveStateChange()
 	{
