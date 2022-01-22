@@ -19,7 +19,7 @@ public class PlayerInterraction : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject obj = collision.gameObject;
         if(obj.tag == "Player")
@@ -29,7 +29,7 @@ public class PlayerInterraction : MonoBehaviour
         
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         GameObject obj = collision.gameObject;
         if(obj.tag == "Player")
