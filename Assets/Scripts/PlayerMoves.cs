@@ -109,9 +109,9 @@ public class PlayerMoves : MonoBehaviour
 
 	void animate()
 	{
-		
-			//set animation state
-		m_anim.SetBool("isMoving", moveState == MoveState.idle);
+		//set animation state
+		m_anim.SetBool("isMoving", moveState != MoveState.idle);
+		m_spriteRenderer.flipX = (direction == Direction.left);
 	}
 
 	void handleMoveStateChange()
