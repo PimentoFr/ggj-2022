@@ -37,12 +37,14 @@ public class PlayerMoves : MonoBehaviour
 	private Rigidbody2D m_rigidbody;
 	private SpriteRenderer m_spriteRenderer;
 	private Collider2D m_collider;
+	private Animator m_anim;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		m_spriteRenderer = GetComponent<SpriteRenderer>();
 		m_rigidbody = GetComponent<Rigidbody2D>();
+		m_anim = GetComponent<Animator>();
 		m_rigidbody.velocity = new Vector2(0,0);
 		m_velocity.x = 0;
 		setChaos(false);
@@ -111,13 +113,33 @@ public class PlayerMoves : MonoBehaviour
 		//update sprite flipness
 		m_spriteRenderer.flipX = (Direction.right == direction);
 		//set animation state
-		if(isMoving)
+		if (isMoving)
 		{
 			//toDo animation walk
-		}
-		else
-		{
-			//toDo animation idle
+			if (moveState == MoveState.right)
+			{
+				m_anim.SetBool("LookRight", true);
+				m_anim.SetBool("LookLeft", false);
+				m_anim.SetBool("Idle", false);
+
+			}
+			else if (moveState == MoveState.left)
+
+			{
+				m_anim.SetBool("LookRight", false);
+				m_anim.SetBool("LookLeft", true);
+				m_anim.SetBool("Idle", false);
+
+
+			}
+
+			else
+			{
+				m_anim.SetBool("LookRight", false);
+				m_anim.SetBool("LookLeft", false);
+				m_anim.SetBool("Idle", true);
+
+			}
 		}
 	}
 
