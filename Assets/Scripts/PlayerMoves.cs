@@ -16,27 +16,36 @@ public class PlayerMoves : MonoBehaviour
 		left
 	}
 
-	public float moveSpeed = 2;
+	public float moveSpeedNormal = 2;
+	public float moveSpeedChaos = 2;
 	public Direction direction = Direction.right;
 	public KeyCode leftKey = KeyCode.Q;
 	public KeyCode rightKey = KeyCode.D;
+	public KeyCode interactKey = KeyCode.Space;
+	//replace with animation ?
+	public Sprite normalSprite;
+	public Sprite chaosSprite;
 
+	private bool isChaos = false;
 	private bool isMoving = false;
+	private float moveSpeed;
 	private MoveState prevMoveState = MoveState.idle;
 	private MoveState moveState = MoveState.right;
 	//direction dans laquelle le player est oriente
 	
 	private Vector2 m_velocity = new Vector2();
 
-	Rigidbody2D m_rigidbody2D;
-	SpriteRenderer m_sprite;
+	private Rigidbody2D m_rigidbody2D;
+	private SpriteRenderer m_spriteRenderer;
+
 	// Start is called before the first frame update
 	void Start()
 	{
-		m_sprite = GetComponent<SpriteRenderer>();
+		m_spriteRenderer = GetComponent<SpriteRenderer>();
 		m_rigidbody2D = GetComponent<Rigidbody2D>();
 		m_rigidbody2D.velocity = new Vector2(0,0);
 		m_velocity.x = 0;
+		setChaos(false);
 	}
 
 	// Update is called once per frame
@@ -50,18 +59,20 @@ public class PlayerMoves : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		//update sprite flipness
-		m_sprite.flipX = (Direction.right == direction);
+
 		animate();
 		move();
 
-		
 	}
 
 	void handleInput()
 	{
+		//get state
 		bool left = Input.GetKey(leftKey);
 		bool right = Input.GetKey(rightKey);
+		//get if pressed
+		bool interact = Input.GetKeyDown(interactKey);
+
 		// 2 keys = idle
 		if(!(right ^ left))
 		{
@@ -75,8 +86,11 @@ public class PlayerMoves : MonoBehaviour
 		{
 			moveState = MoveState.left;
 		}
-		Debug.Log(moveState);
 		
+		if(interact)
+		{
+			handleInteraction();
+		}
 	}
 
 	void move()
@@ -94,6 +108,8 @@ public class PlayerMoves : MonoBehaviour
 
 	void animate()
 	{
+		//update sprite flipness
+		m_spriteRenderer.flipX = (Direction.right == direction);
 		//set animation state
 		if(isMoving)
 		{
@@ -125,5 +141,26 @@ public class PlayerMoves : MonoBehaviour
 			}
 			prevMoveState = moveState;
 		}
+	}
+
+	public void setChaos(bool chaos)
+	{
+		isChaos = chaos;
+
+		if(chaos)
+		{
+			m_spriteRenderer.sprite = chaosSprite;
+			moveSpeed = moveSpeedChaos;
+		}
+		else
+		{
+			m_spriteRenderer.sprite = normalSprite;
+			moveSpeed = moveSpeedNormal;
+		}
+	}
+	int count = 0;
+	void handleInteraction()
+	{
+		Debug.Log("interaction" + count);
 	}
 }
