@@ -8,6 +8,31 @@ public class KeysListUI : MonoBehaviour
     public List<KeyUI> keys_ui = new List<KeyUI>();
     int current_key_index = 0;
 
+    public float shakeDurationInS = 1.0f;
+    public float shakeMaxAmplitude = 20.0f;
+    public int shakeBounceNumber = 4;
+    bool shakeAsked = false;
+    float startShakeAsked;
+    Vector3 originPosition;
+
+    void Update()
+    {
+        if(shakeAsked)
+        {
+            if((Time.realtimeSinceStartup - startShakeAsked) >= shakeDurationInS) {
+                transform.position = originPosition;
+                shakeAsked = false;
+            }
+            else
+            {
+                Vector3 editedPosition = transform.position;
+                float deltaT = Time.realtimeSinceStartup - startShakeAsked;
+                editedPosition.x = originPosition.x + shakeMaxAmplitude * Mathf.Cos(2 * Mathf.PI * deltaT / (shakeDurationInS / shakeBounceNumber)) * (1 - (deltaT / shakeDurationInS));
+                transform.position = editedPosition;
+            }            
+        }
+    }
+
     public KeyUI SpawnKey(int index)
     {
         // new Vector3(transform.position.x + (prefab_key.transform.width + 5) * index, transform.position.y, transform.position.z)
@@ -24,6 +49,16 @@ public class KeysListUI : MonoBehaviour
         return keys_ui;
     }
 
+    public void Shake()
+    {
+        if(shakeAsked)
+        {
+            return;
+        }
+        shakeAsked = true;
+        startShakeAsked = Time.realtimeSinceStartup;
+        originPosition = transform.position;
+    }
 
     public bool TriggerKeyboardEvent(KeyUISprite key_type)
     {

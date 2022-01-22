@@ -311,7 +311,7 @@ MonoBehaviour:
   upKey: 273
   downKey: 274
   leaveKey: 113
-  delayClean: 0.4
+  delayClean: 0.8
 --- !u!1001 &8280866893459349895
 PrefabInstance:
   m_ObjectHideFlags: 0

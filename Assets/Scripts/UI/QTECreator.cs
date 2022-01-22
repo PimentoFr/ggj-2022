@@ -133,6 +133,7 @@ public class QTECreator : MonoBehaviour
     {
         askClean = true;
         startAskClean = Time.realtimeSinceStartup;
+        qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>().Shake();
     }
 
     void EventKeyTrigger(KeyUISprite key_type)
