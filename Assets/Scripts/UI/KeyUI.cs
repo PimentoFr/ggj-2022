@@ -13,13 +13,18 @@ public enum KeyUISprite : ushort {
 public class KeyUI : MonoBehaviour
 {
 
-
+    const float DELAY_CLEAN_S = 1.0f;
     public string key_label = "";
     public Sprite[] icon_array;
     public int index_icon = -1;
     Text text;
     Image icon;
     Image key;
+
+
+    bool ask_clean = false;
+    float start_ask_clean = 0;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -45,8 +50,6 @@ public class KeyUI : MonoBehaviour
 
     public void SetKeyText(string str)
     {
-        Debug.Log("str" + str);
-        Debug.Log(text);
         text.text = str;
         text.gameObject.SetActive(true);
     }
@@ -63,7 +66,7 @@ public class KeyUI : MonoBehaviour
         SetIconIndex((int)index);
     }
 
-    public void ClearColor()
+    public void Clear()
     {
         key.color = new Color(1.0f, 1.0f, 1.0f);
     }

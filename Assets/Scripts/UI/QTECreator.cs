@@ -32,8 +32,12 @@ public class QTECreator : MonoBehaviour
     public KeyCode downKey;
     public KeyCode leaveKey;
 
+    public float delayClean = 0.4F;
 
     int current_item_index = 0;
+
+    bool askClean = false;
+    float startAskClean;
 
     void Start()
     {
@@ -68,6 +72,15 @@ public class QTECreator : MonoBehaviour
 
     void Update()
     {
+        if(askClean)
+        {
+            if((Time.realtimeSinceStartup - startAskClean) >= delayClean)
+            {
+                CleanKeyList();
+            }
+            return;
+        }
+
         if (ButtonIsPressed(QteKeyboardKey.DOWN))
         {
             EventKeyTrigger(KeyUISprite.DOWN);
@@ -89,6 +102,7 @@ public class QTECreator : MonoBehaviour
             Leave();
             /* Do maybe something more to continue game */
         }
+
     }
 
     public void CreateItems(List<QTEItem> qteitems)
@@ -106,6 +120,18 @@ public class QTECreator : MonoBehaviour
         }
     }
 
+    void CleanKeyList()
+    {
+        qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>().cleanKeys();
+        askClean = false;
+    }
+
+    void AskCleanKeyList()
+    {
+        askClean = true;
+        startAskClean = Time.realtimeSinceStartup;
+    }
+
     void EventKeyTrigger(KeyUISprite key_type)
     {
         Debug.Log("Key_type pressed :" + key_type);
@@ -114,7 +140,7 @@ public class QTECreator : MonoBehaviour
         if(res == false)
         {
             /* The key is wrong ... reset */
-            qteItemUi.getKeysObj().GetComponent<KeysListUI>().cleanKeys();
+            AskCleanKeyList();
             return;
         } 
         if(qteItemUi.getKeysObj().GetComponent<KeysListUI>().KeysListIsComplete())

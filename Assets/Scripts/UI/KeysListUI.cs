@@ -56,7 +56,7 @@ public class KeysListUI : MonoBehaviour
     {
         foreach(KeyUI key_ui in keys_ui)
         {
-            key_ui.ClearColor();
+            key_ui.Clear();
         }
     }
 }
