@@ -1,19 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StressLevel : MonoBehaviour
 {
-    public float stressPercent;
+    public Image mask;
+
+    [Range(0f, 100f)]
+    public float stressPercent = 0f;
+
+    float originalSize;
 
     void Start()
     {
-        stressPercent = 0f;
+        originalSize = mask.rectTransform.rect.width;
     }
 
     void FixedUpdate()
     {
         stressPercent = Mathf.Clamp(stressPercent, 0f, 100f);
-        transform.localScale = new Vector2(stressPercent / 100f,1f);
+        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * stressPercent / 100f);
     }
 }
