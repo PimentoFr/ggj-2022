@@ -31,19 +31,19 @@ public class PlayerMoves : MonoBehaviour
 	private float moveSpeed;
 	private MoveState prevMoveState = MoveState.idle;
 	private MoveState moveState = MoveState.right;
-	//direction dans laquelle le player est oriente
-	
 	private Vector2 m_velocity = new Vector2();
+	private Interactable m_callback = null;
 
-	private Rigidbody2D m_rigidbody2D;
+	private Rigidbody2D m_rigidbody;
 	private SpriteRenderer m_spriteRenderer;
+	private Collider2D m_collider;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		m_spriteRenderer = GetComponent<SpriteRenderer>();
-		m_rigidbody2D = GetComponent<Rigidbody2D>();
-		m_rigidbody2D.velocity = new Vector2(0,0);
+		m_rigidbody = GetComponent<Rigidbody2D>();
+		m_rigidbody.velocity = new Vector2(0,0);
 		m_velocity.x = 0;
 		setChaos(false);
 	}
@@ -103,7 +103,7 @@ public class PlayerMoves : MonoBehaviour
 		{
 			m_velocity.x = 0;
 		}
-		m_rigidbody2D.velocity = m_velocity;
+		m_rigidbody.velocity = m_velocity;
 	}
 
 	void animate()
@@ -158,9 +158,17 @@ public class PlayerMoves : MonoBehaviour
 			moveSpeed = moveSpeedNormal;
 		}
 	}
-	int count = 0;
+
 	void handleInteraction()
 	{
-		Debug.Log("interaction" + count);
+		if(m_callback)
+		{
+			m_callback.handleInteraction(isChaos);
+		}
+	}
+
+	public void setInteractionCallback(Interactable callback)
+	{
+		m_callback = callback;
 	}
 }
