@@ -85,4 +85,9 @@ public class KeyUI : MonoBehaviour
     {
         return ((int) key_type == index_icon);
     }
+
+    public void reroll()
+    {
+        SetIconIndex(Random.Range(0, 4));
+    }
 }

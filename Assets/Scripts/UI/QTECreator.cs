@@ -125,7 +125,11 @@ public class QTECreator : MonoBehaviour
 
     void CleanKeyList()
     {
-        qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>().cleanKeys();
+        KeysListUI keyListUi = qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>();
+        /* Reroll keys */
+        keyListUi.reroll();
+        /* Remove colors */
+        keyListUi.cleanKeys();
         askClean = false;
     }
 

@@ -44,6 +44,14 @@ public class KeysListUI : MonoBehaviour
         return key_ui;
     }
 
+    public void reroll()
+    {
+        foreach(KeyUI key_ui in keys_ui)
+        {
+            key_ui.reroll();
+        }
+    }
+
     public List<KeyUI> GetKeyUIList()
     {
         return keys_ui;
