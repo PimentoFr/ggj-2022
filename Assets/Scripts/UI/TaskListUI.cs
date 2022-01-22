@@ -14,13 +14,7 @@ public class TaskListUI : MonoBehaviour
     void Start()
     {
         box = transform.Find("Box").gameObject;
-
-        CreateItems(new List<TaskToDo>
-        {
-            new TaskToDo("Remplir du papier", true),
-            new TaskToDo("Ramasser les classeurs", true),
-            new TaskToDo("Se faire un café", false),
-        });
+        Debug.Log("Start " + box);
     }
 
     public List<TaskToDo> GetTasks()
@@ -28,8 +22,15 @@ public class TaskListUI : MonoBehaviour
         return tasksList;
     }
 
+    public List<TaskItemUI> GetTasksItemUIList()
+    {
+        return tasksItemUIList;
+    }
+
+
     public void SetTasks(List<TaskToDo> _tasksList)
     {
+        Debug.Log("TEST setTasks");
         tasksList = _tasksList;
         RefreshList();
     }
