@@ -43,9 +43,9 @@ public class QTECreator : MonoBehaviour
     {
         CreateItems(new List<QTEItem>
         {
-            new QTEItem("Remplir du papier", new List<string>{"UP", "DOWN", "LEFT"}),
-            new QTEItem("Lancer photocopie", new List<string>{"RIGHT", "DOWN", "LEFT"}),
-            new QTEItem("Recuperer impression", new List<string>{"UP", "UP", "LEFT"}),
+            new QTEItem("Remplir du papier", new List<string>{"UP", "DOWN", "LEFT", "UP"}),
+            new QTEItem("Lancer photocopie", new List<string>{"RIGHT", "DOWN", "LEFT", "RIGHT"}),
+            new QTEItem("Recuperer impression", new List<string>{"UP", "UP", "LEFT", "DOWN"}),
         });
     }
 
