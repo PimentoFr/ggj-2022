@@ -69,7 +69,7 @@ public class QTECreator : MonoBehaviour
             new QTEItem("Recuperer impression", new List<string>{"UP", "UP", "LEFT", "DOWN"}),
         });
 
-        SetHardcoreMode(true);
+        //SetHardcoreMode(true);
     }
 
 
