@@ -51,5 +51,5 @@ MonoBehaviour:
   prefab_key: {fileID: 977636432043280092, guid: 5787c78f010297647b2dc194aba10721, type: 3}
   keys_ui: []
   shakeDurationInS: 0.8
-  shakeAmplitude: 20
+  shakeMaxAmplitude: 20
   shakeBounceNumber: 4

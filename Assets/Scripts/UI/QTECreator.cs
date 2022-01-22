@@ -68,6 +68,8 @@ public class QTECreator : MonoBehaviour
             new QTEItem("Lancer photocopie", new List<string>{"RIGHT", "DOWN", "LEFT", "RIGHT"}),
             new QTEItem("Recuperer impression", new List<string>{"UP", "UP", "LEFT", "DOWN"}),
         });
+
+        SetHardcoreMode(true);
     }
 
 
@@ -159,12 +161,12 @@ public class QTECreator : MonoBehaviour
         }
 
         /* Show the first key list */
-        qteItemUiList[0].getKeysObj().GetComponent<KeysListUI>().show();
+        qteItemUiList[0].GetKeysObj().GetComponent<KeysListUI>().show();
     }
 
     void CleanKeyList()
     {
-        KeysListUI keyListUi = qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>();
+        KeysListUI keyListUi = qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>();
         /* Reroll keys */
         keyListUi.reroll();
         /* Remove colors */
@@ -176,7 +178,7 @@ public class QTECreator : MonoBehaviour
     {
         askClean = true;
         startAskClean = Time.realtimeSinceStartup;
-        qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>().Shake();
+        qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>().Shake();
     }
 
     void EventKeyTrigger(KeyUISprite key_type)
@@ -190,11 +192,11 @@ public class QTECreator : MonoBehaviour
             AskCleanKeyList();
             return;
         } 
-        if(qteItemUi.getKeysObj().GetComponent<KeysListUI>().KeysListIsComplete())
+        if(qteItemUi.GetKeysObj().GetComponent<KeysListUI>().KeysListIsComplete())
         {
             playSound(validSound);
             /* Hide success key list */
-            qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>().hide();
+            qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>().hide();
             /* Go to next item list */
             current_item_index++;
             if(current_item_index >= qteItemUiList.Count)
@@ -205,7 +207,7 @@ public class QTECreator : MonoBehaviour
             }
 
             /* Show new key list */
-            qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>().show();
+            qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>().show();
         }
     }
 
@@ -232,5 +234,16 @@ public class QTECreator : MonoBehaviour
     void playSound(AudioClip sound)
     {
         audioSource.PlayOneShot(sound);
+    }
+
+    void SetHardcoreMode(bool hardcore)
+    {
+        foreach(QteItemUI qteItemUi in qteItemUiList)
+        {
+            foreach(KeyUI key_ui in qteItemUi.GetKeysObj().GetComponent<KeysListUI>().GetKeyUIList())
+            {
+                key_ui.SetHardcoreMode(hardcore);
+            }
+        }
     }
 }
