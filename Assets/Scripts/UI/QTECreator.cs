@@ -111,7 +111,7 @@ public class QTECreator : MonoBehaviour
         foreach(QTEItem qteitem in qteitems) {
             Vector3 positionItemUi = new Vector3(0, 100 -i * 40, 0);
             QteItemUI qteItemUi = Instantiate(prefabQteItem, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<QteItemUI>();
-            qteItemUi.transform.parent = transform;
+            qteItemUi.transform.SetParent(transform);
             qteItemUi.transform.localPosition = positionItemUi;
             qteItemUi.SetActionLabel(qteitem.action_label);
             qteItemUi.GenerateKeys(qteitem.keys_type);
@@ -142,7 +142,6 @@ public class QTECreator : MonoBehaviour
 
     void EventKeyTrigger(KeyUISprite key_type)
     {
-        Debug.Log("Key_type pressed :" + key_type);
         QteItemUI qteItemUi = qteItemUiList[current_item_index];
         bool res = qteItemUi.PropageKeyboardEvent(key_type);
         if(res == false)

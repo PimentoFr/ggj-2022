@@ -27,7 +27,6 @@ public class QteItemUI : MonoBehaviour
         int i = 0;
         foreach(string key_type in keys_type)
         {
-            Debug.Log("key_type=" + keys_type);
             KeyUI key_ui = keys_obj.GetComponent<KeysListUI>().SpawnKey(i);
             KeyUISprite key_ui_sprite = KeyUISprite.UP;
             if (key_type.Length == 1)

@@ -34,8 +34,6 @@ public class KeyUI : MonoBehaviour
         key = GetComponent<Image>();
         text.gameObject.SetActive(false);
         icon.gameObject.SetActive(false);
-        Debug.Log("Test start");
-        Debug.Log(text);
 
         if(key_label.Length > 0)
         {
