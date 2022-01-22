@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 284936104973272288}
   - component: {fileID: 6629024400083380608}
   - component: {fileID: 2655180177252775080}
+  - component: {fileID: 5031668667438894886}
   m_Layer: 0
   m_Name: InteractableGreenChairTroisQuartCoussinPeteur
   m_TagString: Untagged
@@ -123,3 +124,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
+--- !u!114 &5031668667438894886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284936104973272295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a7e79283414297caebc8e8a9bd2e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
