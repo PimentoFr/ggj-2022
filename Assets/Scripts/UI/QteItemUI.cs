@@ -59,6 +59,7 @@ public class QteItemUI : MonoBehaviour
             }
             i++;
         }
+        keys_obj.GetComponent<KeysListUI>().hide();
     }
 
     public GameObject getKeysObj()

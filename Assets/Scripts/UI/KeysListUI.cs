@@ -59,4 +59,14 @@ public class KeysListUI : MonoBehaviour
             key_ui.Clear();
         }
     }
+
+    public void hide()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void show()
+    {
+        gameObject.SetActive(true);
+    }
 }

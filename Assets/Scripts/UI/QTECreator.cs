@@ -118,6 +118,9 @@ public class QTECreator : MonoBehaviour
             qteItemUiList.Add(qteItemUi);
             i++;
         }
+
+        /* Show the first key list */
+        qteItemUiList[0].getKeysObj().GetComponent<KeysListUI>().show();
     }
 
     void CleanKeyList()
@@ -145,6 +148,8 @@ public class QTECreator : MonoBehaviour
         } 
         if(qteItemUi.getKeysObj().GetComponent<KeysListUI>().KeysListIsComplete())
         {
+            /* Hide success key list */
+            qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>().hide();
             /* Go to next item list */
             current_item_index++;
             if(current_item_index >= qteItemUiList.Count)
@@ -154,8 +159,8 @@ public class QTECreator : MonoBehaviour
                 return;
             }
 
-            /* Change selected item list */
-                
+            /* Show new key list */
+            qteItemUiList[current_item_index].getKeysObj().GetComponent<KeysListUI>().show();
         }
     }
 
