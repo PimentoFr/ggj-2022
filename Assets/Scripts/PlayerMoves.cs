@@ -111,6 +111,7 @@ public class PlayerMoves : MonoBehaviour
 	{
 		//set animation state
 		m_anim.SetBool("isMoving", moveState != MoveState.idle);
+		m_anim.SetBool("isChaos", isChaos);
 		m_spriteRenderer.flipX = (direction == Direction.left);
 	}
 
