@@ -9,7 +9,7 @@ public class TaskItemUI : MonoBehaviour
     public string taskLabel = "";
     private Text taskText;
     private Image icon;
-    TaskToDo task = new TaskToDo("", false);
+    TaskToDo task;
 
     void Awake()
     {
