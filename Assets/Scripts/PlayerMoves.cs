@@ -27,7 +27,6 @@ public class PlayerMoves : MonoBehaviour
 	public Sprite chaosSprite;
 
 	private bool isChaos = false;
-	private bool isMoving = false;
 	private float moveSpeed;
 	private MoveState prevMoveState = MoveState.idle;
 	private MoveState moveState = MoveState.right;
@@ -79,19 +78,14 @@ public class PlayerMoves : MonoBehaviour
 		if(!(right ^ left))
 		{
 			moveState = MoveState.idle;
-			m_anim.SetBool("isMoving", false);
 		}
 		else if(right)
 		{
 			moveState = MoveState.right;
-			m_anim.SetBool("isMoving", true);
-
 		}
 		else if(left)
 		{
 			moveState = MoveState.left;
-			m_anim.SetBool("isMoving", true);
-
 		}
 
 		if (interact)
@@ -102,7 +96,7 @@ public class PlayerMoves : MonoBehaviour
 
 	void move()
 	{
-		if(isMoving)
+		if(moveState != MoveState.idle)
 		{
 			m_velocity.x = moveSpeed * (int)direction;
 		}
@@ -117,13 +111,7 @@ public class PlayerMoves : MonoBehaviour
 	{
 		
 			//set animation state
-		if (isMoving)
-		{
-			//toDo animation walk
-			
-
-		
-		}
+		m_anim.SetBool("isMoving", moveState == MoveState.idle);
 	}
 
 	void handleMoveStateChange()
@@ -134,14 +122,11 @@ public class PlayerMoves : MonoBehaviour
 			{
 				case MoveState.right :
 					direction = Direction.right;
-					isMoving = true;
 					break;
 				case MoveState.left :
 					direction = Direction.left;
-					isMoving = true;
 					break;
 				case MoveState.idle :
-					isMoving = false;
 					break;
 			}
 			prevMoveState = moveState;
