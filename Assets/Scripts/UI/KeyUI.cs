@@ -8,7 +8,8 @@ public enum KeyUISprite : ushort {
     RIGHT = 1,
     DOWN = 2,
     LEFT = 3
-};
+}
+
 public class KeyUI : MonoBehaviour
 {
 
