@@ -6,7 +6,7 @@ public class KeysListUI : MonoBehaviour
 {
     public GameObject prefab_key;
     public List<KeyUI> keys_ui = new List<KeyUI>();
-
+    int current_key_index = 0;
 
     public KeyUI SpawnKey(int index)
     {
@@ -22,5 +22,41 @@ public class KeysListUI : MonoBehaviour
     public List<KeyUI> GetKeyUIList()
     {
         return keys_ui;
+    }
+
+
+    public bool TriggerKeyboardEvent(KeyUISprite key_type)
+    {
+        if(current_key_index >= keys_ui.Count)
+        {
+            return true;
+        }
+
+        KeyUI key = keys_ui[current_key_index];
+        bool result = key.IsCorrectKeyPressed(key_type);
+        if(result)
+        {
+            key.Valid();
+            current_key_index++;
+        } else
+        {
+            key.Error();
+            current_key_index = 0;
+        }
+        return result;
+    }
+
+    /* Check if all keys asked are received and valid */
+    public bool KeysListIsComplete()
+    {
+        return current_key_index >= keys_ui.Count;
+    }
+
+    public void cleanKeys()
+    {
+        foreach(KeyUI key_ui in keys_ui)
+        {
+            key_ui.ClearColor();
+        }
     }
 }

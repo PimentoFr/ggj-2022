@@ -14,10 +14,26 @@ public class QTEItem
     }
 }
 
+public enum QteKeyboardKey {
+    UP = 0,
+    RIGHT = 1,
+    DOWN = 2,
+    LEFT = 3,
+    LEAVE = 4
+}
+
 public class QTECreator : MonoBehaviour
 {
     public GameObject prefabQteItem;
     List<QteItemUI> qteItemUiList = new List<QteItemUI>();
+    public KeyCode leftKey;
+    public KeyCode rightKey;
+    public KeyCode upKey;
+    public KeyCode downKey;
+    public KeyCode leaveKey;
+
+
+    int current_item_index = 0;
 
     void Start()
     {
@@ -27,6 +43,52 @@ public class QTECreator : MonoBehaviour
             new QTEItem("Lancer photocopie", new List<string>{"RIGHT", "DOWN", "LEFT"}),
             new QTEItem("Recuperer impression", new List<string>{"UP", "UP", "LEFT"}),
         });
+    }
+
+
+    bool ButtonIsPressed(QteKeyboardKey key)
+    {
+       switch(key)
+       {
+            case QteKeyboardKey.DOWN:
+                return Input.GetKeyDown(downKey);
+            case QteKeyboardKey.UP:
+                return Input.GetKeyDown(upKey);
+            case QteKeyboardKey.RIGHT:
+                return Input.GetKeyDown(rightKey);
+            case QteKeyboardKey.LEFT:
+                return Input.GetKeyDown(leftKey);
+            case QteKeyboardKey.LEAVE:
+                return Input.GetKeyDown(leaveKey);
+            default:
+                Debug.Log("Bad state " + key);
+                return false;
+       }
+    }
+
+    void Update()
+    {
+        if (ButtonIsPressed(QteKeyboardKey.DOWN))
+        {
+            EventKeyTrigger(KeyUISprite.DOWN);
+        }
+        else if (ButtonIsPressed(QteKeyboardKey.UP))
+        {
+            EventKeyTrigger(KeyUISprite.UP);
+        }
+        else if (ButtonIsPressed(QteKeyboardKey.LEFT))
+        {
+            EventKeyTrigger(KeyUISprite.LEFT);
+        }
+        else if (ButtonIsPressed(QteKeyboardKey.RIGHT))
+        {
+            EventKeyTrigger(KeyUISprite.RIGHT);
+        }
+        else if (ButtonIsPressed(QteKeyboardKey.LEAVE))
+        {
+            Leave();
+            /* Do maybe something more to continue game */
+        }
     }
 
     public void CreateItems(List<QTEItem> qteitems)
@@ -44,8 +106,43 @@ public class QTECreator : MonoBehaviour
         }
     }
 
+    void EventKeyTrigger(KeyUISprite key_type)
+    {
+        Debug.Log("Key_type pressed :" + key_type);
+        QteItemUI qteItemUi = qteItemUiList[current_item_index];
+        bool res = qteItemUi.PropageKeyboardEvent(key_type);
+        if(res == false)
+        {
+            /* The key is wrong ... reset */
+            qteItemUi.getKeysObj().GetComponent<KeysListUI>().cleanKeys();
+            return;
+        } 
+        if(qteItemUi.getKeysObj().GetComponent<KeysListUI>().KeysListIsComplete())
+        {
+            /* Go to next item list */
+            current_item_index++;
+            if(current_item_index >= qteItemUiList.Count)
+            {
+                /* All finished */
+                Success();
+                return;
+            }
+
+            /* Change selected item list */
+                
+        }
+    }
+
+    void Success()
+    {
+        Debug.Log("All QTE finished and correct");
+        //TODO: call callack success
+        Destroy(gameObject);
+    }
     void Leave()
     {
+        Debug.Log("Leave QTE");
+        //TODO: call callback failed
         Destroy(gameObject);
     }
 }

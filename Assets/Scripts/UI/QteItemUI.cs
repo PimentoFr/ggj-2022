@@ -60,4 +60,15 @@ public class QteItemUI : MonoBehaviour
             i++;
         }
     }
+
+    public GameObject getKeysObj()
+    {
+        return keys_obj;
+    }
+
+    /* Propagate keyboard event to Key list */
+    public bool PropageKeyboardEvent(KeyUISprite key_type)
+    {
+        return keys_obj.GetComponent<KeysListUI>().TriggerKeyboardEvent(key_type);
+    }
 }

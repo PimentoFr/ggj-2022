@@ -114,6 +114,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabQteItem: {fileID: 1225728310897306413, guid: dccfcc67b5dcaba4e92b5e751e7e72f3, type: 3}
+  leftKey: 276
+  rightKey: 275
+  upKey: 273
+  downKey: 274
+  leaveKey: 113
 --- !u!1 &5516392579640090562
 GameObject:
   m_ObjectHideFlags: 0

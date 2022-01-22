@@ -16,7 +16,7 @@ public class KeyUI : MonoBehaviour
 
     public string key_label = "";
     public Sprite[] icon_array;
-    public int rotate_icon = -1;
+    public int index_icon = -1;
     Text text;
     Image icon;
     Image key;
@@ -37,9 +37,9 @@ public class KeyUI : MonoBehaviour
             SetKeyText(key_label);
         }
 
-        if(rotate_icon != -1)
+        if(index_icon != -1)
         {
-            ActiveIcon();
+            SetIconIndex(index_icon);
         }
     }
 
@@ -51,14 +51,9 @@ public class KeyUI : MonoBehaviour
         text.gameObject.SetActive(true);
     }
 
-    public void ActiveIcon()
-    {
-        icon.gameObject.SetActive(true);
-    }
-
-
     public void SetIconIndex(int index)
     {
+        index_icon = index;
         icon.sprite = icon_array[index];
         icon.gameObject.SetActive(true);
     }
@@ -81,5 +76,10 @@ public class KeyUI : MonoBehaviour
     public void Error()
     {
         key.color = new Color(0.8f, 0.1f, 0.1f);
+    }
+
+    public bool IsCorrectKeyPressed(KeyUISprite key_type)
+    {
+        return ((int) key_type == index_icon);
     }
 }
