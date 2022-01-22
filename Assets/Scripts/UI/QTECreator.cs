@@ -39,8 +39,22 @@ public class QTECreator : MonoBehaviour
     bool askClean = false;
     float startAskClean;
 
+    /* For Slide Up animation */
+    public float slideUpDurationInS = 1.0f;
+    public float slideUpDistance = 3000.0f;
+    bool askSlideUp;
+    float startAskSlideUp;
+    Vector3 originPosition;
+
+    RectTransform rect;
+    GameObject box;
+    Transform boxTrans;
+
     void Start()
     {
+        rect = GetComponent<RectTransform>();
+        box = transform.Find("Box").gameObject;
+        boxTrans = box.GetComponent<Transform>();
         CreateItems(new List<QTEItem>
         {
             new QTEItem("Remplir du papier", new List<string>{"UP", "DOWN", "LEFT", "UP"}),
@@ -80,6 +94,24 @@ public class QTECreator : MonoBehaviour
             }
             return;
         }
+        if(askSlideUp)
+        {
+            float deltaT = (Time.realtimeSinceStartup - startAskSlideUp);
+            if (deltaT >= slideUpDurationInS)
+            {
+                askSlideUp = false;
+                Destroy(gameObject);
+                return;
+            }
+
+            Vector3 editedPosition = boxTrans.position;
+            float t = deltaT / slideUpDurationInS;
+            float sqt = t * t;
+            float bezierFactor = sqt / (2.0f * (sqt - t) + 1.0f);
+
+            editedPosition.y = originPosition.y + slideUpDistance * bezierFactor;//Mathf.Sin(0.5f * Mathf.PI * (deltaT / slideUpDurationInS));
+            boxTrans.position = editedPosition;
+        }
 
         if (ButtonIsPressed(QteKeyboardKey.DOWN))
         {
@@ -111,7 +143,7 @@ public class QTECreator : MonoBehaviour
         foreach(QTEItem qteitem in qteitems) {
             Vector3 positionItemUi = new Vector3(0, 100 -i * 40, 0);
             QteItemUI qteItemUi = Instantiate(prefabQteItem, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<QteItemUI>();
-            qteItemUi.transform.SetParent(transform);
+            qteItemUi.transform.SetParent(box.transform);
             qteItemUi.transform.localPosition = positionItemUi;
             qteItemUi.SetActionLabel(qteitem.action_label);
             qteItemUi.GenerateKeys(qteitem.keys_type);
@@ -172,12 +204,18 @@ public class QTECreator : MonoBehaviour
     {
         Debug.Log("All QTE finished and correct");
         //TODO: call callack success
-        Destroy(gameObject);
+        SlideUp();
     }
     void Leave()
     {
         Debug.Log("Leave QTE");
-        //TODO: call callback failed
-        Destroy(gameObject);
+        SlideUp();
+    }
+
+    void SlideUp()
+    {
+        askSlideUp = true;
+        startAskSlideUp = Time.realtimeSinceStartup;
+        originPosition = boxTrans.position;
     }
 }
