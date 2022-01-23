@@ -83,7 +83,7 @@ public class EnemyController : MonoBehaviour
     {
         PlayerInfo player = collision.gameObject.GetComponent<PlayerInfo>();
 
-        if(player != null && player.isTricking && player.IsActionDoing())
+        if(player != null && player.isTricking)
         {
             if (player.isTricking && !player.IsActionDoing())
             {
@@ -95,7 +95,7 @@ public class EnemyController : MonoBehaviour
             else
             {
                 player.AddStress(player.trickMission.stressDetected);
-                player.StopTrick(false);
+                player.SetActionDoing(false);
                 hitbox.enabled = false;
                 movingTime = timeOut;
                 anim.SetBool("hasFlicked", true);
