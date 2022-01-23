@@ -4,63 +4,63 @@ using UnityEngine;
 
 public class AudioClipList : MonoBehaviour
 {
-    public AudioClip ambiancePunk;
-    public AudioClip ambianceLoop;
+    static public AudioClip ambiancePunk;
+    static public AudioClip ambianceLoop;
 
-    public AudioClip posterClean;
-    public AudioClip posterPlace;
-    public AudioClip posterChaos;
+    static public AudioClip posterClean;
+    static public AudioClip posterPlace;
+    static public AudioClip posterChaos;
 
-    public AudioClip agraferUse;
-    public AudioClip agraferCollect;
-    public AudioClip agraferPlayClips;
+    static public AudioClip agraferUse;
+    static public AudioClip agraferCollect;
+    static public AudioClip agraferPlayClips;
 
-    public AudioClip penChoose;
-    public AudioClip penMoisture;
-    public AudioClip penPick;
-    public AudioClip penSign;
-    public AudioClip penThrow;
+    static public AudioClip penChoose;
+    static public AudioClip penMoisture;
+    static public AudioClip penPick;
+    static public AudioClip penSign;
+    static public AudioClip penThrow;
 
-    public AudioClip chairRemove;
-    public AudioClip chairMove;
-    public AudioClip chairFartingBag;
+    static public AudioClip chairRemove;
+    static public AudioClip chairMove;
+    static public AudioClip chairFartingBag;
 
-    public AudioClip fileOrder;
-    public AudioClip fileBill;
-    public AudioClip fillChaos;
+    static public AudioClip fileOrder;
+    static public AudioClip fileBill;
+    static public AudioClip fillChaos;
 
-    public AudioClip coffeeMake;
-    public AudioClip coffeePutMug;
-    public AudioClip coffeeCleanMug;
-    public AudioClip cofferFillWater;
-    public AudioClip coffeePoison;
+    static public AudioClip coffeeMake;
+    static public AudioClip coffeePutMug;
+    static public AudioClip coffeeCleanMug;
+    static public AudioClip cofferFillWater;
+    static public AudioClip coffeePoison;
 
-    public AudioClip computerSwitchOn;
-    public AudioClip computerSwitchOff;
-    public AudioClip computerUpdate;
-    public AudioClip computerStopYoutube;
-    public AudioClip computerRunYoutube;
+    static public AudioClip computerSwitchOn;
+    static public AudioClip computerSwitchOff;
+    static public AudioClip computerUpdate;
+    static public AudioClip computerStopYoutube;
+    static public AudioClip computerRunYoutube;
 
-    public AudioClip copierDropPhotos;
-    public AudioClip copierFill;
-    public AudioClip copierTake;
-    public AudioClip copierAss;
+    static public AudioClip copierDropPhotos;
+    static public AudioClip copierFill;
+    static public AudioClip copierTake;
+    static public AudioClip copierAss;
 
-    public AudioClip paperOrder;
-    public AudioClip paperUnfold;
-    public AudioClip paperPlane;
+    static public AudioClip paperOrder;
+    static public AudioClip paperUnfold;
+    static public AudioClip paperPlane;
 
-    public AudioClip plantWater;
-    public AudioClip plantPlace;
-    public AudioClip plantFall;
+    static public AudioClip plantWater;
+    static public AudioClip plantPlace;
+    static public AudioClip plantFall;
 
-    public AudioClip phoneBullshit;
-    public AudioClip phoneType;
-    public AudioClip phoneConvince;
-    public AudioClip phoneApologize;
-    public AudioClip phonePrank;
+    static public AudioClip phoneBullshit;
+    static public AudioClip phoneType;
+    static public AudioClip phoneConvince;
+    static public AudioClip phoneApologize;
+    static public AudioClip phonePrank;
 
-    public AudioClip DefaultCorrect;
-    public AudioClip DefaultFailed;
-    public AudioClip DefaultSwipe;
+    static public AudioClip DefaultCorrect;
+    static public AudioClip DefaultFailed;
+    static public AudioClip DefaultSwipe;
 }

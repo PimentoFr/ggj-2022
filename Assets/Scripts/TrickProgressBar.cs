@@ -31,6 +31,7 @@ public class TrickProgressBar : MonoBehaviour
         durationS = _durationS;
     }
 
+
     void FixedUpdate()
     {
         currentDurationS += Time.fixedDeltaTime;
@@ -56,7 +57,6 @@ public class TrickProgressBar : MonoBehaviour
 
     void PlaySound(AudioClip sound)
     {
-        /*
         if(sound == null || UI_ProgressBar == null)
         {
             return;
@@ -65,12 +65,10 @@ public class TrickProgressBar : MonoBehaviour
 
         audio.clip = sound;
         audio.Play();
-        */
     }
 
     void StopSound()
     {
-        /*
         if(UI_ProgressBar == null)
         {
             return;
@@ -81,11 +79,10 @@ public class TrickProgressBar : MonoBehaviour
         {
             audio.Stop();
         }
-        */
     }
 
 
-    public static bool LaunchProgressBar(PlayerInfo playerInfo, float duration, GameObject prefabUIProgressBar)
+    public static bool LaunchProgressBar(PlayerInfo playerInfo, TrickMission mission, GameObject prefabUIProgressBar)
     {
         if (playerInfo.IsActionDoing())
         {
@@ -99,8 +96,10 @@ public class TrickProgressBar : MonoBehaviour
         Transform a = progress.transform.GetChild(0).GetChild(0);
         TrickProgressBar progressbar =a.gameObject.GetComponent<TrickProgressBar>();
         progressbar.SetUIParent(progress);
-        progressbar.SetDuration(duration);
-        progressbar.PlaySound(null);
+        progressbar.SetDuration(mission.durationInS);
+        if(mission.playSound) {
+            progressbar.PlaySound(mission.playSound);
+        }
 
         return true;
     }

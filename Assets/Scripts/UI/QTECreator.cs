@@ -6,11 +6,13 @@ public class QTEItem
 {
     public string action_label { get; set; }
     public List<string> keys_type { get; set; }
+    public AudioClip clip;
 
-    public QTEItem(string _action_label, List<string> _keys_type)
+    public QTEItem(string _action_label, List<string> _keys_type, AudioClip _clip)
     {
         action_label = _action_label;
         keys_type = _keys_type;
+        clip = _clip;
     }
 }
 
@@ -47,9 +49,6 @@ public class QTECreator : MonoBehaviour
     Vector3 originPosition;
 
     /* Sound*/
-    public AudioClip failedSound;
-    public AudioClip validSound;
-    public AudioClip swipeSound;
     AudioSource audioSource;
 
     RectTransform rect;
@@ -105,7 +104,7 @@ public class QTECreator : MonoBehaviour
         foreach(var item in items)
         {
             List<string> keys = GenerateKeys(nbKeys);
-            list.Add(new QTEItem(item.action_label, keys));
+            list.Add(new QTEItem(item.action_label, keys, item.clip));
         }
 
         QTECreator qteCreator = qte.GetComponent<QTECreator>();
@@ -203,6 +202,7 @@ public class QTECreator : MonoBehaviour
             qteItemUi.transform.localPosition = positionItemUi;
             qteItemUi.SetActionLabel(qteitem.action_label);
             qteItemUi.GenerateKeys(qteitem.keys_type);
+            qteItemUi.clip = qteitem.clip;
             qteItemUiList.Add(qteItemUi);
             i++;
         }
@@ -238,13 +238,16 @@ public class QTECreator : MonoBehaviour
         if(res == false)
         {
             /* The key is wrong ... reset */
-            playSound(failedSound);
+            playSound(AudioClipList.DefaultFailed);
             AskCleanKeyList();
             return;
         } 
         if(qteItemUi.GetKeysObj().GetComponent<KeysListUI>().KeysListIsComplete())
         {
-            playSound(validSound);
+
+            if(qteItemUi.clip != null) {
+                playSound(qteItemUi.clip);
+            }
             /* Hide success key list */
             qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>().hide();
             /* Go to next item list */
@@ -280,7 +283,7 @@ public class QTECreator : MonoBehaviour
         askSlideUp = true;
         startAskSlideUp = Time.realtimeSinceStartup;
         originPosition = boxTrans.position;
-        playSound(swipeSound);
+        playSound(AudioClipList.DefaultSwipe);
     }
 
     void playSound(AudioClip sound)

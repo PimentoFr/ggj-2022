@@ -89,7 +89,7 @@ public class PlayerInfo : MonoBehaviour
         trickMission = TrickMissions.missions[_trickType];
         /* Spawan trick progress bar */
 
-        TrickProgressBar.LaunchProgressBar(this, trickMission.durationInS, UITrick);
+        TrickProgressBar.LaunchProgressBar(this, trickMission, UITrick);
         SetActionDoing(true);
     }
 
