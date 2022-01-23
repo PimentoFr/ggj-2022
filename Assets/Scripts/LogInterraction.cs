@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LogInterraction : Interactable
 {
+    public string textLog = "logInfo";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,6 @@ public class LogInterraction : Interactable
 
     public override void handleInteraction(bool chaos)
     {
-        Debug.Log("interraction chaotique = " + chaos);
+        Debug.Log(textLog);
     }
 }

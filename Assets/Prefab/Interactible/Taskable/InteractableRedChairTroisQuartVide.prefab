@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7846074758545893222}
   - component: {fileID: 7846074758545893241}
   - component: {fileID: 1679706527146515397}
+  - component: {fileID: 2577439536636793384}
   m_Layer: 0
   m_Name: InteractableRedChairTroisQuartVide
   m_TagString: Untagged
@@ -123,3 +124,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
+--- !u!114 &2577439536636793384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846074758545893240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskType: 3
+  UIQTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}

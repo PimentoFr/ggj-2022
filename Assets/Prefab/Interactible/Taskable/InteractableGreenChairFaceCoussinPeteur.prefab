@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3105749307882644806}
   - component: {fileID: 7920652565360881591}
   - component: {fileID: 6893720836694028257}
+  - component: {fileID: 2607211396242548593}
   m_Layer: 0
   m_Name: InteractableGreenChairFaceCoussinPeteur
   m_TagString: Untagged
@@ -123,3 +124,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
+--- !u!114 &2607211396242548593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3105749307882644807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a7e79283414297caebc8e8a9bd2e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
