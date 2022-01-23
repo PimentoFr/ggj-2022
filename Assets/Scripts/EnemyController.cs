@@ -87,7 +87,7 @@ public class EnemyController : MonoBehaviour
         {
             if (player.isTricking && !player.IsActionDoing())
             {
-                player.AddStress(player.incrementStressValueByTick * player.riseStressTickPeriodS);
+                player.AddStress(player.incrementStressValueByTick * player.onSightTickMultiplier);
                 hitbox.enabled = false;
                 movingTime = timeOut;
                 anim.SetBool("hasFlicked", true);
