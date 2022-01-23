@@ -10,6 +10,7 @@ TagManager:
   - F1R
   - F2R
   - F3R
+  - UITaskGO
   layers:
   - Default
   - TransparentFX
