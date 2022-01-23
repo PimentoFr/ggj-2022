@@ -32,7 +32,7 @@ public class PlayerMoves : MonoBehaviour
     public float piloteCamSpeed = 0.5f;
     public float piloteCamIdleSpeed = 0.2f;
 
-    private bool isChaos = false;
+    public bool isChaos = false;
 	private float moveSpeed;
 	private MoveState prevMoveState = MoveState.idle;
 	private MoveState moveState = MoveState.right;

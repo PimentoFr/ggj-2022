@@ -498,9 +498,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3591816160362813719, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
+      propertyPath: piloteCamSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591816160362813719, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
       propertyPath: poissonPilote_GO
       value: 
       objectReference: {fileID: 940268689}
+    - target: {fileID: 3591816160362813719, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
+      propertyPath: piloteCamIdleSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
 --- !u!1 &1196057046
