@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
-    float stress = 50.0f;
+    float stress = 0.0f;
     bool QTEActived = false;
     PlayerMoves playerMove;
     PlayerTasks playerTasks;
@@ -12,6 +12,7 @@ public class PlayerInfo : MonoBehaviour
     public float riseStressTickPeriodS = 5.0f;
     public float incrementStressValueByTick = 1.0f;
     public float lastTick;
+    public bool isTricking = false;
 
     bool freeze = false;
     // Start is called before the first frame update
@@ -25,11 +26,17 @@ public class PlayerInfo : MonoBehaviour
     void Update()
     {
         if(playerMove.getChaos() && ((Time.realtimeSinceStartup - lastTick) >= riseStressTickPeriodS)) {
-            stress += incrementStressValueByTick;
-            if(stress >= 100.0f)
-            {
-                stress = 100.0f;
-            }
+            AddStress(incrementStressValueByTick);
+        }
+    }
+
+    public void AddStress(float amount)
+    {
+        stress = Mathf.Clamp(stress + amount, 0.0f, 100.0f);
+        Debug.Log("Stress : " + stress);
+        if(stress >= 100.0f)
+        {
+            Lose();
         }
     }
 
@@ -44,6 +51,7 @@ public class PlayerInfo : MonoBehaviour
         {
             /* Stop all motion */
             freeze = true;
+            playerMove.freezeMove = true;
         }
     }
 
@@ -52,6 +60,7 @@ public class PlayerInfo : MonoBehaviour
         if(freeze)
         {
             /* Enable motions */
+            playerMove.freezeMove = false;
             freeze = false;
         }
     }
@@ -60,6 +69,18 @@ public class PlayerInfo : MonoBehaviour
     {
         QTEActived = actived;
         Freeze();
+    }
+
+    public void SetIsTricking(bool _isTricking)
+    {
+        isTricking = _isTricking;
+        if(isTricking)
+        {
+            Freeze();
+        } else
+        {
+            Unfreeze();
+        }
     }
 
     public void TaskQTEFinished(bool success, TaskType taskType)
@@ -75,6 +96,11 @@ public class PlayerInfo : MonoBehaviour
 
     public void TaskChaosFinished(bool success)
     {
-    
+        SetIsTricking(false);
+    }
+
+    public void Lose()
+    {
+        Debug.Log("To much stress, loooosser");
     }
 }
