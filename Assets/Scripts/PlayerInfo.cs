@@ -22,6 +22,7 @@ public class PlayerInfo : MonoBehaviour
     public float trickStartTime { get; }
 
     bool freeze = false;
+    //bool canEnterTrickingMode = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -96,8 +97,8 @@ public class PlayerInfo : MonoBehaviour
         trickMission = TrickMissions.missions[_trickType];
         /* Spawan trick progress bar */
 
-        SetActionDoing(true);
         TrickProgressBar.LaunchProgressBar(this, trickMission.durationInS, UITrick);
+        SetActionDoing(true);
     }
 
     public void SetIsTricking(bool _isTricking)
@@ -126,6 +127,7 @@ public class PlayerInfo : MonoBehaviour
         if(success)
         {
             playerTasks.SetTaskDone(taskType, true);
+            //canEnterTrickingMode = true;
         }
         SetActionDoing(false);
     }

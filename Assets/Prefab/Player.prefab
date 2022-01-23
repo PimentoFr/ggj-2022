@@ -411,6 +411,7 @@ MonoBehaviour:
   moveSpeedChaos: 10
   leftKey: 113
   rightKey: 100
+  swapHumorKey: 97
   interactKey: 32
   normalSprite: {fileID: 21300000, guid: a960d86bce142ea449f241c794ebd55d, type: 3}
   chaosSprite: {fileID: 21300000, guid: 81db5cc113c6efd4793f96b8aa96a3f3, type: 3}
@@ -433,6 +434,8 @@ MonoBehaviour:
   incrementStressValueByTick: 1
   lastTick: 0
   isTricking: 0
+  UIQTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
+  UITrick: {fileID: 252777257480338310, guid: c7db6b6e267196e43834ea1a71fc2e6e, type: 3}
 --- !u!61 &-1100576375188761425
 BoxCollider2D:
   m_ObjectHideFlags: 0
