@@ -55,7 +55,7 @@ public class TaskListUI : MonoBehaviour
         tasksList = tasksToDoList;
 
         foreach(TaskToDo taskToDo in tasksToDoList) {
-            Vector3 positionItemUi = new Vector3(0, -i * 35, 0);
+            Vector3 positionItemUi = new Vector3(-349, 360 -i * 60, 0);
             TaskItemUI taskItemUi = Instantiate(prefabQteItem, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<TaskItemUI>();
             taskItemUi.transform.SetParent(box.transform, false);
             taskItemUi.transform.localPosition = positionItemUi;
