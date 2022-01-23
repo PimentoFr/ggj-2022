@@ -18,7 +18,7 @@ public class PlayerInfo : MonoBehaviour
     public GameObject UITrick;
 
     TrickType currentTrickType;
-    TrickMission trickMission;
+    public TrickMission trickMission;
     public float trickStartTime { get; }
 
     //bool canEnterTrickingMode = false;
