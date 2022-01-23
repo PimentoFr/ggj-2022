@@ -89,18 +89,22 @@ public class PlayerInfo : MonoBehaviour
         trickMission = TrickMissions.missions[_trickType];
         /* Spawan trick progress bar */
 
-        TrickProgressBar.LaunchProgressBar(this, trickMission.durationInS, UITrick);
+        TrickProgressBar.LaunchProgressBar(this, trickMission, UITrick);
         SetActionDoing(true);
     }
 
     public void SetIsTricking(bool _isTricking)
     {
         isTricking = _isTricking;
+
+        /* Update sound */
+        SoundAmbiance ambiance = GameObject.FindWithTag("UI_Sound").GetComponent<SoundAmbiance>();
+        ambiance.SetAmbiance((isTricking) ? AudioType.AMBIANCE_PUNK : AudioType.AMBIANCE_LOOP);
     }
 
     public void ToggleIsTricking()
     {
-        isTricking = !isTricking;
+        SetIsTricking(!isTricking);
     }
 
     public bool GetIsTricking()

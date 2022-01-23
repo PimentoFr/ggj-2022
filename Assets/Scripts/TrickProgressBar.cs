@@ -12,13 +12,14 @@ public class TrickProgressBar : MonoBehaviour
     float durationS = 100.0f;
     float currentDurationS = 0f;
     GameObject UI_ProgressBar;
-    AudioSource audioSource;
+    GameObject UI_Sound;
 
     void Awake()
     {
         playerInfo = GameObject.FindWithTag("Player").GetComponent<PlayerInfo>();
+        UI_ProgressBar = GameObject.FindWithTag("UI_TrickProgressBar");
+        UI_Sound = GameObject.FindWithTag("UI_Sound");
         originalSize = mask.rectTransform.rect.width;
-        audioSource = GetComponent<AudioSource>();
     }
 
     public void SetUIParent(GameObject parent)
@@ -30,6 +31,7 @@ public class TrickProgressBar : MonoBehaviour
     {
         durationS = _durationS;
     }
+
 
     void FixedUpdate()
     {
@@ -56,36 +58,32 @@ public class TrickProgressBar : MonoBehaviour
 
     void PlaySound(AudioClip sound)
     {
-        /*
-        if(sound == null || UI_ProgressBar == null)
+        if(sound == null || UI_Sound == null)
         {
             return;
         }
-        AudioSource audio = UI_ProgressBar.GetComponent<AudioSource>();
+        AudioSource audio = UI_Sound.GetComponent<AudioSource>();
 
         audio.clip = sound;
         audio.Play();
-        */
     }
 
     void StopSound()
     {
-        /*
-        if(UI_ProgressBar == null)
+        if(UI_Sound == null)
         {
             return;
         }
-        AudioSource audio = UI_ProgressBar.GetComponent<AudioSource>();
+        AudioSource audio = UI_Sound.GetComponent<AudioSource>();
 
         if (audio.clip != null && audio.isPlaying)
         {
             audio.Stop();
         }
-        */
     }
 
 
-    public static bool LaunchProgressBar(PlayerInfo playerInfo, float duration, GameObject prefabUIProgressBar)
+    public static bool LaunchProgressBar(PlayerInfo playerInfo, TrickMission mission, GameObject prefabUIProgressBar)
     {
         if (playerInfo.IsActionDoing())
         {
@@ -98,9 +96,12 @@ public class TrickProgressBar : MonoBehaviour
         GameObject progress = Instantiate(prefabUIProgressBar, new Vector3(0, 0, 0), Quaternion.identity);
         Transform a = progress.transform.GetChild(0).GetChild(0);
         TrickProgressBar progressbar =a.gameObject.GetComponent<TrickProgressBar>();
-        progressbar.SetUIParent(progress);
-        progressbar.SetDuration(duration);
-        progressbar.PlaySound(null);
+        //progressbar.SetUIParent(progress);
+        progressbar.SetDuration(mission.durationInS);
+        Debug.Log("Sound :"+mission.playSound);
+        if(mission.playSound != AudioType.NULL) {
+            progressbar.PlaySound(AudioClipList.GetAudioClipFromAudioType(mission.playSound));
+        }
 
         return true;
     }

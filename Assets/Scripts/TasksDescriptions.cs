@@ -77,28 +77,6 @@ public static class TasksDict
         }
         return taskType;
     }
-    
-    public static void testPrint()
-    {
-        foreach(var t in LONG_TASKS)
-        {
-            Debug.Log("tesPrint long " + t);
-        }
-        foreach (var t in SHORT_TASKS)
-        {
-            Debug.Log("tesPrint short " + t);
-        }
-
-        Debug.Log("==================");
-        foreach (var t in poolLongTasks)
-        {
-            Debug.Log("tesPrint long " + t);
-        }
-        foreach (var t in poolShortTasks)
-        {
-            Debug.Log("tesPrint short " + t);
-        }
-    }
 
     public static TaskType GetShortTask()
     {
