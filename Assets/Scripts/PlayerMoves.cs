@@ -203,6 +203,11 @@ public class PlayerMoves : MonoBehaviour
 		}
 	}
 
+	public bool getChaos()
+    {
+		return isChaos;
+    }
+
 	void handleInteraction()
 	{
 		if(m_callback)

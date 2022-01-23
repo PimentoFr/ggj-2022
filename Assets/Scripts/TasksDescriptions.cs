@@ -19,7 +19,7 @@ public static class TasksDict
         {TaskType.FILL_COFFEE,       new TaskToDo(TaskType.FILL_COFFEE, "Préparer un café", false)},
         {TaskType.COPY_DOCUMENT,     new TaskToDo(TaskType.COPY_DOCUMENT, "Faire un photocopie", false)},
         {TaskType.WATER_PLANT,       new TaskToDo(TaskType.WATER_PLANT, "Arroser la plante", false)},
-        {TaskType.REPLACE_CHAIR,     new TaskToDo(TaskType.WATER_PLANT, "Remettre à sa place", false)},
+        {TaskType.REPLACE_CHAIR,     new TaskToDo(TaskType.REPLACE_CHAIR, "Remettre à sa place", false)},
     };
 
     public static readonly TaskType[] LONG_TASKS = new TaskType[]

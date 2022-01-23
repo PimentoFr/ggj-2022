@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3591816160362813717}
   - component: {fileID: 3591816160362813712}
   - component: {fileID: 3591816160362813719}
+  - component: {fileID: 997015005952063820}
   - component: {fileID: -1100576375188761425}
   - component: {fileID: 8225132981230474888}
   - component: {fileID: 943393209}
@@ -128,6 +129,24 @@ MonoBehaviour:
   interactKey: 32
   normalSprite: {fileID: 21300000, guid: a960d86bce142ea449f241c794ebd55d, type: 3}
   chaosSprite: {fileID: 21300000, guid: 81db5cc113c6efd4793f96b8aa96a3f3, type: 3}
+  poissonPilote_GO: {fileID: 0}
+  piloteCamSpeed: 0.5
+  piloteCamIdleSpeed: 0.2
+--- !u!114 &997015005952063820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591816160362813716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f29e2331b06ef94b90d55cca395fa3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riseStressTickPeriodS: 5
+  incrementStressValueByTick: 1
+  lastTick: 0
 --- !u!61 &-1100576375188761425
 BoxCollider2D:
   m_ObjectHideFlags: 0
