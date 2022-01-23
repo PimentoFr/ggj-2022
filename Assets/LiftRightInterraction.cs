@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LiftInterraction : Interactable
+public class LiftRightInterraction : Interactable
 {
     public string textLog = "logInfo";
 
@@ -12,9 +12,9 @@ public class LiftInterraction : Interactable
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMoves>();
-        floor1 = GameObject.FindWithTag("F1L").GetComponent<F1L>().transform.position;
-        floor2 = GameObject.FindWithTag("F2L").GetComponent<F2L>().transform.position;
-        floor3 = GameObject.FindWithTag("F3L").GetComponent<F3L>().transform.position;
+        floor1 = GameObject.FindWithTag("F1R").GetComponent<F1R>().transform.position;
+        floor2 = GameObject.FindWithTag("F2R").GetComponent<F2R>().transform.position;
+        floor3 = GameObject.FindWithTag("F3R").GetComponent<F3R>().transform.position;
     }
 
     // Update is called once per frame
