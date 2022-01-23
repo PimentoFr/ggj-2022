@@ -6,14 +6,14 @@ public class InteractionAction : Interactable
 {
 
     public TaskType taskType = TaskType.NULL;
-    public GameObject UIQTE;
     GameObject player;
     bool outOfService = false;
-
+    GameObject thisGo;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        thisGo = gameObject;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class InteractionAction : Interactable
 
             //TODO: Launch QTE
             Debug.Log("Launch QTE");
-            QTECreator.LaunchQTE(player, taskType, outOfService, UIQTE);
+            player.GetComponent<PlayerInfo>().startQTE(taskType, outOfService, thisGo);
         } else
         {
             /* Launch Wait */

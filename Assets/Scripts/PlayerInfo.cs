@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInfo : MonoBehaviour
 {
     private float stress = 0.0f;
-    bool QTEActived = false;
+    bool actionDoing = false;
     PlayerMoves playerMove;
     PlayerTasks playerTasks;
 
@@ -14,6 +14,7 @@ public class PlayerInfo : MonoBehaviour
     public float lastTick;
     public bool isTricking = false;
 
+    public GameObject UIQTE;
     bool freeze = false;
     // Start is called before the first frame update
     void Start()
@@ -46,9 +47,9 @@ public class PlayerInfo : MonoBehaviour
         return stress;
     }
 
-    public bool IsQTEActived()
+    public bool IsActionDoing()
     {
-        return QTEActived;
+        return actionDoing;
     }
 
     public void Freeze()
@@ -71,10 +72,18 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
-    public void SetQTEActived(bool actived)
+    public void SetActionDoing(bool actived)
     {
-        QTEActived = actived;
-        Freeze();
+        actionDoing = actived;
+        if(actived)
+        {
+            Freeze();
+        } else
+        {
+            Unfreeze();
+        }
+    }
+
     }
 
     public void SetIsTricking(bool _isTricking)
@@ -92,6 +101,11 @@ public class PlayerInfo : MonoBehaviour
         return isTricking;
     }
 
+    public void startQTE(TaskType taskType, bool outOfService, GameObject _interactedObject)
+    {
+        QTECreator.LaunchQTE(gameObject, taskType, outOfService, UIQTE);
+    }
+
     public void TaskQTEFinished(bool success, TaskType taskType)
     {
         Debug.Log("TaskQTEFinished " + success + " " + taskType);
@@ -99,8 +113,7 @@ public class PlayerInfo : MonoBehaviour
         {
             playerTasks.SetTaskDone(taskType, true);
         }
-        QTEActived = false;
-        Unfreeze();
+        SetActionDoing(false);
     }
 
     public void TaskChaosFinished(bool success)
