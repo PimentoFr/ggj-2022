@@ -7049,6 +7049,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &286878776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5022687604292279334, guid: 54fc793a406e61944932bdaa9907a63c, type: 3}
+  m_PrefabInstance: {fileID: 1780856887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &288388517
 GameObject:
   m_ObjectHideFlags: 0
@@ -22050,6 +22055,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 943393209, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
+      propertyPath: sceneGest
+      value: 
+      objectReference: {fileID: 1729062468}
     - target: {fileID: 943393209, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
       propertyPath: prefabUIObject
       value: 
@@ -41747,6 +41756,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5022687604292279335, guid: 54fc793a406e61944932bdaa9907a63c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -349
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022687604292279335, guid: 54fc793a406e61944932bdaa9907a63c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 316
+      objectReference: {fileID: 0}
     - target: {fileID: 5022687604340390270, guid: 54fc793a406e61944932bdaa9907a63c, type: 3}
       propertyPath: m_Pivot.x
       value: -0.0000000018626451
@@ -41765,12 +41782,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5022687604340390270, guid: 54fc793a406e61944932bdaa9907a63c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -399.0001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5022687604340390270, guid: 54fc793a406e61944932bdaa9907a63c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 367.00458
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8289690866952433267, guid: 54fc793a406e61944932bdaa9907a63c, type: 3}
+      propertyPath: box
+      value: 
+      objectReference: {fileID: 286878776}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54fc793a406e61944932bdaa9907a63c, type: 3}
 --- !u!1 &1780856888 stripped

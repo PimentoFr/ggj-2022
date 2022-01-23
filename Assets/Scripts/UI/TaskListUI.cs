@@ -9,11 +9,11 @@ public class TaskListUI : MonoBehaviour
     List<TaskToDo> tasksList = new List<TaskToDo>();
     List<TaskItemUI> tasksItemUIList = new List<TaskItemUI>();
 
-    GameObject box;
+    public GameObject box;
 
     void Start()
     {
-        box = transform.Find("Box").gameObject;
+        //box = transform.Find("Box").gameObject;
         Debug.Log("Start " + box);
     }
 
@@ -55,7 +55,7 @@ public class TaskListUI : MonoBehaviour
         tasksList = tasksToDoList;
 
         foreach(TaskToDo taskToDo in tasksToDoList) {
-            Vector3 positionItemUi = new Vector3(-349, 360 -i * 60, 0);
+            Vector3 positionItemUi = new Vector3(0, -i * 60, 0);
             TaskItemUI taskItemUi = Instantiate(prefabQteItem, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<TaskItemUI>();
             taskItemUi.transform.SetParent(box.transform, false);
             taskItemUi.transform.localPosition = positionItemUi;
