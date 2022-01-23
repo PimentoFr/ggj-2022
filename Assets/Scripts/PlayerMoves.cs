@@ -13,31 +13,27 @@ public class PlayerMoves : MonoBehaviour
 	{
 		idle,
 		right,
-		left,
-		interact
+		left
 	}
 
 	public float moveSpeedNormal = 2;
 	public float moveSpeedChaos = 2;
-	private Direction direction = Direction.right;
+	public Direction direction = Direction.right;
 	public KeyCode leftKey = KeyCode.Q;
 	public KeyCode rightKey = KeyCode.D;
 	public KeyCode interactKey = KeyCode.Space;
 	//replace with animation ?
 	public Sprite normalSprite;
 	public Sprite chaosSprite;
+	public bool isTricking;
 
-    //Suivi Camera
-    public GameObject poissonPilote_GO;
-    public float piloteCamSpeed = 0.5f;
-    public float piloteCamIdleSpeed = 0.2f;
-
-    private bool isChaos = false;
+	private bool isChaos = false;
 	private float moveSpeed;
 	private MoveState prevMoveState = MoveState.idle;
 	private MoveState moveState = MoveState.right;
 	private Vector2 m_velocity = new Vector2();
 	private Interactable m_callback = null;
+	private int stress;
 
 	private Rigidbody2D m_rigidbody;
 	private SpriteRenderer m_spriteRenderer;
@@ -53,6 +49,8 @@ public class PlayerMoves : MonoBehaviour
 		m_rigidbody.velocity = new Vector2(0,0);
 		m_velocity.x = 0;
 		setChaos(false);
+		isTricking = false;
+		stress = 10;
 	}
 
 	// Update is called once per frame
@@ -66,21 +64,10 @@ public class PlayerMoves : MonoBehaviour
 
 	void FixedUpdate()
 	{
+
 		animate();
 		move();
-        camFollow();
-	}
 
-	void interact(bool value)
-	{
-		if(value)
-		{
-			moveState = MoveState.interact;
-		}
-		else
-		{
-			moveState = prevMoveState;
-		}
 	}
 
 	void handleInput()
@@ -92,22 +79,18 @@ public class PlayerMoves : MonoBehaviour
 		bool interact = Input.GetKeyDown(interactKey);
 
 		// 2 keys = idle
-		if(moveState != MoveState.interact)
+		if(!(right ^ left))
 		{
-			if(!(right ^ left))
-			{
-				moveState = MoveState.idle;
-			}
-			else if(right)
-			{
-				moveState = MoveState.right;
-			}
-			else if(left)
-			{
-				moveState = MoveState.left;
-			}
+			moveState = MoveState.idle;
 		}
-		
+		else if(right)
+		{
+			moveState = MoveState.right;
+		}
+		else if(left)
+		{
+			moveState = MoveState.left;
+		}
 
 		if (interact)
 		{
@@ -117,73 +100,41 @@ public class PlayerMoves : MonoBehaviour
 
 	void move()
 	{
-		if(moveState != MoveState.interact)
+		if(moveState != MoveState.idle)
 		{
-			if(moveState != MoveState.idle )
-			{
-				m_velocity.x = moveSpeed * (int)direction;
-			}
-			else
-			{
-				m_velocity.x = 0;
-			}
-			m_rigidbody.velocity = m_velocity;
+			m_velocity.x = moveSpeed * (int)direction;
 		}
+		else
+		{
+			m_velocity.x = 0;
+		}
+		m_rigidbody.velocity = m_velocity;
 	}
 
 	void animate()
 	{
 		//set animation state
-		m_anim.SetBool("isMoving", moveState != MoveState.idle && (moveState != MoveState.interact));
+		m_anim.SetBool("isMoving", moveState != MoveState.idle);
 		m_anim.SetBool("isChaos", isChaos);
 		m_spriteRenderer.flipX = (direction == Direction.left);
 	}
 
-    void camFollow()
-    {
-        switch (moveState)
-        {
-            case MoveState.right:
-                poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x + piloteCamSpeed,-6f,6f), 0f);
-                break;
-            case MoveState.left:
-                poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x - piloteCamSpeed, -6f, 6f), 0f);
-                break;
-
-            case MoveState.idle:
-                if (poissonPilote_GO.transform.localPosition.x < 0f)
-                {
-                    poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x + piloteCamIdleSpeed, -6f, 0f), 0f);
-                }
-                else if (poissonPilote_GO.transform.localPosition.x > 0f)
-                {
-                    poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x - piloteCamIdleSpeed, 0f, 6f), 0f);
-                }
-                break;
-        }
-
-    }
-
 	void handleMoveStateChange()
 	{
-
-		if (moveState != MoveState.interact)
+		if(moveState != prevMoveState)
 		{
-			if(moveState != prevMoveState)
+			switch(moveState)
 			{
-				switch(moveState)
-				{
-					case MoveState.right :
-						direction = Direction.right;
-						break;
-					case MoveState.left :
-						direction = Direction.left;
-						break;
-					case MoveState.idle :
-						break;
-				}
-				prevMoveState = moveState;
+				case MoveState.right :
+					direction = Direction.right;
+					break;
+				case MoveState.left :
+					direction = Direction.left;
+					break;
+				case MoveState.idle :
+					break;
 			}
+			prevMoveState = moveState;
 		}
 	}
 
@@ -203,11 +154,6 @@ public class PlayerMoves : MonoBehaviour
 		}
 	}
 
-	public bool getChaos()
-    {
-		return isChaos;
-    }
-
 	void handleInteraction()
 	{
 		if(m_callback)
@@ -220,4 +166,9 @@ public class PlayerMoves : MonoBehaviour
 	{
 		m_callback = callback;
 	}
+	public void changeStress(int amount)
+    {
+		stress += amount;
+		Debug.Log("Le stress est à" + stress);
+    }
 }
