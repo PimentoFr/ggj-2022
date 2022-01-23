@@ -85,7 +85,7 @@ public class QTECreator : MonoBehaviour
     {
         Debug.Log("LaunchQTE " + task_type);
 
-        if(player.GetComponent<PlayerInfo>().IsQTEActived())
+        if(player.GetComponent<PlayerInfo>().IsActionDoing())
         {
             return;
         }
@@ -110,7 +110,7 @@ public class QTECreator : MonoBehaviour
 
         QTECreator qteCreator = qte.GetComponent<QTECreator>();
 
-        player.GetComponent<PlayerInfo>().SetQTEActived(true);
+        player.GetComponent<PlayerInfo>().SetActionDoing(true);
         qteCreator.player = player;
         qteCreator.taskType = task_type;
         qteCreator.CreateItems(list);
