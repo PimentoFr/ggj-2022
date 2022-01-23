@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerTasks : MonoBehaviour
 {
     List<TaskToDo> playerTasks { get; set; }
-    public int numberOfLongTask = 1;
-    public int numberOfShortTask = 2;
+    public int numberOfLongTask = 2;
+    public int numberOfShortTask = 3;
     public GameObject prefabUIObject;
+
+    public ScenesGest sceneGest;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,14 @@ public class PlayerTasks : MonoBehaviour
         foreach (var t in playerTasks)
         {
             Debug.Log("task " + t.taskLabel);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isAllTaskDone())
+        {
+            sceneGest.WonGame();
         }
     }
 
