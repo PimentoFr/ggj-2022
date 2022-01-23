@@ -81,11 +81,11 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerMoves player = collision.gameObject.GetComponent<PlayerMoves>();
+        PlayerInfo player = collision.gameObject.GetComponent<PlayerInfo>();
 
         if(player != null && player.isTricking)
         {
-            player.changeStress(10);
+            player.AddStress(10);
             hitbox.enabled = false;
             movingTime = timeOut;
             anim.SetBool("hasFlicked", true);

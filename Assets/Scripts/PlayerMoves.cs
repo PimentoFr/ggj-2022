@@ -31,12 +31,10 @@ public class PlayerMoves : MonoBehaviour
     public GameObject poissonPilote_GO;
     public float piloteCamSpeed = 0.5f;
     public float piloteCamIdleSpeed = 0.2f;
-	public bool isTricking = false; 
 	//Variable qui définit que le joueur est en train de "saboter" quelque chose, sert a activer les alertes visuelles et a dire aux PNJ qu'il peuvent le "griller"
 
     private bool isChaos = false;
 	private float moveSpeed;
-	private int stressLevel;
 	private MoveState prevMoveState = MoveState.idle;
 	private MoveState moveState = MoveState.right;
 	private Vector2 m_velocity = new Vector2();
@@ -47,6 +45,8 @@ public class PlayerMoves : MonoBehaviour
 	private Collider2D m_collider;
 	private Animator m_anim;
 
+	public bool freezeMove { get; set; }
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -55,8 +55,8 @@ public class PlayerMoves : MonoBehaviour
 		m_anim = GetComponent<Animator>();
 		m_rigidbody.velocity = new Vector2(0,0);
 		m_velocity.x = 0;
+		freezeMove = false;
 		setChaos(false);
-		stressLevel = 0;
 	}
 
 	// Update is called once per frame
@@ -121,6 +121,14 @@ public class PlayerMoves : MonoBehaviour
 
 	void move()
 	{
+		/* Player is freeze (For interaction) */
+		if(freezeMove)
+        {
+			m_velocity.x = 0;
+			m_rigidbody.velocity = m_velocity;
+			return;
+		}
+
 		if(moveState != MoveState.interact)
 		{
 			if(moveState != MoveState.idle )
@@ -224,10 +232,4 @@ public class PlayerMoves : MonoBehaviour
 	{
 		m_callback = callback;
 	}
-
-	public void changeStress(int amount)
-    {
-		stressLevel += amount;
-		Debug.Log("Les niveau de stress est à " + stressLevel + "/100");
-    }
 }
