@@ -15,6 +15,7 @@ TagManager:
   - Undefined
   - UI_TrickProgressBar
   - UI_Sound
+  - UI_SoundAmbiance
   layers:
   - Default
   - TransparentFX

@@ -98,7 +98,7 @@ public class PlayerInfo : MonoBehaviour
         isTricking = _isTricking;
 
         /* Update sound */
-        SoundAmbiance ambiance = GameObject.FindWithTag("UI_Sound").GetComponent<SoundAmbiance>();
+        SoundAmbiance ambiance = GameObject.FindWithTag("UI_SoundAmbiance").GetComponent<SoundAmbiance>();
         ambiance.SetAmbiance((isTricking) ? AudioType.AMBIANCE_PUNK : AudioType.AMBIANCE_LOOP);
     }
 
