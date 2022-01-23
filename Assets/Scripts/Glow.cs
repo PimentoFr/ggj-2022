@@ -16,7 +16,7 @@ public class Glow : MonoBehaviour
         m_callback = GetComponent<Interactable>();
         glowingGO = transform.GetChild(0).gameObject;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -30,11 +30,11 @@ public class Glow : MonoBehaviour
         {
             if (obj.GetComponent<PlayerInfo>().GetIsTricking())
             {
-                glowingGO.GetComponent<SpriteRenderer>().color = Color.red;
+                glowingGO.GetComponent<SpriteRenderer>().color = new Color(1f,0f,0f,0.3f);
             }
             else
             {
-                glowingGO.GetComponent<SpriteRenderer>().color = Color.green;
+                glowingGO.GetComponent<SpriteRenderer>().color = new Color(0f, 1f, 0f, 0.3f);
             }
 
             glowingGO.SetActive(true);
