@@ -125,13 +125,13 @@ public static class QTEMissions
                 new QTEItem("Remove farting bag",         new List<string>(),  AudioType.CHAIR_FARTING_BAG),
                 new QTEItem("Place the chair",            new List<string>(),  AudioType.CHAIR_MOVE),
         }, 3)},
-        {TaskType.WRITE_AGENDA,          new QTEMission(
-            new QTEItem[]{
-                new QTEItem("Write the agenda",         new List<string>(),  AudioType.DEFAULT_CORRECT),
-            }, new QTEItem[] {
-                new QTEItem("Clean the paperboard",     new List<string>(),  AudioType.DEFAULT_CORRECT),
-                new QTEItem("Write the agenda",         new List<string>(),  AudioType.DEFAULT_CORRECT),
-        }, 3)},
+        // {TaskType.WRITE_AGENDA,          new QTEMission(
+        //     new QTEItem[]{
+        //         new QTEItem("Write the agenda",         new List<string>(),  AudioType.DEFAULT_CORRECT),
+        //     }, new QTEItem[] {
+        //         new QTEItem("Clean the paperboard",     new List<string>(),  AudioType.DEFAULT_CORRECT),
+        //         new QTEItem("Write the agenda",         new List<string>(),  AudioType.DEFAULT_CORRECT),
+        // }, 3)},
     };
 
 }
