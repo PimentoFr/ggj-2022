@@ -17,6 +17,7 @@ public class PlayerMoves : MonoBehaviour
 		interact
 	}
 
+	public float stressLevel = 0;
 	public float moveSpeedNormal = 2;
 	public float moveSpeedChaos = 2;
 	private Direction direction = Direction.right;
@@ -81,6 +82,11 @@ public class PlayerMoves : MonoBehaviour
         camFollow();
 	}
 
+	void addStress(int value)
+	{
+
+	}
+	
 	void interact(bool value)
 	{
 		if(value)
