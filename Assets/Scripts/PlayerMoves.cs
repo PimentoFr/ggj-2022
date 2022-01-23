@@ -48,7 +48,6 @@ public class PlayerMoves : MonoBehaviour
 
 	private PlayerInfo m_playerInfo;
 
-	public bool freezeMove { get; set; }
 
 	// Start is called before the first frame update
 	void Start()
@@ -59,7 +58,6 @@ public class PlayerMoves : MonoBehaviour
 		m_playerInfo = GetComponent<PlayerInfo>();
 		m_rigidbody.velocity = new Vector2(0,0);
 		m_velocity.x = 0;
-		freezeMove = false;
 	}
 
 	// Update is called once per frame
@@ -73,10 +71,6 @@ public class PlayerMoves : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if(HandleFreeze())
-        {
-			return;
-        }
 		animate();
 		move();
         camFollow();
@@ -87,7 +81,7 @@ public class PlayerMoves : MonoBehaviour
 
 	}
 	
-	void interact(bool value)
+	public void interact(bool value)
 	{
 		if(value)
 		{
@@ -136,35 +130,18 @@ public class PlayerMoves : MonoBehaviour
         }
 	}
 
-	bool HandleFreeze()
-    {
-		if(!freezeMove)
-        {
-			return false;
-        }
-
-		m_velocity.x = 0;
-		m_rigidbody.velocity = m_velocity;
-		moveState = MoveState.idle;
-		animate();
-		return true;
-	}
-
 	void move()
 	{
-		if(moveState != MoveState.interact)
+		if(moveState != MoveState.interact && moveState != MoveState.idle )
 		{
-			if(moveState != MoveState.idle )
-			{
-				float moveSpeed = m_playerInfo.GetIsTricking() ? moveSpeedChaos : moveSpeedNormal;
-				m_velocity.x = moveSpeed * (int)direction;
-			}
-			else
-			{
-				m_velocity.x = 0;
-			}
-			m_rigidbody.velocity = m_velocity;
+			float moveSpeed = m_playerInfo.GetIsTricking() ? moveSpeedChaos : moveSpeedNormal;
+			m_velocity.x = moveSpeed * (int)direction;
 		}
+		else
+		{
+			m_velocity.x = 0;
+		}
+		m_rigidbody.velocity = m_velocity;
 	}
 
 	void animate()
