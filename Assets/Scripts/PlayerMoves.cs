@@ -22,6 +22,7 @@ public class PlayerMoves : MonoBehaviour
 	private Direction direction = Direction.right;
 	public KeyCode leftKey = KeyCode.Q;
 	public KeyCode rightKey = KeyCode.D;
+	public KeyCode swapHumorKey = KeyCode.A;
 	public KeyCode interactKey = KeyCode.Space;
 	//replace with animation ?
 	public Sprite normalSprite;
@@ -31,9 +32,8 @@ public class PlayerMoves : MonoBehaviour
     public GameObject poissonPilote_GO;
     public float piloteCamSpeed = 0.5f;
     public float piloteCamIdleSpeed = 0.2f;
-	//Variable qui définit que le joueur est en train de "saboter" quelque chose, sert a activer les alertes visuelles et a dire aux PNJ qu'il peuvent le "griller"
+	//Variable qui dï¿½finit que le joueur est en train de "saboter" quelque chose, sert a activer les alertes visuelles et a dire aux PNJ qu'il peuvent le "griller"
 
-    private bool isChaos = false;
 	private float moveSpeed;
 	private MoveState prevMoveState = MoveState.idle;
 	private MoveState moveState = MoveState.right;
@@ -45,6 +45,8 @@ public class PlayerMoves : MonoBehaviour
 	private Collider2D m_collider;
 	private Animator m_anim;
 
+	private PlayerInfo m_playerInfo;
+
 	public bool freezeMove { get; set; }
 
 	// Start is called before the first frame update
@@ -53,10 +55,10 @@ public class PlayerMoves : MonoBehaviour
 		m_spriteRenderer = GetComponent<SpriteRenderer>();
 		m_rigidbody = GetComponent<Rigidbody2D>();
 		m_anim = GetComponent<Animator>();
+		m_playerInfo = GetComponent<PlayerInfo>();
 		m_rigidbody.velocity = new Vector2(0,0);
 		m_velocity.x = 0;
 		freezeMove = false;
-		setChaos(false);
 	}
 
 	// Update is called once per frame
@@ -98,6 +100,7 @@ public class PlayerMoves : MonoBehaviour
 		bool right = Input.GetKey(rightKey);
 		//get if pressed
 		bool interact = Input.GetKeyDown(interactKey);
+		bool swapHumor = Input.GetKeyDown(swapHumorKey);
 
 		// 2 keys = idle
 		if(moveState != MoveState.interact)
@@ -121,6 +124,10 @@ public class PlayerMoves : MonoBehaviour
 		{
 			handleInteraction();
 		}
+		if(swapHumor)
+        {
+			handleSwapHumor();
+        }
 	}
 
 	bool HandleFreeze()
@@ -143,6 +150,7 @@ public class PlayerMoves : MonoBehaviour
 		{
 			if(moveState != MoveState.idle )
 			{
+				float moveSpeed = m_playerInfo.GetIsTricking() ? moveSpeedChaos : moveSpeedNormal;
 				m_velocity.x = moveSpeed * (int)direction;
 			}
 			else
@@ -157,7 +165,7 @@ public class PlayerMoves : MonoBehaviour
 	{
 		//set animation state
 		m_anim.SetBool("isMoving", moveState != MoveState.idle && (moveState != MoveState.interact));
-		m_anim.SetBool("isChaos", isChaos);
+		m_anim.SetBool("isChaos", m_playerInfo.GetIsTricking());
 		m_spriteRenderer.flipX = (direction == Direction.left);
 	}
 
@@ -209,33 +217,17 @@ public class PlayerMoves : MonoBehaviour
 		}
 	}
 
-	public void setChaos(bool chaos)
-	{
-		isChaos = chaos;
-
-		if(chaos)
-		{
-			m_spriteRenderer.sprite = chaosSprite;
-			moveSpeed = moveSpeedChaos;
-		}
-		else
-		{
-			m_spriteRenderer.sprite = normalSprite;
-			moveSpeed = moveSpeedNormal;
-		}
-	}
-
-	public bool getChaos()
-    {
-		return isChaos;
-    }
-
 	void handleInteraction()
 	{
 		if(m_callback)
 		{
-			m_callback.handleInteraction(isChaos);
+			m_callback.handleInteraction(m_playerInfo.GetIsTricking());
 		}
+	}
+
+	void handleSwapHumor()
+    {
+		m_playerInfo.ToggleIsTricking();
 	}
 
 	public void setInteractionCallback(Interactable callback)

@@ -25,7 +25,7 @@ public class PlayerInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!playerMove.getChaos() && ((Time.realtimeSinceStartup - lastTick) >= riseStressTickPeriodS)) {
+        if(!isTricking && ((Time.realtimeSinceStartup - lastTick) >= riseStressTickPeriodS)) {
             AddStress(incrementStressValueByTick);
             lastTick = Time.realtimeSinceStartup;
         }
@@ -80,13 +80,11 @@ public class PlayerInfo : MonoBehaviour
     public void SetIsTricking(bool _isTricking)
     {
         isTricking = _isTricking;
-        if(isTricking)
-        {
-            Freeze();
-        } else
-        {
-            Unfreeze();
-        }
+    }
+
+    public void ToggleIsTricking()
+    {
+        isTricking = !isTricking;
     }
 
     public bool GetIsTricking()
