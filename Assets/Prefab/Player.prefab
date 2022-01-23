@@ -417,7 +417,6 @@ MonoBehaviour:
   poissonPilote_GO: {fileID: 0}
   piloteCamSpeed: 0.5
   piloteCamIdleSpeed: 0.2
-  isTricking: 0
 --- !u!114 &997015005952063820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +432,7 @@ MonoBehaviour:
   riseStressTickPeriodS: 5
   incrementStressValueByTick: 1
   lastTick: 0
+  isTricking: 0
 --- !u!61 &-1100576375188761425
 BoxCollider2D:
   m_ObjectHideFlags: 0
