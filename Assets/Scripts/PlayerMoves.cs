@@ -13,12 +13,13 @@ public class PlayerMoves : MonoBehaviour
 	{
 		idle,
 		right,
-		left
+		left,
+		interact
 	}
 
 	public float moveSpeedNormal = 2;
 	public float moveSpeedChaos = 2;
-	public Direction direction = Direction.right;
+	private Direction direction = Direction.right;
 	public KeyCode leftKey = KeyCode.Q;
 	public KeyCode rightKey = KeyCode.D;
 	public KeyCode interactKey = KeyCode.Space;
@@ -70,6 +71,18 @@ public class PlayerMoves : MonoBehaviour
         camFollow();
 	}
 
+	void interact(bool value)
+	{
+		if(value)
+		{
+			moveState = MoveState.interact;
+		}
+		else
+		{
+			moveState = prevMoveState;
+		}
+	}
+
 	void handleInput()
 	{
 		//get state
@@ -79,18 +92,22 @@ public class PlayerMoves : MonoBehaviour
 		bool interact = Input.GetKeyDown(interactKey);
 
 		// 2 keys = idle
-		if(!(right ^ left))
+		if(moveState != MoveState.interact)
 		{
-			moveState = MoveState.idle;
+			if(!(right ^ left))
+			{
+				moveState = MoveState.idle;
+			}
+			else if(right)
+			{
+				moveState = MoveState.right;
+			}
+			else if(left)
+			{
+				moveState = MoveState.left;
+			}
 		}
-		else if(right)
-		{
-			moveState = MoveState.right;
-		}
-		else if(left)
-		{
-			moveState = MoveState.left;
-		}
+		
 
 		if (interact)
 		{
@@ -100,21 +117,24 @@ public class PlayerMoves : MonoBehaviour
 
 	void move()
 	{
-		if(moveState != MoveState.idle)
+		if(moveState != MoveState.interact)
 		{
-			m_velocity.x = moveSpeed * (int)direction;
+			if(moveState != MoveState.idle )
+			{
+				m_velocity.x = moveSpeed * (int)direction;
+			}
+			else
+			{
+				m_velocity.x = 0;
+			}
+			m_rigidbody.velocity = m_velocity;
 		}
-		else
-		{
-			m_velocity.x = 0;
-		}
-		m_rigidbody.velocity = m_velocity;
 	}
 
 	void animate()
 	{
 		//set animation state
-		m_anim.SetBool("isMoving", moveState != MoveState.idle);
+		m_anim.SetBool("isMoving", moveState != MoveState.idle && (moveState != MoveState.interact));
 		m_anim.SetBool("isChaos", isChaos);
 		m_spriteRenderer.flipX = (direction == Direction.left);
 	}
@@ -146,20 +166,24 @@ public class PlayerMoves : MonoBehaviour
 
 	void handleMoveStateChange()
 	{
-		if(moveState != prevMoveState)
+
+		if (moveState != MoveState.interact)
 		{
-			switch(moveState)
+			if(moveState != prevMoveState)
 			{
-				case MoveState.right :
-					direction = Direction.right;
-					break;
-				case MoveState.left :
-					direction = Direction.left;
-					break;
-				case MoveState.idle :
-					break;
+				switch(moveState)
+				{
+					case MoveState.right :
+						direction = Direction.right;
+						break;
+					case MoveState.left :
+						direction = Direction.left;
+						break;
+					case MoveState.idle :
+						break;
+				}
+				prevMoveState = moveState;
 			}
-			prevMoveState = moveState;
 		}
 	}
 
@@ -178,6 +202,11 @@ public class PlayerMoves : MonoBehaviour
 			moveSpeed = moveSpeedNormal;
 		}
 	}
+
+	public bool getChaos()
+    {
+		return isChaos;
+    }
 
 	void handleInteraction()
 	{
