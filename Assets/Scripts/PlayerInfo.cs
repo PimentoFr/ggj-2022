@@ -9,6 +9,7 @@ public class PlayerInfo : MonoBehaviour
     PlayerMoves playerMove;
     PlayerTasks playerTasks;
 
+    public float onSightTickMultiplier = 5.0f;
     public float riseStressTickPeriodS = 5.0f;
     public float incrementStressValueByTick = 1.0f;
     public float lastTick;
@@ -18,7 +19,7 @@ public class PlayerInfo : MonoBehaviour
     public GameObject UITrick;
 
     TrickType currentTrickType;
-    TrickMission trickMission;
+    public TrickMission trickMission;
     public float trickStartTime { get; }
 
     //bool canEnterTrickingMode = false;

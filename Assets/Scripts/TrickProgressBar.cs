@@ -36,16 +36,20 @@ public class TrickProgressBar : MonoBehaviour
         currentDurationS += Time.fixedDeltaTime;
         float percent = Mathf.Clamp(100 * currentDurationS / durationS, 0f, 100f);
         mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * percent / 100f);
-        if(percent >= 100.0)
+        if(percent >= 100.0 || !playerInfo.IsActionDoing())
         {
-            OnFinished();
+            OnFinished(percent >= 100.0);
         }
     }
 
-    void OnFinished()
+    void OnFinished(bool finished)
     {
-        StopSound();
-        playerInfo.StopTrick(true);
+        if(finished)
+         {
+            StopSound();
+        }
+        
+        playerInfo.StopTrick(playerInfo.IsActionDoing());
         Destroy(UI_ProgressBar);
     }
 
