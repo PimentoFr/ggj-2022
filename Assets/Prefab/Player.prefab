@@ -47,7 +47,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -10, y: 0}
+  m_Offset: {x: -15, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -58,7 +58,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20, y: 8}
+  m_Size: {x: 30, y: 8}
   m_EdgeRadius: 0
 --- !u!114 &3650501341764567016
 MonoBehaviour:
@@ -189,7 +189,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 10, y: 0}
+  m_Offset: {x: 15, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -200,7 +200,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20, y: 8}
+  m_Size: {x: 30, y: 8}
   m_EdgeRadius: 0
 --- !u!114 &1850775382824851162
 MonoBehaviour:
@@ -407,6 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149ccc269ae43966b81efbf9d12bee7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stressLevel: 0
   moveSpeedNormal: 10
   moveSpeedChaos: 10
   leftKey: 113
@@ -430,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f29e2331b06ef94b90d55cca395fa3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSightTickMultiplier: 5
   riseStressTickPeriodS: 5
   incrementStressValueByTick: 1
   lastTick: 0
