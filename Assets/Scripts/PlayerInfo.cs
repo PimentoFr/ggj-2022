@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
-    float stress = 0.0f;
+    private float stress = 0.0f;
     bool QTEActived = false;
     PlayerMoves playerMove;
     PlayerTasks playerTasks;
@@ -25,8 +25,9 @@ public class PlayerInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerMove.getChaos() && ((Time.realtimeSinceStartup - lastTick) >= riseStressTickPeriodS)) {
+        if(!playerMove.getChaos() && ((Time.realtimeSinceStartup - lastTick) >= riseStressTickPeriodS)) {
             AddStress(incrementStressValueByTick);
+            lastTick = Time.realtimeSinceStartup;
         }
     }
 
@@ -34,10 +35,15 @@ public class PlayerInfo : MonoBehaviour
     {
         stress = Mathf.Clamp(stress + amount, 0.0f, 100.0f);
         Debug.Log("Stress : " + stress);
-        if(stress >= 100.0f)
+        if (stress >= 100.0f)
         {
             Lose();
         }
+    }
+
+    public float GetStress()
+    {
+        return stress;
     }
 
     public bool IsQTEActived()
