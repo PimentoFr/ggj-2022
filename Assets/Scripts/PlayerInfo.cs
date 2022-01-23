@@ -9,6 +9,8 @@ public class PlayerInfo : MonoBehaviour
     PlayerMoves playerMove;
     PlayerTasks playerTasks;
 
+    public ScenesGest sceneGest;
+
     public float onSightTickMultiplier = 5.0f;
     public float riseStressTickPeriodS = 5.0f;
     public float incrementStressValueByTick = 1.0f;
@@ -134,5 +136,6 @@ public class PlayerInfo : MonoBehaviour
     public void Lose()
     {
         Debug.Log("To much stress, loooosser");
+        sceneGest.LostGame();
     }
 }

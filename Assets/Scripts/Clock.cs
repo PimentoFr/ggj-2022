@@ -8,6 +8,7 @@ public class Clock : MonoBehaviour
     public int clockSpeed = 2;
     public Text TimerText;
 
+    public ScenesGest sceneGest;
     //HEURES EN MINUTES : 8h = 480, 18h = 1080
     float hourInMinutes = 480f;
 
@@ -39,7 +40,7 @@ public class Clock : MonoBehaviour
 
             //GAMEOVER
             Debug.Log("End of the day, Game Over");
-
+            sceneGest.LostGame();
         }
 
     }
