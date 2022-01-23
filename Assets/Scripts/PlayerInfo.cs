@@ -89,6 +89,11 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
+    public bool GetIsTricking()
+    {
+        return isTricking;
+    }
+
     public void TaskQTEFinished(bool success, TaskType taskType)
     {
         Debug.Log("TaskQTEFinished " + success + " " + taskType);

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class trackerRight : MonoBehaviour
 {
-    private PlayerMoves player;
+    private PlayerInfo playerInfo;
     private SpriteRenderer anim;
     private BoxCollider2D hitbox;
+
     void Start()
     {
-        player = GetComponentInParent<PlayerMoves>();
+        playerInfo = GetComponentInParent<PlayerInfo>();
         anim = GetComponent<SpriteRenderer>();
         hitbox = GetComponent<BoxCollider2D>();
         anim.enabled = false;
@@ -18,7 +19,7 @@ public class trackerRight : MonoBehaviour
 
     private void Update()
     {
-        if (player.isTricking)
+        if (playerInfo.GetIsTricking())
             hitbox.enabled = true;
         else
             hitbox.enabled = false;
