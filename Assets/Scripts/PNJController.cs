@@ -68,14 +68,4 @@ public class PNJController : MonoBehaviour
             prevDirection = direction;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        PlayerMoves player = collision.gameObject.GetComponent<PlayerMoves>();
-
-        if(collision != null && player.isTricking)
-        {
-            player.changeStress(10);
-        }
-    }
 }

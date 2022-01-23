@@ -25,7 +25,6 @@ public class PlayerMoves : MonoBehaviour
 	//replace with animation ?
 	public Sprite normalSprite;
 	public Sprite chaosSprite;
-	public bool isTricking;
 
 	private bool isChaos = false;
 	private float moveSpeed;
@@ -33,7 +32,6 @@ public class PlayerMoves : MonoBehaviour
 	private MoveState moveState = MoveState.right;
 	private Vector2 m_velocity = new Vector2();
 	private Interactable m_callback = null;
-	private int stress;
 
 	private Rigidbody2D m_rigidbody;
 	private SpriteRenderer m_spriteRenderer;
@@ -49,8 +47,6 @@ public class PlayerMoves : MonoBehaviour
 		m_rigidbody.velocity = new Vector2(0,0);
 		m_velocity.x = 0;
 		setChaos(false);
-		isTricking = false;
-		stress = 10;
 	}
 
 	// Update is called once per frame
@@ -166,9 +162,4 @@ public class PlayerMoves : MonoBehaviour
 	{
 		m_callback = callback;
 	}
-	public void changeStress(int amount)
-    {
-		stress += amount;
-		Debug.Log("Le stress est à" + stress);
-    }
 }
