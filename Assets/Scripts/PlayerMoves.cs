@@ -211,7 +211,9 @@ public class PlayerMoves : MonoBehaviour
 	void handleSwapHumor()
     {
 		m_playerInfo.ToggleIsTricking();
-	}
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = true;
+    }
 
 	public void setInteractionCallback(Interactable callback)
 	{
