@@ -5,10 +5,20 @@ using UnityEngine;
 
 public enum TrickType
 {
-    MUG_METHYLEN = 0,
-    ASS_COPY = 1,
-    PLANT_SMASH = 2,
-    FART_PILLOW = 3,
+    ASS_COPY = 0,
+    PLANT_STRIKE = 1,
+    RUN_YOUTUBE = 2,
+    THROW_FILL = 3,
+    PRANK_PHONE = 4,
+    POISON_MUG = 5,
+    THROW_PENS = 6,
+    PLAY_WITH_CLIP = 7,
+    PAPER_PLANE = 87,
+    TAG = 9,
+    FART_PILLOW = 10,
+    DRAW_PAPERBOARD = 11,
+
+
 
     NULL = 999
 }
@@ -37,13 +47,13 @@ public class TrickMission
 public static class TrickMissions
 {
     public static Dictionary<TrickType, TrickMission> missions = new Dictionary<TrickType, TrickMission>() {
-        {TrickType.MUG_METHYLEN,       new TrickMission(
+        {TrickType.POISON_MUG,       new TrickMission(
             "Bleu de méthylène", -20, 20, false, 5, null
         )},
         { TrickType.ASS_COPY,       new TrickMission(
             "Scanner son cul", -30, 80, true, 10, null
         )},
-        { TrickType.PLANT_SMASH,       new TrickMission(
+        { TrickType.PLANT_STRIKE,       new TrickMission(
             "Renverser la plante", -30, 80, true, 10, null
         )},
         { TrickType.FART_PILLOW,       new TrickMission(

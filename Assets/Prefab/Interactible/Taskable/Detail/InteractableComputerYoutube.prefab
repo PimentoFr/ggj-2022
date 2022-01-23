@@ -94,6 +94,8 @@ GameObject:
   - component: {fileID: 1623459883662615742}
   - component: {fileID: 2469700240489049418}
   - component: {fileID: 2188710903219494524}
+  - component: {fileID: 5986944891139216118}
+  - component: {fileID: 3280557892441628714}
   m_Layer: 0
   m_Name: InteractableComputerYoutube
   m_TagString: Untagged
@@ -206,3 +208,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
+--- !u!114 &5986944891139216118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623459883662615743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f654bbe6ef8ba44a5a8b0d9a21720f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_callback: {fileID: 0}
+--- !u!114 &3280557892441628714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623459883662615743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskType: 2
+  trickType: 2

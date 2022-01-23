@@ -92,6 +92,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1620460269050865644}
   - component: {fileID: 2193050294419690249}
+  - component: {fileID: 4555267519715423792}
+  - component: {fileID: 7924372649770478839}
+  - component: {fileID: 6748066391104375717}
   m_Layer: 0
   m_Name: InteractableAgrafeuse
   m_TagString: Untagged
@@ -165,3 +168,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4555267519715423792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8373295468731420691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f654bbe6ef8ba44a5a8b0d9a21720f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_callback: {fileID: 0}
+--- !u!114 &7924372649770478839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8373295468731420691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05d9a454f3445dd89f02a0907a19460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_callback: {fileID: 0}
+--- !u!114 &6748066391104375717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8373295468731420691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskType: 7
+  trickType: 7
