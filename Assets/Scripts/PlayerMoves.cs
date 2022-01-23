@@ -70,6 +70,10 @@ public class PlayerMoves : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		if(HandleFreeze())
+        {
+			return;
+        }
 		animate();
 		move();
         camFollow();
@@ -119,16 +123,22 @@ public class PlayerMoves : MonoBehaviour
 		}
 	}
 
+	bool HandleFreeze()
+    {
+		if(!freezeMove)
+        {
+			return false;
+        }
+
+		m_velocity.x = 0;
+		m_rigidbody.velocity = m_velocity;
+		moveState = MoveState.idle;
+		animate();
+		return true;
+	}
+
 	void move()
 	{
-		/* Player is freeze (For interaction) */
-		if(freezeMove)
-        {
-			m_velocity.x = 0;
-			m_rigidbody.velocity = m_velocity;
-			return;
-		}
-
 		if(moveState != MoveState.interact)
 		{
 			if(moveState != MoveState.idle )
