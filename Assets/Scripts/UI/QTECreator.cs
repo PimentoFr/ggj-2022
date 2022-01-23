@@ -56,21 +56,67 @@ public class QTECreator : MonoBehaviour
     GameObject box;
     Transform boxTrans;
 
-    void Start()
+    GameObject player;
+    TaskType taskType;
+
+    void Awake()
     {
         rect = GetComponent<RectTransform>();
         box = transform.Find("Box").gameObject;
         boxTrans = box.GetComponent<Transform>();
         audioSource = GetComponent<AudioSource>();
-        CreateItems(new List<QTEItem>
-        {
-            new QTEItem("Remplir du papier", new List<string>{"UP", "DOWN", "LEFT", "UP"}),
-            new QTEItem("Lancer photocopie", new List<string>{"RIGHT", "DOWN", "LEFT", "RIGHT"}),
-            new QTEItem("Recuperer impression", new List<string>{"UP", "UP", "LEFT", "DOWN"}),
-        });
 
-        SetHardcoreMode(true);
-        CleanKeyList(false);
+        SetHardcoreMode(false);
+    }
+
+
+    static List<string> GenerateKeys(int number)
+    {
+        string[] listKeys = { "UP", "DOWN", "RIGHT", "LEFT" };
+        List<string> list = new List<string>();
+        for(int i = 0; i < number; i++)
+        {
+            list.Add(listKeys[Random.Range(0, 4)]);
+        }
+        return list;
+    }
+
+    public static void LaunchQTE(GameObject player, TaskType task_type, bool outOfService, GameObject prefabUI)
+    {
+        Debug.Log("LaunchQTE " + task_type);
+
+        if(player.GetComponent<PlayerInfo>().IsQTEActived())
+        {
+            return;
+        }
+
+        QTEMission mission = QTEMissions.missions[task_type];
+
+        GameObject qte =  Instantiate(prefabUI, new Vector3(0, 0, 0), Quaternion.identity);
+
+        
+        int nbKeys = mission.difficulties;
+
+        /* Lock Player */
+
+
+        QTEItem[] items = mission.GetQTEItems(outOfService);
+        List<QTEItem> list = new List<QTEItem>();
+        foreach(var item in items)
+        {
+            List<string> keys = GenerateKeys(nbKeys);
+            list.Add(new QTEItem(item.action_label, keys));
+        }
+
+        QTECreator qteCreator = qte.GetComponent<QTECreator>();
+
+        player.GetComponent<PlayerInfo>().SetQTEActived(true);
+        qteCreator.player = player;
+        qteCreator.taskType = task_type;
+        qteCreator.CreateItems(list);
+        qteCreator.SetHardcoreMode(false);
+        qteCreator.CleanKeyList(false);
+
     }
 
 
@@ -219,11 +265,13 @@ public class QTECreator : MonoBehaviour
     {
         Debug.Log("All QTE finished and correct");
         //TODO: call callack success
+        player.GetComponent<PlayerInfo>().TaskQTEFinished(true, taskType);
         SlideUp();
     }
     void Leave()
     {
         Debug.Log("Leave QTE");
+        player.GetComponent<PlayerInfo>().TaskQTEFinished(false, taskType);
         SlideUp();
     }
 

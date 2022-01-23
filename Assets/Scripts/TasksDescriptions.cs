@@ -8,6 +8,7 @@ public enum TaskType
     FILL_COFFEE = 0,
     COPY_DOCUMENT = 1,
     WATER_PLANT = 2,
+    REPLACE_CHAIR = 3,
     NULL = 999
 }
 
@@ -18,6 +19,7 @@ public static class TasksDict
         {TaskType.FILL_COFFEE,       new TaskToDo(TaskType.FILL_COFFEE, "Préparer un café", false)},
         {TaskType.COPY_DOCUMENT,     new TaskToDo(TaskType.COPY_DOCUMENT, "Faire un photocopie", false)},
         {TaskType.WATER_PLANT,       new TaskToDo(TaskType.WATER_PLANT, "Arroser la plante", false)},
+        {TaskType.REPLACE_CHAIR,     new TaskToDo(TaskType.REPLACE_CHAIR, "Remettre à sa place", false)},
     };
 
     public static readonly TaskType[] LONG_TASKS = new TaskType[]
@@ -28,7 +30,8 @@ public static class TasksDict
     public static readonly TaskType[] SHORT_TASKS = new TaskType[]
     {
         TaskType.COPY_DOCUMENT,
-        TaskType.WATER_PLANT
+        TaskType.WATER_PLANT,
+        TaskType.REPLACE_CHAIR
     };
 
     public static List<TaskType> poolLongTasks = new List<TaskType>(LONG_TASKS);

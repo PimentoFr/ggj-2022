@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6182124907011734877}
   - component: {fileID: 34906030690638647}
   - component: {fileID: 1575520510668001248}
+  - component: {fileID: 430268320304687147}
   m_Layer: 0
   m_Name: InteractableGreenChairFaceVide
   m_TagString: Untagged
@@ -123,3 +124,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
+--- !u!114 &430268320304687147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182124907011734876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a7e79283414297caebc8e8a9bd2e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
