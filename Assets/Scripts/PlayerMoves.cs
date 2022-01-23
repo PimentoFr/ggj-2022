@@ -34,7 +34,6 @@ public class PlayerMoves : MonoBehaviour
     public float piloteCamIdleSpeed = 0.2f;
 	//Variable qui d�finit que le joueur est en train de "saboter" quelque chose, sert a activer les alertes visuelles et a dire aux PNJ qu'il peuvent le "griller"
 
-	private float moveSpeed;
 	private MoveState prevMoveState = MoveState.idle;
 	private MoveState moveState = MoveState.right;
 	private Vector2 m_velocity = new Vector2();
@@ -111,6 +110,11 @@ public class PlayerMoves : MonoBehaviour
 			{
 				moveState = MoveState.left;
 			}
+			///
+			if(swapHumor)
+			{
+				handleSwapHumor();
+			}
 		}
 		
 
@@ -118,10 +122,7 @@ public class PlayerMoves : MonoBehaviour
 		{
 			handleInteraction();
 		}
-		if(swapHumor)
-        {
-			handleSwapHumor();
-        }
+		
 	}
 
 	void move()
