@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public enum TaskType
 {
 
@@ -27,22 +28,38 @@ public static class TasksDict
 {
 
     public static Dictionary<TaskType, TaskToDo> tasks = new Dictionary<TaskType, TaskToDo>() {
-        {TaskType.FILL_COFFEE,       new TaskToDo(TaskType.FILL_COFFEE, "Préparer un café", false)},
-        {TaskType.COPY_DOCUMENT,     new TaskToDo(TaskType.COPY_DOCUMENT, "Faire un photocopie", false)},
-        {TaskType.WATER_PLANT,       new TaskToDo(TaskType.WATER_PLANT, "Arroser la plante", false)},
-        {TaskType.REPLACE_CHAIR,     new TaskToDo(TaskType.REPLACE_CHAIR, "Remettre à sa place", false)},
+        {TaskType.COPY_DOCUMENT,     new TaskToDo(TaskType.COPY_DOCUMENT, "Copy a document", false)},
+        {TaskType.WATER_PLANT,       new TaskToDo(TaskType.WATER_PLANT, "Water plant", false)},
+        {TaskType.DEBUG_PC,          new TaskToDo(TaskType.DEBUG_PC, "Fix computer", false)},
+        {TaskType.GET_BILL,          new TaskToDo(TaskType.GET_BILL, "Get the bill", false)},
+        {TaskType.CALL_CLIENT,       new TaskToDo(TaskType.CALL_CLIENT, "Call the client", false)},
+        {TaskType.FILL_COFFEE,       new TaskToDo(TaskType.FILL_COFFEE, "Make a coffee", false)},
+        {TaskType.SIGN_CONTRACT,     new TaskToDo(TaskType.FILL_COFFEE, "Make a coffee", false)},
+        {TaskType.STAPLE_DOCUMENT,   new TaskToDo(TaskType.STAPLE_DOCUMENT, "Staple documents", false)},
+        {TaskType.ORDER_FOLDER,      new TaskToDo(TaskType.ORDER_FOLDER, "Order files", false)},
+        {TaskType.REPLACE_POSTER,    new TaskToDo(TaskType.REPLACE_POSTER, "Place poster", false)},
+        {TaskType.REPLACE_CHAIR,     new TaskToDo(TaskType.REPLACE_CHAIR, "Place chair", false)},
+        {TaskType.WRITE_AGENDA,      new TaskToDo(TaskType.WRITE_AGENDA, "Write the agenda", false)},
     };
 
     public static readonly TaskType[] LONG_TASKS = new TaskType[]
     {
+        TaskType.COPY_DOCUMENT,
+        TaskType.DEBUG_PC,
+        TaskType.CALL_CLIENT,
         TaskType.FILL_COFFEE,
+        TaskType.SIGN_CONTRACT,
     };
 
     public static readonly TaskType[] SHORT_TASKS = new TaskType[]
     {
-        TaskType.COPY_DOCUMENT,
         TaskType.WATER_PLANT,
-        TaskType.REPLACE_CHAIR
+        TaskType.GET_BILL,
+        TaskType.STAPLE_DOCUMENT,
+        TaskType.ORDER_FOLDER,
+        TaskType.REPLACE_POSTER,
+        TaskType.REPLACE_CHAIR,
+        TaskType.WRITE_AGENDA
     };
 
     public static List<TaskType> poolLongTasks = new List<TaskType>(LONG_TASKS);
