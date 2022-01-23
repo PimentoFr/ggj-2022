@@ -6,6 +6,7 @@ public class InteractionAction : Interactable
 {
 
     public TaskType taskType = TaskType.NULL;
+    public TrickType trickType = TrickType.NULL;
     GameObject player;
     bool outOfService = false;
     GameObject thisGo;
@@ -40,6 +41,13 @@ public class InteractionAction : Interactable
         } else
         {
             /* Launch Wait */
+            if (trickType == TrickType.NULL)
+            {
+                Debug.Log("Trick Type Null");
+                return;
+            }
+            Debug.Log("Launch Trick Progress Bar");
+            player.GetComponent<PlayerInfo>().StartTrick(trickType, thisGo);
         }
         
     }

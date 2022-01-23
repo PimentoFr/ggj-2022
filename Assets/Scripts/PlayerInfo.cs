@@ -15,6 +15,12 @@ public class PlayerInfo : MonoBehaviour
     public bool isTricking = false;
 
     public GameObject UIQTE;
+    public GameObject UITrick;
+
+    TrickType currentTrickType;
+    TrickMission trickMission;
+    public float trickStartTime { get; }
+
     bool freeze = false;
     // Start is called before the first frame update
     void Start()
@@ -84,6 +90,14 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
+    public void StartTrick(TrickType _trickType, GameObject _interactedObject)
+    {
+        currentTrickType = _trickType;
+        trickMission = TrickMissions.missions[_trickType];
+        /* Spawan trick progress bar */
+
+        SetActionDoing(true);
+        TrickProgressBar.LaunchProgressBar(this, trickMission.durationInS, UITrick);
     }
 
     public void SetIsTricking(bool _isTricking)
@@ -116,9 +130,13 @@ public class PlayerInfo : MonoBehaviour
         SetActionDoing(false);
     }
 
-    public void TaskChaosFinished(bool success)
+    public void StopTrick(bool success)
     {
-        SetIsTricking(false);
+        if(success)
+        {
+            AddStress(trickMission.stressBonus);
+        }
+        SetActionDoing(false);
     }
 
     public void Lose()
