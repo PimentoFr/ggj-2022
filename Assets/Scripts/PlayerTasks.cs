@@ -13,17 +13,11 @@ public class PlayerTasks : MonoBehaviour
     {
         playerTasks = new List<TaskToDo>();
         GenerateTasks(numberOfShortTask, numberOfLongTask);
-
-        foreach (var t in playerTasks)
-        {
-            Debug.Log("task " + t.taskLabel);
-        }
     }
 
     void GenerateTasks(int shortTask, int longTask)
     {
 
-        TasksDict.testPrint();
         /* Populate long task */
         for (int i = 0; i < longTask; i++)
         {
@@ -31,7 +25,6 @@ public class PlayerTasks : MonoBehaviour
             Debug.Log("Generate Task " + taskType);
             if (taskType != TaskType.NULL)
             {
-                Debug.Log("OK " + taskType);
                 playerTasks.Add(TasksDict.tasks[taskType]);
             }
         }
@@ -41,7 +34,6 @@ public class PlayerTasks : MonoBehaviour
             TaskType taskType = TasksDict.GetShortTask();
             if(taskType != TaskType.NULL)
             {
-                Debug.Log("OK2 " + taskType);
                 playerTasks.Add(TasksDict.tasks[taskType]);
             }
         }
@@ -52,7 +44,6 @@ public class PlayerTasks : MonoBehaviour
 
     public void RefreshUITask()
     {
-        Debug.Log("TEST Refresh");
         prefabUIObject.GetComponent<TaskListUI>().SetTasks(playerTasks);
     }
 

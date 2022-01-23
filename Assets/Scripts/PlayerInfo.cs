@@ -96,11 +96,15 @@ public class PlayerInfo : MonoBehaviour
     public void SetIsTricking(bool _isTricking)
     {
         isTricking = _isTricking;
+
+        /* Update sound */
+        SoundAmbiance ambiance = GameObject.FindWithTag("UI_Sound").GetComponent<SoundAmbiance>();
+        ambiance.SetAmbiance((isTricking) ? AudioType.AMBIANCE_PUNK : AudioType.AMBIANCE_LOOP);
     }
 
     public void ToggleIsTricking()
     {
-        isTricking = !isTricking;
+        SetIsTricking(!isTricking);
     }
 
     public bool GetIsTricking()

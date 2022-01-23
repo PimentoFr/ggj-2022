@@ -9,7 +9,7 @@ public class QteItemUI : MonoBehaviour
     public string action_label = "";
     private Text action_text;
     private GameObject keys_obj;
-    public AudioClip clip {get; set;}
+    public AudioType clip {get; set;}
 
     void Awake()
     {

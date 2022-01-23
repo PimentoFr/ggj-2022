@@ -6,9 +6,9 @@ public class QTEItem
 {
     public string action_label { get; set; }
     public List<string> keys_type { get; set; }
-    public AudioClip clip;
+    public AudioType clip;
 
-    public QTEItem(string _action_label, List<string> _keys_type, AudioClip _clip)
+    public QTEItem(string _action_label, List<string> _keys_type, AudioType _clip)
     {
         action_label = _action_label;
         keys_type = _keys_type;
@@ -238,15 +238,15 @@ public class QTECreator : MonoBehaviour
         if(res == false)
         {
             /* The key is wrong ... reset */
-            playSound(AudioClipList.DefaultFailed);
+            playSound(AudioClipList.GetAudioClipFromAudioType(AudioType.DEFAULT_FAILED));
             AskCleanKeyList();
             return;
         } 
         if(qteItemUi.GetKeysObj().GetComponent<KeysListUI>().KeysListIsComplete())
         {
 
-            if(qteItemUi.clip != null) {
-                playSound(qteItemUi.clip);
+            if(qteItemUi.clip != AudioType.NULL) {
+                playSound(AudioClipList.GetAudioClipFromAudioType(qteItemUi.clip));
             }
             /* Hide success key list */
             qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>().hide();
@@ -283,12 +283,14 @@ public class QTECreator : MonoBehaviour
         askSlideUp = true;
         startAskSlideUp = Time.realtimeSinceStartup;
         originPosition = boxTrans.position;
-        playSound(AudioClipList.DefaultSwipe);
+        playSound(AudioClipList.GetAudioClipFromAudioType(AudioType.DEFAULT_SWIPE));
     }
 
     void playSound(AudioClip sound)
     {
-        audioSource.PlayOneShot(sound);
+        if(sound != null) {
+            audioSource.PlayOneShot(sound);
+        }
     }
 
     void SetHardcoreMode(bool hardcore)

@@ -11,6 +11,10 @@ TagManager:
   - F2R
   - F3R
   - UITaskGO
+  - ListSound
+  - Undefined
+  - UI_TrickProgressBar
+  - UI_Sound
   layers:
   - Default
   - TransparentFX

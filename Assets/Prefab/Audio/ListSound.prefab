@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4934114632733846916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4538646718199907336}
+  - component: {fileID: 4089906638864538298}
+  m_Layer: 0
+  m_Name: ListSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4538646718199907336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934114632733846916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.7857394, y: 13.542452, z: -98.26698}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4089906638864538298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934114632733846916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f209e6dafb94c47989a8a8bd756b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambiancePunk: {fileID: 8300000, guid: 5a4a30f07ddf1704580b951c418067fb, type: 3}
+  ambianceLoop: {fileID: 8300000, guid: 71e000e3203ba2049bbeff082a6d9860, type: 3}
+  posterClean: {fileID: 8300000, guid: d825bba4f8746f441949157376b32eae, type: 3}
+  posterPlace: {fileID: 8300000, guid: 048a4940a357bd24599a2d4a024f5572, type: 3}
+  posterChaos: {fileID: 8300000, guid: 2f09c279c8d94be438a2acfd8b9dc089, type: 3}
+  agraferUse: {fileID: 8300000, guid: a0514cf0cfd19604283d2dee6ec70345, type: 3}
+  agraferCollect: {fileID: 8300000, guid: 83677a58bd6d9234fae3a9515395d0a8, type: 3}
+  agraferPlayClips: {fileID: 8300000, guid: c4454046dedb0e14284c38c9e1fc339d, type: 3}
+  penChoose: {fileID: 8300000, guid: 103221a7c2b88da458f60781f2838bcb, type: 3}
+  penMoisture: {fileID: 8300000, guid: a71c9db4bcd5fda4983a729d29601a9d, type: 3}
+  penPick: {fileID: 8300000, guid: 0d2b0950aa223c949ab0c50c00977d01, type: 3}
+  penSign: {fileID: 8300000, guid: bb6802556929d6c4b808bcd9c8efa4e9, type: 3}
+  penThrow: {fileID: 8300000, guid: 581898dc106cd5a41ae41cf47c90b761, type: 3}
+  chairRemove: {fileID: 8300000, guid: 473dbe66d3e3be14db2ea04d68f333a0, type: 3}
+  chairMove: {fileID: 8300000, guid: 50b703016a2f7d44ead4d08620bb06a3, type: 3}
+  chairFartingBag: {fileID: 8300000, guid: 1d1255c65a04d8344b046632c1204af5, type: 3}
+  fileOrder: {fileID: 8300000, guid: f3c6d517d8b974d49904bc028731420a, type: 3}
+  fileBill: {fileID: 8300000, guid: b5b78cbf53b0810448facb4c3499c8c2, type: 3}
+  fillChaos: {fileID: 8300000, guid: 1fda75c378ce35549925392654946d10, type: 3}
+  coffeeMake: {fileID: 8300000, guid: 5e7a2716d82a7db4ab290523a86faa1c, type: 3}
+  coffeePutMug: {fileID: 8300000, guid: de2fa71a5efa3b14fba30606bd4ff480, type: 3}
+  coffeeCleanMug: {fileID: 8300000, guid: f6419c0d82f9eae4fa81c33bac393af0, type: 3}
+  cofferFillWater: {fileID: 8300000, guid: b31ef864421955640827b5b85f031b00, type: 3}
+  coffeePoison: {fileID: 8300000, guid: 1e7e42e3843cf8d469b25a31dcd017d8, type: 3}
+  computerSwitchOn: {fileID: 8300000, guid: 5065480c5c6ec7e49bad9d64b39dbc47, type: 3}
+  computerSwitchOff: {fileID: 8300000, guid: e6357704e98508c449c5a4f6c449f25d, type: 3}
+  computerUpdate: {fileID: 8300000, guid: fea592483a5f33941bb3c61534d4d7d8, type: 3}
+  computerStopYoutube: {fileID: 8300000, guid: b9d9b30e0e786344185fcfb43a83152a, type: 3}
+  computerRunYoutube: {fileID: 8300000, guid: 449e706db6df4f949b0abc2833b6785b, type: 3}
+  copierDropPhotos: {fileID: 8300000, guid: 1756c35bf7a8eac45aa917b87f2ceba0, type: 3}
+  copierFill: {fileID: 8300000, guid: 957ff349e6b7e54429ef088b19d31f2d, type: 3}
+  copierTake: {fileID: 8300000, guid: e7bf57642176a614cad77578990aae65, type: 3}
+  copierAss: {fileID: 8300000, guid: 807e38bc957ccc848a28ceb8a9a58db7, type: 3}
+  paperOrder: {fileID: 8300000, guid: 7c6c9aa5492822c44a8659d37bd087fb, type: 3}
+  paperUnfold: {fileID: 8300000, guid: 350eb1f89d0ae5f448d8fbd6b7fba05f, type: 3}
+  paperPlane: {fileID: 8300000, guid: 83191f1f97b341440a5f808f3e02108c, type: 3}
+  plantWater: {fileID: 8300000, guid: 698359ce5be862a409c88f6eac60d452, type: 3}
+  plantPlace: {fileID: 8300000, guid: 930ecd46e846b6f4e9698fa5ff3cd0f6, type: 3}
+  plantFall: {fileID: 8300000, guid: fb671d104acec714e8216175723ba16d, type: 3}
+  phoneBullshit: {fileID: 8300000, guid: e93e3533f97ab564bbb885132be99f91, type: 3}
+  phoneType: {fileID: 8300000, guid: 640f3daf6c565d044b9d14ad26da375c, type: 3}
+  phoneConvince: {fileID: 8300000, guid: 88c2a47a6a1d5fe4791eca20e5a6d44f, type: 3}
+  phoneApologize: {fileID: 8300000, guid: 995244c94b328d647acc8d2c8515127e, type: 3}
+  phonePrank: {fileID: 8300000, guid: 664ed214504c06242926fb0b81cb3c2a, type: 3}
+  DefaultCorrect: {fileID: 8300000, guid: b5e30be004d84af458cc977c8bde6ea9, type: 3}
+  DefaultFailed: {fileID: 8300000, guid: a6788d8a242eed648bff44d0580a64a8, type: 3}
+  DefaultSwipe: {fileID: 8300000, guid: 58a70ab17e839214b87e47f24fdfa379, type: 3}
