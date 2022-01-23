@@ -83,12 +83,23 @@ public class EnemyController : MonoBehaviour
     {
         PlayerInfo player = collision.gameObject.GetComponent<PlayerInfo>();
 
-        if(player != null && player.isTricking)
+        if(player != null && player.isTricking && player.IsActionDoing())
         {
-            player.AddStress(10);
-            hitbox.enabled = false;
-            movingTime = timeOut;
-            anim.SetBool("hasFlicked", true);
+            if (player.isTricking && !player.IsActionDoing())
+            {
+                player.AddStress(player.incrementStressValueByTick * player.riseStressTickPeriodS);
+                hitbox.enabled = false;
+                movingTime = timeOut;
+                anim.SetBool("hasFlicked", true);
+            }
+            else
+            {
+                player.AddStress(player.trickMission.stressDetected);
+                player.StopTrick(false);
+                hitbox.enabled = false;
+                movingTime = timeOut;
+                anim.SetBool("hasFlicked", true);
+            }
         }
         
     }
