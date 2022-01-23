@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7063192277144627746}
   - component: {fileID: 6407887318898858463}
   - component: {fileID: 2486375684124488202}
-  - component: {fileID: 3688578602840489077}
+  - component: {fileID: 6457536251248184609}
   m_Layer: 0
   m_Name: InteractablePrinterClean
   m_TagString: Untagged
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
---- !u!114 &3688578602840489077
+--- !u!114 &6457536251248184609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2908073902078232999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a7e79283414297caebc8e8a9bd2e93, type: 3}
+  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 1
+  trickType: 1
