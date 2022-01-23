@@ -17,6 +17,11 @@ public class SoundAmbiance : MonoBehaviour
     public void SetAmbiance(AudioType type)
     {
         audio.clip = AudioClipList.GetAudioClipFromAudioType(type);
+        if(type == AudioType.AMBIANCE_PUNK) {
+            audio.volume = 0.2f;
+        } else {
+            audio.volume = 1.0f;
+        }
         audio.Play();
     }
 
