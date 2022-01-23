@@ -87,6 +87,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3229545257187281534, guid: dbda51fe7c6582a4a8c5bba3f1614d8e, type: 3}
+      propertyPath: m_Size.y
+      value: 19.012266
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229545257187281534, guid: dbda51fe7c6582a4a8c5bba3f1614d8e, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.455947
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229545257187281534, guid: dbda51fe7c6582a4a8c5bba3f1614d8e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbda51fe7c6582a4a8c5bba3f1614d8e, type: 3}
 --- !u!4 &2933918099975421876 stripped
@@ -151,6 +163,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3858941637208496230, guid: fa61fc593faa4594480c755c23756d13, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143783555880712077, guid: fa61fc593faa4594480c755c23756d13, type: 3}
+      propertyPath: m_Size.y
+      value: 19.012266
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143783555880712077, guid: fa61fc593faa4594480c755c23756d13, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.455947
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143783555880712077, guid: fa61fc593faa4594480c755c23756d13, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143783555880712077, guid: fa61fc593faa4594480c755c23756d13, type: 3}
+      propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
