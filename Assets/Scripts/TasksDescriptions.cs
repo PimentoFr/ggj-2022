@@ -5,10 +5,21 @@ using UnityEngine;
 
 public enum TaskType
 {
-    FILL_COFFEE = 0,
-    COPY_DOCUMENT = 1,
-    WATER_PLANT = 2,
-    REPLACE_CHAIR = 3,
+
+    COPY_DOCUMENT = 0,
+    WATER_PLANT = 1,
+    DEBUG_PC = 2,
+    GET_BILL = 3,
+    CALL_CLIENT = 4,
+    FILL_COFFEE = 5,
+    SIGN_CONTRACT = 6,
+    STAPLE_DOCUMENT = 7,
+    ORDER_FOLDER = 8,
+    REPLACE_POSTER = 9,
+    REPLACE_CHAIR = 10,
+
+    WRITE_AGENDA = 11,
+
     NULL = 999
 }
 

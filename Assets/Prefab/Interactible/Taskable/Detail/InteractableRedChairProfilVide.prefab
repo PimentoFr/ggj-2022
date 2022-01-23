@@ -94,6 +94,8 @@ GameObject:
   - component: {fileID: 5730958005275590471}
   - component: {fileID: 548361114970159188}
   - component: {fileID: 4631548920541959760}
+  - component: {fileID: 1215207914593845953}
+  - component: {fileID: 2015775474057968098}
   m_Layer: 0
   m_Name: InteractableRedChairProfilVide
   m_TagString: Untagged
@@ -206,3 +208,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
+--- !u!114 &1215207914593845953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730958005275590464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f654bbe6ef8ba44a5a8b0d9a21720f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_callback: {fileID: 0}
+--- !u!114 &2015775474057968098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730958005275590464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskType: 10
+  trickType: 10
