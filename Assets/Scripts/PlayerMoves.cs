@@ -166,20 +166,20 @@ public class PlayerMoves : MonoBehaviour
         switch (moveState)
         {
             case MoveState.right:
-                poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x + piloteCamSpeed,-6f,6f), 0f);
+                poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x + piloteCamSpeed,-6f,6f), poissonPilote_GO.transform.localPosition.y);
                 break;
             case MoveState.left:
-                poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x - piloteCamSpeed, -6f, 6f), 0f);
+                poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x - piloteCamSpeed, -6f, 6f), poissonPilote_GO.transform.localPosition.y);
                 break;
 
             case MoveState.idle:
                 if (poissonPilote_GO.transform.localPosition.x < 0f)
                 {
-                    poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x + piloteCamIdleSpeed, -6f, 0f), 0f);
+                    poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x + piloteCamIdleSpeed, -6f, 0f), poissonPilote_GO.transform.localPosition.y);
                 }
                 else if (poissonPilote_GO.transform.localPosition.x > 0f)
                 {
-                    poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x - piloteCamIdleSpeed, 0f, 6f), 0f);
+                    poissonPilote_GO.transform.localPosition = new Vector2(Mathf.Clamp(poissonPilote_GO.transform.localPosition.x - piloteCamIdleSpeed, 0f, 6f), poissonPilote_GO.transform.localPosition.y);
                 }
                 break;
         }
