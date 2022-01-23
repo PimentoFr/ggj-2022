@@ -39,7 +39,7 @@ public static class TasksDict
         {TaskType.ORDER_FOLDER,      new TaskToDo(TaskType.ORDER_FOLDER, "Order files", false)},
         {TaskType.REPLACE_POSTER,    new TaskToDo(TaskType.REPLACE_POSTER, "Place poster", false)},
         {TaskType.REPLACE_CHAIR,     new TaskToDo(TaskType.REPLACE_CHAIR, "Place chair", false)},
-        {TaskType.WRITE_AGENDA,      new TaskToDo(TaskType.WRITE_AGENDA, "Write the agenda", false)},
+        //{TaskType.WRITE_AGENDA,      new TaskToDo(TaskType.WRITE_AGENDA, "Write the agenda", false)},
     };
 
     public static readonly TaskType[] LONG_TASKS = new TaskType[]
@@ -59,7 +59,7 @@ public static class TasksDict
         TaskType.ORDER_FOLDER,
         TaskType.REPLACE_POSTER,
         TaskType.REPLACE_CHAIR,
-        TaskType.WRITE_AGENDA
+        //TaskType.WRITE_AGENDA
     };
 
     public static List<TaskType> poolLongTasks = new List<TaskType>(LONG_TASKS);
