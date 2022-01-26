@@ -8,13 +8,15 @@ public class LiftInterraction : Interactable
 
     private PlayerMoves player;
     private Vector2 floor1, floor2, floor3;
+    private BoxCollider2D playerCollider;
     private int currentFloor;
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMoves>();
-        floor1 = GameObject.FindWithTag("F1L").GetComponent<F1L>().transform.position;
-        floor2 = GameObject.FindWithTag("F2L").GetComponent<F2L>().transform.position;
-        floor3 = GameObject.FindWithTag("F3L").GetComponent<F3L>().transform.position;
+        floor1 = GameObject.FindWithTag("F1L").transform.position;
+        floor2 = GameObject.FindWithTag("F2L").transform.position;
+        floor3 = GameObject.FindWithTag("F3L").transform.position;
+        playerCollider = GameObject.FindWithTag("Player").GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -25,14 +27,21 @@ public class LiftInterraction : Interactable
 
     public override void handleInteraction(bool chaos)
     {
-        Debug.Log(textLog);
         if (player.transform.position.y == floor1.y)
+        {
             player.transform.position = floor2;
+
+        }
         else if (player.transform.position.y == floor2.y)
+        {
             player.transform.position = floor3;
+        }
         else if (player.transform.position.y == floor3.y)
+        {
             player.transform.position = floor1;
+        }
 
-
+        playerCollider.enabled = false;
+        playerCollider.enabled = true;
     }
 }
