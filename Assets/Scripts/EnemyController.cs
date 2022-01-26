@@ -8,8 +8,9 @@ public class EnemyController : MonoBehaviour
     Animator anim;
     BoxCollider2D hitbox;
     SpriteRenderer enemy;
+    AudioSource son;
 
-    
+    public GameObject pausing;
     public int direction = 1;
     public float speed = 3.0f;
     public float timeChange = 3.0f;
@@ -25,6 +26,7 @@ public class EnemyController : MonoBehaviour
         anim = GetComponent<Animator>();
         enemy = GetComponent<SpriteRenderer>();
         hitbox = GetComponent<BoxCollider2D>();
+        son = GetComponent<AudioSource>();
         movingTime = timeChange;
         hitbox.size = new Vector2(portee, 8.0f);
     }
@@ -32,8 +34,10 @@ public class EnemyController : MonoBehaviour
     
     void FixedUpdate()
     {
-        
-        timeManager();
+        if(!pausing.GetComponent<Pause>().getPaused())
+        {
+            timeManager();
+        }
     }
 
     void move()
@@ -85,12 +89,14 @@ public class EnemyController : MonoBehaviour
 
         if(player != null && player.isTricking)
         {
+            son.Play();
             if (player.isTricking && !player.IsActionDoing())
             {
                 player.AddStress(player.incrementStressValueByTick * player.onSightTickMultiplier);
                 hitbox.enabled = false;
                 movingTime = timeOut;
                 anim.SetBool("hasFlicked", true);
+                
             }
             else
             {
@@ -99,6 +105,8 @@ public class EnemyController : MonoBehaviour
                 hitbox.enabled = false;
                 movingTime = timeOut;
                 anim.SetBool("hasFlicked", true);
+
+               
             }
         }
         

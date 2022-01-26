@@ -11,6 +11,7 @@ public class SoundAmbiance : MonoBehaviour
         audio = gameObject.GetComponent<AudioSource>();
 
         audio.clip = AudioClipList.GetAudioClipFromAudioType(AudioType.AMBIANCE_LOOP);
+        audio.volume = 0.2f;
         audio.Play();
     }
 
@@ -18,8 +19,16 @@ public class SoundAmbiance : MonoBehaviour
     {
         audio.clip = AudioClipList.GetAudioClipFromAudioType(type);
         if(type == AudioType.AMBIANCE_PUNK) {
-            audio.volume = 0.2f;
-        } else {
+            audio.volume = 0.1f;
+            
+        } 
+        
+        else if(type == AudioType.AMBIANCE_LOOP)
+        {
+            audio.volume = 0.5f;
+        }
+        else
+        {
             audio.volume = 1.0f;
         }
         audio.Play();

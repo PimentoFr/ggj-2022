@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165044761276380387}
+  - component: {fileID: 3620093027902260803}
   m_Layer: 0
   m_Name: InteractablePaper
   m_TagString: Untagged
@@ -25,13 +26,28 @@ Transform:
   m_GameObject: {fileID: 1099756798271311566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -41.114586, y: 7.1197324, z: -5.6215487}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.73279, y: 0.73279, z: 0.73279}
   m_Children:
   - {fileID: 4714097578239892423}
   - {fileID: 1015188072266551670}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3620093027902260803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099756798271311566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540ae14e52131f04f9f95eaf07d901d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSkin: {fileID: 0}
+  HSSkin: {fileID: 0}
+  cleanSkin: {fileID: 0}
 --- !u!1001 &1262677168379232700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,6 +128,10 @@ PrefabInstance:
     - target: {fileID: 358722706608813051, guid: 838b4b798c1dd444f9ebe4e27a2251df, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595228429638671478, guid: 838b4b798c1dd444f9ebe4e27a2251df, type: 3}
+      propertyPath: trickType
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8133399331628702699, guid: 838b4b798c1dd444f9ebe4e27a2251df, type: 3}
       propertyPath: m_RootOrder
