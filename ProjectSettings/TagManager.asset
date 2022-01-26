@@ -16,6 +16,7 @@ TagManager:
   - UI_TrickProgressBar
   - UI_Sound
   - UI_SoundAmbiance
+  - UI_TaskLabels
   layers:
   - Default
   - TransparentFX
