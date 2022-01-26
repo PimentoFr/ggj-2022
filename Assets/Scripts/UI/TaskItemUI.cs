@@ -9,7 +9,7 @@ public class TaskItemUI : MonoBehaviour
     public string taskLabel = "";
     private Text taskText;
     private Image icon;
-    TaskToDo task;
+    TaskInteractible task;
 
     void Awake()
     {
@@ -19,7 +19,7 @@ public class TaskItemUI : MonoBehaviour
         icon.gameObject.SetActive(false);
     }
 
-    public void SetTask(TaskToDo _task)
+    public void SetTask(TaskInteractible _task)
     {
         task = _task;
         Refresh();
@@ -43,6 +43,6 @@ public class TaskItemUI : MonoBehaviour
     public void Refresh()
     {
         taskText.text = task.taskLabel;
-        SetDone(task.done);
+        SetDone(task.IsDone());
     }
 }

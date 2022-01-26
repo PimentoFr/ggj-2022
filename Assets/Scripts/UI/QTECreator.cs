@@ -35,6 +35,7 @@ public class QTECreator : MonoBehaviour
     public KeyCode leaveKey;
 
     public AudioClip swipeUpAudioClip;
+    public AudioClip errorAudioClip;
     public float delayClean = 0.4F;
 
     int current_item_index = 0;
@@ -52,17 +53,13 @@ public class QTECreator : MonoBehaviour
     /* Sound*/
     AudioSource audioSource;
 
-    RectTransform rect;
     GameObject box;
     Transform boxTrans;
 
-    GameObject player;
-    TaskType taskType;
 
     public TaskInteractible caller_callback;
     void Awake()
     {
-        rect = GetComponent<RectTransform>();
         box = transform.Find("Box").gameObject;
         boxTrans = box.GetComponent<Transform>();
         audioSource = GetComponent<AudioSource>();
@@ -225,16 +222,15 @@ public class QTECreator : MonoBehaviour
         if(res == false)
         {
             /* The key is wrong ... reset */
-            //playSound(AudioClipList.GetAudioClipFromAudioType(AudioType.DEFAULT_FAILED));
+            playSound(errorAudioClip);
             AskCleanKeyList();
             return;
         } 
         if(qteItemUi.GetKeysObj().GetComponent<KeysListUI>().KeysListIsComplete())
         {
 
-            if(qteItemUi.clip !=null) {
-                playSound(qteItemUi.clip);
-            }
+            playSound(qteItemUi.clip);
+            
             /* Hide success key list */
             qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>().hide();
             /* Go to next item list */
@@ -262,6 +258,7 @@ public class QTECreator : MonoBehaviour
     {
         Debug.Log("Leave QTE");
         caller_callback.OnQuitQTE(false);
+        playSound(swipeUpAudioClip);
         SlideUp();
     }
 
@@ -270,9 +267,6 @@ public class QTECreator : MonoBehaviour
         askSlideUp = true;
         startAskSlideUp = Time.realtimeSinceStartup;
         originPosition = boxTrans.position;
-        if(swipeUpAudioClip != null) {
-            playSound(swipeUpAudioClip);
-        }
     }
 
     void playSound(AudioClip sound)

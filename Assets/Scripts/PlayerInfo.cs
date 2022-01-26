@@ -7,7 +7,6 @@ public class PlayerInfo : MonoBehaviour
     private float stress = 0.0f;
     bool actionDoing = false;
     PlayerMoves playerMove;
-    PlayerTasks playerTasks;
 
     public ScenesGest sceneGest;
 
@@ -29,7 +28,6 @@ public class PlayerInfo : MonoBehaviour
     void Start()
     {
         playerMove = gameObject.GetComponent<PlayerMoves>();
-        playerTasks = gameObject.GetComponent<PlayerTasks>();
     }
 
     // Update is called once per frame
@@ -111,7 +109,7 @@ public class PlayerInfo : MonoBehaviour
     {
         return isTricking;
     }
-    
+
     public void StopTrick(bool success)
     {
         if(success)
