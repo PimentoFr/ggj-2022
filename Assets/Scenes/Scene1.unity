@@ -22044,36 +22044,11 @@ Transform:
   m_Father: {fileID: 482701431}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &940268689
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 940268690}
-  m_Layer: 7
-  m_Name: PoissonPilote
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &940268690
+--- !u!4 &940268690 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 940268690, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
+  m_PrefabInstance: {fileID: 943393207}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940268689}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2043053626}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &941950450
 GameObject:
   m_ObjectHideFlags: 0
@@ -22163,10 +22138,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1100576375188761425, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 943393209, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
       propertyPath: sceneGest
       value: 
@@ -22179,18 +22150,6 @@ PrefabInstance:
       propertyPath: sceneGest
       value: 
       objectReference: {fileID: 1729062468}
-    - target: {fileID: 997015005952063820, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-      propertyPath: riseStressTickPeriodS
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 997015005952063820, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-      propertyPath: incrementStressValueByTick
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1585245554520598346, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3591816160362813716, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -22238,30 +22197,6 @@ PrefabInstance:
     - target: {fileID: 3591816160362813718, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3591816160362813719, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-      propertyPath: isTricking
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3591816160362813719, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-      propertyPath: poissonPilote_GO
-      value: 
-      objectReference: {fileID: 940268689}
-    - target: {fileID: 7481763728577880332, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7734260379977636245, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7919245675680971414, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264520618000755178, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
@@ -47119,11 +47054,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6134714075701316486, guid: 250ac685370c9074abbef9a80d6589de, type: 3}
   m_PrefabInstance: {fileID: 1712714408}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2043053626 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3591816160362813718, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
-  m_PrefabInstance: {fileID: 943393207}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2045531314
 GameObject:
   m_ObjectHideFlags: 0
@@ -49638,7 +49568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7608547853011518034, guid: a26f078bf307293418a5ab24fb256976, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
+      value: -0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 7608547853011518034, guid: a26f078bf307293418a5ab24fb256976, type: 3}
       propertyPath: m_AnchoredPosition.y
