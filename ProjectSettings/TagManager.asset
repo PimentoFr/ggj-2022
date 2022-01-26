@@ -17,6 +17,7 @@ TagManager:
   - UI_Sound
   - UI_SoundAmbiance
   - UI_TaskLabels
+  - ItemInteractable
   layers:
   - Default
   - TransparentFX
