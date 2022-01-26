@@ -28,4 +28,8 @@ public class TrickInteractible : MonoBehaviour
         // Check if a trick is already playing
         trickController.StartTrickInteractible(this);
     }
+
+    public void SetAsOutOfService() {
+        GetComponent<StateInteractable>().SetOutOfService(true);
+    }
 }

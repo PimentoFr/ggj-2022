@@ -6,7 +6,6 @@ public class InteractionAction : Interactable
 {
 
     PlayerInfo playerInfo;
-    bool outOfService = false;
     GameObject thisGo;
 
     TaskInteractible taskInteractible;
@@ -37,10 +36,5 @@ public class InteractionAction : Interactable
         {
             trickInteractible.StartTrick();
         }
-    }
-
-    public void SetOutOfService(bool outService)
-    {
-        outOfService = outService;
     }
 }

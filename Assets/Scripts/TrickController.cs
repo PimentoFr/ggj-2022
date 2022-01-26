@@ -61,6 +61,7 @@ public class TrickController : MonoBehaviour
     public void OnTrickFinished()
     {
         playerInfo.AddStress(trickInteractible.stressBonus);
+        trickInteractible.SetAsOutOfService();
         Clean();
     }
 
