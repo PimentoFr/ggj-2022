@@ -40,4 +40,9 @@ public class ScenesGest : MonoBehaviour
     {
         SceneManager.LoadScene("CreditsScene");
     }
+
+    public void Controls()
+    {
+        SceneManager.LoadScene("ControlsScene");
+    }
 }

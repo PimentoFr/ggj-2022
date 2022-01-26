@@ -83,7 +83,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5022687603518814661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabQteItem: {fileID: 2400553065929494604, guid: 0414e0dab05d34f4ebbc646c74cc9588, type: 3}
+  box: {fileID: 0}
 --- !u!1 &5022687604292279334
 GameObject:
   m_ObjectHideFlags: 0

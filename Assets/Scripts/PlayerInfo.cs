@@ -123,6 +123,7 @@ public class PlayerInfo : MonoBehaviour
         if(success)
         {
             playerTasks.SetTaskDone(taskType, true);
+
             //canEnterTrickingMode = true;
         }
         SetActionDoing(false);
