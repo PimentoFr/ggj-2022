@@ -38,7 +38,7 @@ public class TaskInteractible : MonoBehaviour
 
     public void StartQTE()
     {
-        bool isOutOfService = false; // Check if the object is out of service
+        bool isOutOfService = GetComponent<StateInteractable>().isOutOfService; // Check if the object is out of service
         int nbKeys = defaultNbKeys; // Number of key for each QTE action
         Debug.Log("Start TaskIneractible START QTE");
 
@@ -64,6 +64,7 @@ public class TaskInteractible : MonoBehaviour
             /* Set the task has done */
             taskDone = true;
             playerTasks.SetTaskDone(this, true);
+            GetComponent<StateInteractable>().SetOutOfService(false);
         }
 
         playerInfo.SetActionDoing(false);
@@ -72,6 +73,10 @@ public class TaskInteractible : MonoBehaviour
     public bool IsDone()
     {
         return taskDone;
+    }
+
+    public void ResetTask() {
+        playerTasks.SetTaskDone(this, false);
     }
 
     public static TaskInteractible FoundTaskInTasks(TaskInteractible match, List<TaskInteractible> tasksList)
