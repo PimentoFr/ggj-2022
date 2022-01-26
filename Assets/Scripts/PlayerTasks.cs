@@ -37,7 +37,7 @@ public class PlayerTasks : MonoBehaviour
         foreach(var go in allTasksGo)
         {
             TaskInteractible task = go.GetComponent<TaskInteractible>();
-            if(task.qteActions.Length > 1)
+            if(task.isLong)
             {
                 listLongTasks.Add(task);
             }
@@ -52,7 +52,7 @@ public class PlayerTasks : MonoBehaviour
         foreach (var go in allTasksGo)
         {
             TaskInteractible task = go.GetComponent<TaskInteractible>();
-            if (task.qteActions.Length == 1)
+            if (!task.isLong)
             {
                 listShortTasks.Add(task);
             }
