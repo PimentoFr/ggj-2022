@@ -117,24 +117,7 @@ public class PlayerInfo : MonoBehaviour
     {
         return isTricking;
     }
-
-    public void startQTE(TaskType taskType, bool outOfService, GameObject _interactedObject)
-    {
-        QTECreator.LaunchQTE(gameObject, taskType, outOfService, UIQTE);
-    }
-
-    public void TaskQTEFinished(bool success, TaskType taskType)
-    {
-        Debug.Log("TaskQTEFinished " + success + " " + taskType);
-        if(success)
-        {
-            playerTasks.SetTaskDone(taskType, true);
-
-            //canEnterTrickingMode = true;
-        }
-        SetActionDoing(false);
-    }
-
+    
     public void StopTrick(bool success)
     {
         if(success)
