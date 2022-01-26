@@ -8,7 +8,9 @@ public class PlayerInfo : MonoBehaviour
     bool actionDoing = false;
     PlayerMoves playerMove;
     PlayerTasks playerTasks;
+    BG_music music;
 
+    public GameObject pausing;
     public ScenesGest sceneGest;
 
     public float onSightTickMultiplier = 5.0f;
@@ -30,14 +32,19 @@ public class PlayerInfo : MonoBehaviour
     {
         playerMove = gameObject.GetComponent<PlayerMoves>();
         playerTasks = gameObject.GetComponent<PlayerTasks>();
+        music = GetComponent<BG_music>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!isTricking && ((Time.realtimeSinceStartup - lastTick) >= riseStressTickPeriodS)) {
-            AddStress(incrementStressValueByTick);
-            lastTick = Time.realtimeSinceStartup;
+        if (!pausing.GetComponent<Pause>().getPaused())
+        {
+            if (!isTricking && ((Time.realtimeSinceStartup - lastTick) >= riseStressTickPeriodS))
+            {
+                AddStress(incrementStressValueByTick);
+                lastTick = Time.realtimeSinceStartup;
+            }
         }
     }
 
@@ -96,15 +103,12 @@ public class PlayerInfo : MonoBehaviour
     public void SetIsTricking(bool _isTricking)
     {
         isTricking = _isTricking;
-
-        /* Update sound */
-        SoundAmbiance ambiance = GameObject.FindWithTag("UI_SoundAmbiance").GetComponent<SoundAmbiance>();
-        ambiance.SetAmbiance((isTricking) ? AudioType.AMBIANCE_PUNK : AudioType.AMBIANCE_LOOP);
     }
 
     public void ToggleIsTricking()
     {
         SetIsTricking(!isTricking);
+        
     }
 
     public bool GetIsTricking()

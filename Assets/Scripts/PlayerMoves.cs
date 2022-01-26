@@ -16,7 +16,7 @@ public class PlayerMoves : MonoBehaviour
 		left,
 		interact
 	}
-
+	public GameObject pausing;
 	public float moveSpeedNormal = 2;
 	public float moveSpeedChaos = 2;
 	private Direction direction = Direction.right;
@@ -61,17 +61,24 @@ public class PlayerMoves : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		//update moveState tmp
-		handleInput();
-		//update states
-		handleMoveStateChange();
+		if(!pausing.GetComponent<Pause>().getPaused())
+        {
+			//update moveState tmp
+			handleInput();
+			//update states
+			handleMoveStateChange();
+		}
+		
 	}
 
 	void FixedUpdate()
 	{
-		animate();
-		move();
+		
+		if (!pausing.GetComponent<Pause>().getPaused())
+			move();
+
         camFollow();
+		animate();
 	}
 	
 	public void interact(bool value)

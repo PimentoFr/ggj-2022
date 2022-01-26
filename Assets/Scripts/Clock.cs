@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Clock : MonoBehaviour
 {
+    public GameObject pausing;
     public int clockSpeed = 2;
     public Text TimerText;
 
@@ -26,22 +27,26 @@ public class Clock : MonoBehaviour
 
     private void FixedUpdate()
     {
-        hourInMinutes += (Time.fixedDeltaTime * clockSpeed);
-
-        int hours = Mathf.FloorToInt(hourInMinutes / 60);
-        int mins = Mathf.FloorToInt(hourInMinutes) - (hours * 60);
-
-        TimerText.text = $"{hours.ToString("D2")}:{mins.ToString("D2")}";
-
-        if (hourInMinutes > 1080)
+        if (!pausing.GetComponent<Pause>().getPaused())
         {
-            hourInMinutes = 1080;
-            TimerText.text = "18:00";
+            hourInMinutes += (Time.fixedDeltaTime * clockSpeed);
 
-            //GAMEOVER
-            Debug.Log("End of the day, Game Over");
-            sceneGest.LostGame();
+            int hours = Mathf.FloorToInt(hourInMinutes / 60);
+            int mins = Mathf.FloorToInt(hourInMinutes) - (hours * 60);
+
+            TimerText.text = $"{hours.ToString("D2")}:{mins.ToString("D2")}";
+
+            if (hourInMinutes > 1080)
+            {
+                hourInMinutes = 1080;
+                TimerText.text = "18:00";
+
+                //GAMEOVER
+                Debug.Log("End of the day, Game Over");
+                sceneGest.LostGame();
+            }
         }
+            
 
     }
 }
