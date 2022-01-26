@@ -19,13 +19,18 @@ public class TaskInteractible : MonoBehaviour
     public int defaultNbKeys = 3;
 
     public GameObject prefabUI_QTE;
+    public bool taskDone;
+
     PlayerInfo playerInfo;
+    PlayerTasks playerTasks;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Start TaskIneractible");
         playerInfo = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInfo>();
+        playerTasks = playerInfo.GetComponent<PlayerTasks>();
     }
 
 
@@ -33,6 +38,7 @@ public class TaskInteractible : MonoBehaviour
     {
         bool isOutOfService = false; // Check if the object is out of service
         int nbKeys = defaultNbKeys; // Number of key for each QTE action
+        Debug.Log("Start TaskIneractible START QTE");
 
         List<string> listActions = new List<string>();
         List<AudioClip> listSounds = new List<AudioClip>();
@@ -44,15 +50,24 @@ public class TaskInteractible : MonoBehaviour
         listActions.AddRange(qteActions);
         listSounds.AddRange(qteSounds);
 
-
+        playerInfo.SetActionDoing(true);
         QTECreator.LaunchQTE2(prefabUI_QTE, listActions, listSounds, nbKeys, this);
     }
 
     public void OnQuitQTE(bool success)
     {
-        if(success)
+        Debug.Log("On Quit QTE");
+        if (success)
         {
-            Debug.Log("On Quit QTE");
+            /* Set the task has done */
+            taskDone = true;
         }
+
+        playerInfo.SetActionDoing(false);
+    }
+
+    public bool IsDone()
+    {
+        return taskDone;
     }
 }

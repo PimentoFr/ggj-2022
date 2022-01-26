@@ -5,51 +5,37 @@ using UnityEngine;
 public class InteractionAction : Interactable
 {
 
-    public TaskType taskType = TaskType.NULL;
-    public TrickType trickType = TrickType.NULL;
-    GameObject player;
+    PlayerInfo playerInfo;
     bool outOfService = false;
     GameObject thisGo;
+
+    TaskInteractible taskInteractible;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        playerInfo = GameObject.FindWithTag("Player").GetComponent<PlayerInfo>();
+        taskInteractible = GetComponent<TaskInteractible>();
         thisGo = gameObject;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public override void handleInteraction(bool chaos)
     {
         Debug.Log("interraction chaotique = Interaction Action " + chaos);
+
+        // Has already an action done, just cancel the interaction
+        if (playerInfo.IsActionDoing())
+        {
+            return;
+        }
+
         if(!chaos)
         {
-            /* Launch QTE */
-            if(taskType == TaskType.NULL)
-            {
-                Debug.Log("Task Type Null");
-                return;
-            }
-
-            //TODO: Launch QTE
-            Debug.Log("Launch QTE");
-            player.GetComponent<PlayerInfo>().startQTE(taskType, outOfService, thisGo);
+            taskInteractible.StartQTE();
         } else
         {
             /* Launch Wait */
-            if (trickType == TrickType.NULL)
-            {
-                Debug.Log("Trick Type Null");
-                return;
-            }
-            Debug.Log("Launch Trick Progress Bar");
-            player.GetComponent<PlayerInfo>().StartTrick(trickType, thisGo);
+            Debug.Log("Trick awaiting");
         }
-        
     }
 
     public void SetOutOfService(bool outService)
