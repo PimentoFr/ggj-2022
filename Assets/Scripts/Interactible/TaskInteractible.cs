@@ -61,6 +61,7 @@ public class TaskInteractible : MonoBehaviour
         {
             /* Set the task has done */
             taskDone = true;
+            playerTasks.SetTaskDone(this, true);
         }
 
         playerInfo.SetActionDoing(false);
@@ -69,5 +70,20 @@ public class TaskInteractible : MonoBehaviour
     public bool IsDone()
     {
         return taskDone;
+    }
+
+    public static TaskInteractible FoundTaskInTasks(TaskInteractible match, List<TaskInteractible> tasksList)
+    {
+        TaskInteractible taskFound = null;
+        foreach(var task in tasksList)
+        {
+            if(task.taskLabel == match.taskLabel)
+            {
+                taskFound = task;
+                break;
+            }
+        }
+
+        return taskFound;
     }
 }

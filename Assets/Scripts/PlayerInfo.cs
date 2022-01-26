@@ -7,7 +7,6 @@ public class PlayerInfo : MonoBehaviour
     private float stress = 0.0f;
     bool actionDoing = false;
     PlayerMoves playerMove;
-    PlayerTasks playerTasks;
     BG_music music;
 
     public GameObject pausing;
@@ -31,7 +30,6 @@ public class PlayerInfo : MonoBehaviour
     void Start()
     {
         playerMove = gameObject.GetComponent<PlayerMoves>();
-        playerTasks = gameObject.GetComponent<PlayerTasks>();
         music = GetComponent<BG_music>();
     }
 
@@ -117,7 +115,7 @@ public class PlayerInfo : MonoBehaviour
     {
         return isTricking;
     }
-    
+
     public void StopTrick(bool success)
     {
         if(success)
