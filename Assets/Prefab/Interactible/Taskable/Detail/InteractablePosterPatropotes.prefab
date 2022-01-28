@@ -93,16 +93,14 @@ GameObject:
   - component: {fileID: 5396553193248838326}
   - component: {fileID: 7753992547315093822}
   - component: {fileID: 4969585991057892202}
-  - component: {fileID: 5465102061395590907}
   - component: {fileID: 4657544676752466119}
-  - component: {fileID: 2812635378471627056}
   m_Layer: 0
   m_Name: InteractablePosterPatropotes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5396553193248838326
 Transform:
   m_ObjectHideFlags: 0
@@ -182,7 +180,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.14605975, y: -0.01043272}
+  m_Offset: {x: 0.18373394, y: -2.960937}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -193,21 +191,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.329183, y: 9.520087}
+  m_Size: {x: 7.3190823, y: 15.466531}
   m_EdgeRadius: 0
---- !u!114 &5465102061395590907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7872051404807235766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05d9a454f3445dd89f02a0907a19460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_callback: {fileID: 0}
 --- !u!114 &4657544676752466119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,17 +206,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
---- !u!114 &2812635378471627056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7872051404807235766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskType: 9
-  trickType: 9

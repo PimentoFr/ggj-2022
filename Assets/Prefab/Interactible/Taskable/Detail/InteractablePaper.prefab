@@ -93,9 +93,7 @@ GameObject:
   - component: {fileID: 5831661191146576507}
   - component: {fileID: 5831661191146576506}
   - component: {fileID: 1012320025072104498}
-  - component: {fileID: 599022395381390004}
   - component: {fileID: 6836301465607473557}
-  - component: {fileID: 7280320505004827505}
   m_Layer: 0
   m_Name: InteractablePaper
   m_TagString: Untagged
@@ -179,7 +177,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -195,19 +193,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 10}
   m_EdgeRadius: 0
---- !u!114 &599022395381390004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5831661191146576501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05d9a454f3445dd89f02a0907a19460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_callback: {fileID: 0}
 --- !u!114 &6836301465607473557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,17 +206,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
---- !u!114 &7280320505004827505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5831661191146576501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskType: 8
-  trickType: 87
