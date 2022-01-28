@@ -19,35 +19,6 @@ public class PlayerInterraction : MonoBehaviour
         
     }
 
-    void ShowTaskLabel(PlayerInfo playerInfo)
-    {
-        StateInteractableObject state = GetComponent<StateInteractable>().GetState();
-        if(playerInfo.isTricking)
-        {
-            if(state == StateInteractableObject.OUT_OF_SERVICE) {
-                //The object is already of service, don't show the action text
-                return;
-            }
-            TrickInteractible t = GetComponent<TrickInteractible>();
-            GameObject.FindGameObjectWithTag("UI_TaskLabels").GetComponent<TaskLabel>().ShowTaskLabel(
-                t.trickLabel,
-                true,
-                t.isLongTask
-                );
-        } else
-        {
-            if(state == StateInteractableObject.FIXED) {
-                //The object is already of service, don't show the action text
-                return;
-            }
-            TaskInteractible t = GetComponent<TaskInteractible>();
-            GameObject.FindGameObjectWithTag("UI_TaskLabels").GetComponent<TaskLabel>().ShowTaskLabel(
-                t.taskLabel,
-                false,
-                t.isLong
-                );
-        }
-    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -55,8 +26,6 @@ public class PlayerInterraction : MonoBehaviour
         if(obj.tag == "Player")
         {
             obj.GetComponent<PlayerMoves>().setInteractionCallback(m_callback);
-            // Display Text
-            ShowTaskLabel(obj.GetComponent<PlayerInfo>());
         }
     }
 
@@ -66,8 +35,6 @@ public class PlayerInterraction : MonoBehaviour
         if(obj.tag == "Player")
         {
             obj.GetComponent<PlayerMoves>().setInteractionCallback(null);
-            // Hide Task label
-            GameObject.FindGameObjectWithTag("UI_TaskLabels").GetComponent<TaskLabel>().HideTaskLabel();
         }
     }
 }
