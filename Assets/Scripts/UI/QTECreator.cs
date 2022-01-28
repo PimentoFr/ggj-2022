@@ -272,6 +272,7 @@ public class QTECreator : MonoBehaviour
     void playSound(AudioClip sound)
     {
         if(sound != null) {
+            audioSource.volume = GameObject.FindGameObjectWithTag("BG_music").GetComponent<BG_music>().GetEffectVolume();
             audioSource.PlayOneShot(sound);
         }
     }
