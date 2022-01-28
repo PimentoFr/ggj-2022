@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 977636432043280092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.50807, y: 0.50807, z: 0.50807}
   m_Children:
   - {fileID: 5376528135000494441}
   - {fileID: 2293998563915107583}
@@ -97,8 +97,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f7b2388a7e156df44aac5629a5022020, type: 3}
   - {fileID: 21300000, guid: d86be0886c2871f4bb29c2cfc9365d92, type: 3}
   index_icon: -1
-  hardcoreMaxAmplitude: 30
-  hardcorePeriodInMs: 0.3
 --- !u!1 &1580585542964654810
 GameObject:
   m_ObjectHideFlags: 0
