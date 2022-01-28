@@ -448,8 +448,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: a960d86bce142ea449f241c794ebd55d, type: 3}
   chaosSprite: {fileID: 21300000, guid: 81db5cc113c6efd4793f96b8aa96a3f3, type: 3}
   poissonPilote_GO: {fileID: 940268689}
-  piloteCamSpeed: 0.5
-  piloteCamIdleSpeed: 0.2
+  piloteCamSpeed: 0.3
+  piloteCamIdleSpeed: 0.1
 --- !u!114 &997015005952063820
 MonoBehaviour:
   m_ObjectHideFlags: 0
