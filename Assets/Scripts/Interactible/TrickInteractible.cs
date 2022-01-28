@@ -18,6 +18,8 @@ public class TrickInteractible : MonoBehaviour
 
     public AudioClip sound;
 
+    
+
     TrickController  trickController;
     void Start()
     {

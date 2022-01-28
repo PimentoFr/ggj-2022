@@ -13,14 +13,14 @@ public class TrickController : MonoBehaviour
     public float durationShort;
     public float durationLong;
     TrickInteractible trickInteractible;
+    public GameObject pausing;
 
-
-    float startTick;
     float duration;
     PlayerInfo playerInfo;
     bool enableTimer = false;
     TaskLabel taskLabel;
     AudioSource audioSource;
+    float timeTricking = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +32,19 @@ public class TrickController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(enableTimer)
+        if(!pausing.GetComponent<Pause>().getPaused())
         {
-            // Update the jinx bar
-            taskLabel.UpdateJinxBar((Time.realtimeSinceStartup - startTick) / duration);
+            if (enableTimer)
+            {
+                timeTricking -= Time.deltaTime;
+                // Update the jinx bar
+                taskLabel.UpdateJinxBar((duration - timeTricking) / duration);
 
-            // Check if the timer is ended
-            if ((Time.realtimeSinceStartup - startTick) >= duration) {
-                OnTrickFinished();
+                // Check if the timer is ended
+                if (timeTricking <= 0)
+                {
+                    OnTrickFinished();
+                }
             }
         }
     }
@@ -51,10 +56,10 @@ public class TrickController : MonoBehaviour
         // Block player
         playerInfo.SetActionDoing(true);
         
-        startTick = Time.realtimeSinceStartup;
         duration = (trick.isLongTask) ? durationLong : durationShort;
 
         enableTimer = true;
+        timeTricking = duration;
         PlaySound();
     }
 

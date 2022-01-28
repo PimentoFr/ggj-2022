@@ -464,6 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f29e2331b06ef94b90d55cca395fa3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausing: {fileID: 0}
   sceneGest: {fileID: 0}
   onSightTickMultiplier: 5
   riseStressTickPeriodS: 1
@@ -548,6 +549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   durationShort: 3
   durationLong: 10
+  pausing: {fileID: 0}
 --- !u!82 &4270812146865419764
 AudioSource:
   m_ObjectHideFlags: 0
