@@ -70,11 +70,12 @@ public class QTECreator : MonoBehaviour
 
     static List<string> GenerateKeys(int number)
     {
-        string[] listKeys = { "UP", "DOWN", "RIGHT", "LEFT" };
+
+        List<string> listKeys = KeysList.GetKeys();
         List<string> list = new List<string>();
         for(int i = 0; i < number; i++)
         {
-            list.Add(listKeys[Random.Range(0, 4)]);
+            list.Add(listKeys[Random.Range(0, listKeys.Count)]);
         }
         return list;
     }
@@ -103,6 +104,16 @@ public class QTECreator : MonoBehaviour
         return qteCreator;
     }
 
+    KeyCode GetButtonPressed() {
+        KeyCode keyPressed = KeyCode.None;
+        foreach(var keycode in KeysList.GetValues()) {
+            if(Input.GetKeyDown(keycode)) {
+                keyPressed = keycode;
+                break;
+            }
+        }
+        return keyPressed;
+    }
     bool ButtonIsPressed(QteKeyboardKey key)
     {
        switch(key)
@@ -152,21 +163,10 @@ public class QTECreator : MonoBehaviour
             boxTrans.position = editedPosition;
         }
 
-        if (ButtonIsPressed(QteKeyboardKey.DOWN))
+        KeyCode kc = GetButtonPressed();
+        if(kc != KeyCode.None)
         {
-            EventKeyTrigger(KeyUISprite.DOWN);
-        }
-        else if (ButtonIsPressed(QteKeyboardKey.UP))
-        {
-            EventKeyTrigger(KeyUISprite.UP);
-        }
-        else if (ButtonIsPressed(QteKeyboardKey.LEFT))
-        {
-            EventKeyTrigger(KeyUISprite.LEFT);
-        }
-        else if (ButtonIsPressed(QteKeyboardKey.RIGHT))
-        {
-            EventKeyTrigger(KeyUISprite.RIGHT);
+            EventKeyTrigger(kc);
         }
         else if (ButtonIsPressed(QteKeyboardKey.LEAVE))
         {
@@ -215,10 +215,10 @@ public class QTECreator : MonoBehaviour
         qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>().Shake();
     }
 
-    void EventKeyTrigger(KeyUISprite key_type)
+    void EventKeyTrigger(KeyCode key)
     {
         QteItemUI qteItemUi = qteItemUiList[current_item_index];
-        bool res = qteItemUi.PropageKeyboardEvent(key_type);
+        bool res = qteItemUi.PropageKeyboardEvent(key);
         if(res == false)
         {
             /* The key is wrong ... reset */

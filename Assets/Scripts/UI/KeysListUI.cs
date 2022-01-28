@@ -68,26 +68,26 @@ public class KeysListUI : MonoBehaviour
         originPosition = transform.position;
     }
 
-    public bool TriggerKeyboardEvent(KeyUISprite key_type)
+    public bool TriggerKeyboardEvent(KeyCode key)
     {
         if(current_key_index >= keys_ui.Count)
         {
             return true;
         }
 
-        KeyUI key = keys_ui[current_key_index];
-        bool result = key.IsCorrectKeyPressed(key_type);
+        KeyUI keyUI = keys_ui[current_key_index];
+        bool result = keyUI.IsCorrectKeyPressed(key);
         if(result)
         {
-            key.Valid();
+            keyUI.Valid();
             current_key_index++;
             if(!KeysListIsComplete())
             {
-                keys_ui[current_key_index].ShowArrow();
+                keys_ui[current_key_index].ShowMark();
             }
         } else
         {
-            key.Error();
+            keyUI.Error();
             current_key_index = 0;
         }
         return result;
@@ -104,9 +104,9 @@ public class KeysListUI : MonoBehaviour
         foreach(KeyUI key_ui in keys_ui)
         {
             key_ui.Clear();
-            key_ui.HideArrow();
+            key_ui.ShowMark();
         }
-        keys_ui[0].ShowArrow();
+        keys_ui[0].ShowMark();
     }
 
     public void hide()

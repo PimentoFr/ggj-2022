@@ -68,8 +68,8 @@ public class QteItemUI : MonoBehaviour
     }
 
     /* Propagate keyboard event to Key list */
-    public bool PropageKeyboardEvent(KeyUISprite key_type)
+    public bool PropageKeyboardEvent(KeyCode key)
     {
-        return keys_obj.GetComponent<KeysListUI>().TriggerKeyboardEvent(key_type);
+        return keys_obj.GetComponent<KeysListUI>().TriggerKeyboardEvent(key);
     }
 }
