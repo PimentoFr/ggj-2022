@@ -9,9 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7381917073828122721}
+  - component: {fileID: 2570146511191249251}
+  - component: {fileID: 7094002487530537573}
+  - component: {fileID: 3814599058362976891}
+  - component: {fileID: 5022940901136297456}
+  - component: {fileID: 6260647277829548510}
+  - component: {fileID: 5507066687115287123}
   m_Layer: 0
   m_Name: InteractablePhone
-  m_TagString: Untagged
+  m_TagString: ItemInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +38,115 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2570146511191249251
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741135696548235452}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 2.455947}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 10}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10, y: 19.012266}
+  m_EdgeRadius: 0
+--- !u!114 &7094002487530537573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741135696548235452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd0bfea2403e7042a05dd5a76bb149a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_callback: {fileID: 0}
+--- !u!114 &3814599058362976891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741135696548235452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5022940901136297456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741135696548235452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c7c9d7a3ddda47a0dd854e8b3c80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskLabel: Call a client
+  qteActions:
+  - Type phone number
+  - Bullshit with client
+  - Convince the client
+  qteSounds:
+  - {fileID: 8300000, guid: 640f3daf6c565d044b9d14ad26da375c, type: 3}
+  - {fileID: 8300000, guid: e93e3533f97ab564bbb885132be99f91, type: 3}
+  - {fileID: 8300000, guid: 88c2a47a6a1d5fe4791eca20e5a6d44f, type: 3}
+  qteActionsOutOfService:
+  - Apologize
+  qteSoundsOutOfService:
+  - {fileID: 8300000, guid: 995244c94b328d647acc8d2c8515127e, type: 3}
+  defaultNbKeys: 3
+  prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
+  taskDone: 0
+  isLong: 1
+--- !u!114 &6260647277829548510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741135696548235452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a28c15fd5b9094cb2737fec123c302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trickLabel: Prank a client
+  stressBonus: -30
+  stressOnDetected: 50
+  isLongTask: 1
+  sound: {fileID: 8300000, guid: 664ed214504c06242926fb0b81cb3c2a, type: 3}
+--- !u!114 &5507066687115287123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741135696548235452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7801a205e3a582419f61d96de7ee959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2408393316212261658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,18 +201,6 @@ PrefabInstance:
     - target: {fileID: 710172371446561966, guid: dbda51fe7c6582a4a8c5bba3f1614d8e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3229545257187281534, guid: dbda51fe7c6582a4a8c5bba3f1614d8e, type: 3}
-      propertyPath: m_Size.y
-      value: 19.012266
-      objectReference: {fileID: 0}
-    - target: {fileID: 3229545257187281534, guid: dbda51fe7c6582a4a8c5bba3f1614d8e, type: 3}
-      propertyPath: m_Offset.y
-      value: 2.455947
-      objectReference: {fileID: 0}
-    - target: {fileID: 3229545257187281534, guid: dbda51fe7c6582a4a8c5bba3f1614d8e, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbda51fe7c6582a4a8c5bba3f1614d8e, type: 3}
@@ -160,26 +263,6 @@ PrefabInstance:
     - target: {fileID: 3858941637208496230, guid: fa61fc593faa4594480c755c23756d13, type: 3}
       propertyPath: m_Name
       value: HS
-      objectReference: {fileID: 0}
-    - target: {fileID: 3858941637208496230, guid: fa61fc593faa4594480c755c23756d13, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143783555880712077, guid: fa61fc593faa4594480c755c23756d13, type: 3}
-      propertyPath: m_Size.y
-      value: 19.012266
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143783555880712077, guid: fa61fc593faa4594480c755c23756d13, type: 3}
-      propertyPath: m_Offset.y
-      value: 2.455947
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143783555880712077, guid: fa61fc593faa4594480c755c23756d13, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143783555880712077, guid: fa61fc593faa4594480c755c23756d13, type: 3}
-      propertyPath: m_UsedByEffector
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa61fc593faa4594480c755c23756d13, type: 3}

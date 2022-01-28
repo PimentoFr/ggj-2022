@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6456162946432127668}
   - component: {fileID: 6456162946432127669}
   - component: {fileID: 6456162946432127666}
-  - component: {fileID: 3995352308250469033}
+  - component: {fileID: 4370349566948957214}
   - component: {fileID: 1432070655646853207}
   m_Layer: 0
   m_Name: InteractableElevatorRight
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
---- !u!114 &3995352308250469033
+--- !u!114 &4370349566948957214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6456162946432127667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89adc7d21fa792c40a958bdb58e08d41, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ed671a066e783248ad3ba9fb89824c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textLog: logInfo

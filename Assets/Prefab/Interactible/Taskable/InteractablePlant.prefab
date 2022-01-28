@@ -9,9 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1608962863448905333}
+  - component: {fileID: 4665950264954038831}
+  - component: {fileID: 7401308225176890720}
+  - component: {fileID: 8714700021148471925}
+  - component: {fileID: 8731945437167135444}
+  - component: {fileID: 5982113914539757969}
+  - component: {fileID: 1523832137302524228}
   m_Layer: 0
   m_Name: InteractablePlant
-  m_TagString: Untagged
+  m_TagString: ItemInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +38,111 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4665950264954038831
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677934159131654856}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.12606859, y: 1.9850731}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 10}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.3105316, y: 13.970146}
+  m_EdgeRadius: 0
+--- !u!114 &7401308225176890720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677934159131654856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd0bfea2403e7042a05dd5a76bb149a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_callback: {fileID: 0}
+--- !u!114 &8714700021148471925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677934159131654856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8731945437167135444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677934159131654856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c7c9d7a3ddda47a0dd854e8b3c80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskLabel: Water the plant
+  qteActions:
+  - Water the plant
+  qteSounds:
+  - {fileID: 8300000, guid: 698359ce5be862a409c88f6eac60d452, type: 3}
+  qteActionsOutOfService:
+  - Straight the plant
+  qteSoundsOutOfService:
+  - {fileID: 8300000, guid: 930ecd46e846b6f4e9698fa5ff3cd0f6, type: 3}
+  defaultNbKeys: 3
+  prefabUI_QTE: {fileID: 0}
+  taskDone: 0
+  isLong: 0
+--- !u!114 &5982113914539757969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677934159131654856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a28c15fd5b9094cb2737fec123c302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trickLabel: Strike the plant
+  stressBonus: -5
+  stressOnDetected: 5
+  isLongTask: 0
+  sound: {fileID: 8300000, guid: fb671d104acec714e8216175723ba16d, type: 3}
+--- !u!114 &1523832137302524228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677934159131654856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7801a205e3a582419f61d96de7ee959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4074818724246378523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39,18 +150,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1608962863448905333}
     m_Modifications:
-    - target: {fileID: 6268596093666226504, guid: 843fae42268f27b479eb0bbbc882e896, type: 3}
-      propertyPath: m_Size.y
-      value: 13.970146
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268596093666226504, guid: 843fae42268f27b479eb0bbbc882e896, type: 3}
-      propertyPath: m_Offset.y
-      value: 1.9850731
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268596093666226504, guid: 843fae42268f27b479eb0bbbc882e896, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6885689576618952740, guid: 843fae42268f27b479eb0bbbc882e896, type: 3}
       propertyPath: m_Name
       value: Normal
@@ -113,18 +212,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1608962863448905333}
     m_Modifications:
-    - target: {fileID: 6687357441383603724, guid: 07da34e2a49cb6948ae4675602afb8a4, type: 3}
-      propertyPath: m_Size.y
-      value: 17.751242
-      objectReference: {fileID: 0}
-    - target: {fileID: 6687357441383603724, guid: 07da34e2a49cb6948ae4675602afb8a4, type: 3}
-      propertyPath: m_Offset.y
-      value: 3.8756208
-      objectReference: {fileID: 0}
-    - target: {fileID: 6687357441383603724, guid: 07da34e2a49cb6948ae4675602afb8a4, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8571296733379790869, guid: 07da34e2a49cb6948ae4675602afb8a4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -172,10 +259,6 @@ PrefabInstance:
     - target: {fileID: 8571296733379790871, guid: 07da34e2a49cb6948ae4675602afb8a4, type: 3}
       propertyPath: m_Name
       value: HS
-      objectReference: {fileID: 0}
-    - target: {fileID: 8571296733379790871, guid: 07da34e2a49cb6948ae4675602afb8a4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07da34e2a49cb6948ae4675602afb8a4, type: 3}

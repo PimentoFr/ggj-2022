@@ -269,9 +269,12 @@ MonoBehaviour:
   upKey: 273
   downKey: 274
   leaveKey: 113
+  swipeUpAudioClip: {fileID: 8300000, guid: 58a70ab17e839214b87e47f24fdfa379, type: 3}
+  errorAudioClip: {fileID: 8300000, guid: a6788d8a242eed648bff44d0580a64a8, type: 3}
   delayClean: 0.8
   slideUpDurationInS: 1
   slideUpDistance: 1000
+  caller_callback: {fileID: 0}
 --- !u!82 &2300225301783471935
 AudioSource:
   m_ObjectHideFlags: 0

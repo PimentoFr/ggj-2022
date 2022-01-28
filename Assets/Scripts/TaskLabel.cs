@@ -21,7 +21,7 @@ public class TaskLabel : MonoBehaviour
 
         greenColor = Color.green;
         redColor = Color.red;
-
+        UpdateJinxBar(0.0f);
         HideTaskLabel();
     }
 
@@ -40,13 +40,12 @@ public class TaskLabel : MonoBehaviour
             {
                 skullsHardGO.SetActive(true);
             }
-            percent = 0f;
         }
         else
         {
             taskTxt.color = greenColor;
         }
-
+        UpdateJinxBar(0.0f);
         taskTxt.enabled = true;
     }
 

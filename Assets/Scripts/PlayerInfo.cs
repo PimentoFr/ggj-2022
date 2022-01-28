@@ -7,7 +7,6 @@ public class PlayerInfo : MonoBehaviour
     private float stress = 0.0f;
     bool actionDoing = false;
     PlayerMoves playerMove;
-    PlayerTasks playerTasks;
     BG_music music;
 
     public GameObject pausing;
@@ -25,13 +24,12 @@ public class PlayerInfo : MonoBehaviour
     TrickType currentTrickType;
     public TrickMission trickMission;
     public float trickStartTime { get; }
-
+    bool isFrozen = false;
     //bool canEnterTrickingMode = false;
     // Start is called before the first frame update
     void Start()
     {
         playerMove = gameObject.GetComponent<PlayerMoves>();
-        playerTasks = gameObject.GetComponent<PlayerTasks>();
         music = GetComponent<BG_music>();
     }
 
@@ -72,12 +70,14 @@ public class PlayerInfo : MonoBehaviour
 
     public void Freeze()
     {
+        isFrozen = true;
         playerMove.interact(true);
     }
 
     public void Unfreeze()
     {
         playerMove.interact(false);
+        isFrozen = false;
     }
 
     public void SetActionDoing(bool actived)
@@ -90,16 +90,6 @@ public class PlayerInfo : MonoBehaviour
         {
             Unfreeze();
         }
-    }
-
-    public void StartTrick(TrickType _trickType, GameObject _interactedObject)
-    {
-        currentTrickType = _trickType;
-        trickMission = TrickMissions.missions[_trickType];
-        /* Spawan trick progress bar */
-
-        TrickProgressBar.LaunchProgressBar(this, trickMission, UITrick);
-        SetActionDoing(true);
     }
 
     public void SetIsTricking(bool _isTricking)
@@ -116,32 +106,6 @@ public class PlayerInfo : MonoBehaviour
     public bool GetIsTricking()
     {
         return isTricking;
-    }
-
-    public void startQTE(TaskType taskType, bool outOfService, GameObject _interactedObject)
-    {
-        QTECreator.LaunchQTE(gameObject, taskType, outOfService, UIQTE);
-    }
-
-    public void TaskQTEFinished(bool success, TaskType taskType)
-    {
-        Debug.Log("TaskQTEFinished " + success + " " + taskType);
-        if(success)
-        {
-            playerTasks.SetTaskDone(taskType, true);
-
-            //canEnterTrickingMode = true;
-        }
-        SetActionDoing(false);
-    }
-
-    public void StopTrick(bool success)
-    {
-        if(success)
-        {
-            AddStress(trickMission.stressBonus);
-        }
-        SetActionDoing(false);
     }
 
     public void Lose()
