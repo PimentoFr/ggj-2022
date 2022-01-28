@@ -90,6 +90,9 @@ public class PlayerInfo : MonoBehaviour
         {
             Unfreeze();
         }
+
+        // To avoid some bugs
+        RefreshCollider();
     }
 
     public void SetIsTricking(bool _isTricking)
@@ -112,5 +115,11 @@ public class PlayerInfo : MonoBehaviour
     {
         Debug.Log("To much stress, loooosser");
         sceneGest.LostGame();
+    }
+
+    public void RefreshCollider()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Collider2D>().enabled = true;
     }
 }
