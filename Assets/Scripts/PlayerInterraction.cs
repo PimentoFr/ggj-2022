@@ -19,6 +19,7 @@ public class PlayerInterraction : MonoBehaviour
         
     }
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject obj = collision.gameObject;

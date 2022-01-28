@@ -6,9 +6,9 @@ public class QTEItem
 {
     public string action_label { get; set; }
     public List<string> keys_type { get; set; }
-    public AudioType clip;
+    public AudioClip clip;
 
-    public QTEItem(string _action_label, List<string> _keys_type, AudioType _clip)
+    public QTEItem(string _action_label, List<string> _keys_type, AudioClip _clip)
     {
         action_label = _action_label;
         keys_type = _keys_type;
@@ -34,6 +34,8 @@ public class QTECreator : MonoBehaviour
     public KeyCode downKey;
     public KeyCode leaveKey;
 
+    public AudioClip swipeUpAudioClip;
+    public AudioClip errorAudioClip;
     public float delayClean = 0.4F;
 
     int current_item_index = 0;
@@ -51,16 +53,13 @@ public class QTECreator : MonoBehaviour
     /* Sound*/
     AudioSource audioSource;
 
-    RectTransform rect;
     GameObject box;
     Transform boxTrans;
 
-    GameObject player;
-    TaskType taskType;
 
+    public TaskInteractible caller_callback;
     void Awake()
     {
-        rect = GetComponent<RectTransform>();
         box = transform.Find("Box").gameObject;
         boxTrans = box.GetComponent<Transform>();
         audioSource = GetComponent<AudioSource>();
@@ -80,44 +79,29 @@ public class QTECreator : MonoBehaviour
         return list;
     }
 
-    public static void LaunchQTE(GameObject player, TaskType task_type, bool outOfService, GameObject prefabUI)
+    public void SetCallerCallback(TaskInteractible caller) {
+        caller_callback = caller;
+    }
+
+    public static QTECreator LaunchQTE2(GameObject UI_QTE,List<string> listActions, List<AudioClip> listAudioClip, int nbKeys, TaskInteractible caller_callback)
     {
-        Debug.Log("LaunchQTE " + task_type);
+        GameObject qte =  Instantiate(UI_QTE, new Vector3(0, 0, 0), Quaternion.identity);
 
-        if(player.GetComponent<PlayerInfo>().IsActionDoing())
-        {
-            return;
-        }
-
-        QTEMission mission = QTEMissions.missions[task_type];
-
-        GameObject qte =  Instantiate(prefabUI, new Vector3(0, 0, 0), Quaternion.identity);
-
-        
-        int nbKeys = mission.difficulties;
-
-        /* Lock Player */
-
-
-        QTEItem[] items = mission.GetQTEItems(outOfService);
         List<QTEItem> list = new List<QTEItem>();
-        foreach(var item in items)
-        {
+        for(int i = 0; i < listActions.Count; i++) {
             List<string> keys = GenerateKeys(nbKeys);
-            list.Add(new QTEItem(item.action_label, keys, item.clip));
+            list.Add(new QTEItem(listActions[i], keys, listAudioClip[i]));
         }
 
         QTECreator qteCreator = qte.GetComponent<QTECreator>();
 
-        player.GetComponent<PlayerInfo>().SetActionDoing(true);
-        qteCreator.player = player;
-        qteCreator.taskType = task_type;
+        qteCreator.SetCallerCallback(caller_callback);
         qteCreator.CreateItems(list);
         qteCreator.SetHardcoreMode(false);
         qteCreator.CleanKeyList(false);
 
+        return qteCreator;
     }
-
 
     bool ButtonIsPressed(QteKeyboardKey key)
     {
@@ -238,16 +222,15 @@ public class QTECreator : MonoBehaviour
         if(res == false)
         {
             /* The key is wrong ... reset */
-            playSound(AudioClipList.GetAudioClipFromAudioType(AudioType.DEFAULT_FAILED));
+            playSound(errorAudioClip);
             AskCleanKeyList();
             return;
         } 
         if(qteItemUi.GetKeysObj().GetComponent<KeysListUI>().KeysListIsComplete())
         {
 
-            if(qteItemUi.clip != AudioType.NULL) {
-                playSound(AudioClipList.GetAudioClipFromAudioType(qteItemUi.clip));
-            }
+            playSound(qteItemUi.clip);
+            
             /* Hide success key list */
             qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>().hide();
             /* Go to next item list */
@@ -268,13 +251,14 @@ public class QTECreator : MonoBehaviour
     {
         Debug.Log("All QTE finished and correct");
         //TODO: call callack success
-        player.GetComponent<PlayerInfo>().TaskQTEFinished(true, taskType);
+        caller_callback.OnQuitQTE(true);
         SlideUp();
     }
     void Leave()
     {
         Debug.Log("Leave QTE");
-        player.GetComponent<PlayerInfo>().TaskQTEFinished(false, taskType);
+        caller_callback.OnQuitQTE(false);
+        playSound(swipeUpAudioClip);
         SlideUp();
     }
 
@@ -283,7 +267,6 @@ public class QTECreator : MonoBehaviour
         askSlideUp = true;
         startAskSlideUp = Time.realtimeSinceStartup;
         originPosition = boxTrans.position;
-        playSound(AudioClipList.GetAudioClipFromAudioType(AudioType.DEFAULT_SWIPE));
     }
 
     void playSound(AudioClip sound)

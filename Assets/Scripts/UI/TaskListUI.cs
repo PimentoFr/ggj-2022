@@ -6,7 +6,7 @@ using UnityEngine;
 public class TaskListUI : MonoBehaviour
 {
     public GameObject prefabQteItem;
-    List<TaskToDo> tasksList = new List<TaskToDo>();
+    List<TaskInteractible> tasksList = new List<TaskInteractible>();
     List<TaskItemUI> tasksItemUIList = new List<TaskItemUI>();
 
     public GameObject box;
@@ -17,7 +17,7 @@ public class TaskListUI : MonoBehaviour
         Debug.Log("Start " + box);
     }
 
-    public List<TaskToDo> GetTasks()
+    public List<TaskInteractible> GetTasks()
     {
         return tasksList;
     }
@@ -28,7 +28,7 @@ public class TaskListUI : MonoBehaviour
     }
 
 
-    public void SetTasks(List<TaskToDo> _tasksList)
+    public void SetTasks(List<TaskInteractible> _tasksList)
     {
         Debug.Log("TEST setTasks");
         tasksList = _tasksList;
@@ -49,12 +49,12 @@ public class TaskListUI : MonoBehaviour
         CreateItems(tasksList);
     }
 
-    public void CreateItems(List<TaskToDo> tasksToDoList)
+    public void CreateItems(List<TaskInteractible> tasksToDoList)
     {
         int i = 0;
         tasksList = tasksToDoList;
 
-        foreach(TaskToDo taskToDo in tasksToDoList) {
+        foreach(TaskInteractible taskToDo in tasksToDoList) {
             Vector3 positionItemUi = new Vector3(0, -i * 60, 0);
             TaskItemUI taskItemUi = Instantiate(prefabQteItem, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<TaskItemUI>();
             taskItemUi.transform.SetParent(box.transform, false);
