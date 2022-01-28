@@ -30,6 +30,6 @@ public class TrickInteractible : MonoBehaviour
     }
 
     public void SetAsOutOfService() {
-        GetComponent<StateInteractable>().SetOutOfService(true);
+        GetComponent<StateInteractable>().SetState(StateInteractableObject.OUT_OF_SERVICE);
     }
 }

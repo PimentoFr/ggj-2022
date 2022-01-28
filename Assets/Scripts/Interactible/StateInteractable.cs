@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StateInteractableObject
+{
+    NORMAL = 0,
+    OUT_OF_SERVICE = 1,
+    FIXED = 2
+}
+
 public class StateInteractable : MonoBehaviour
 {
 
-    public bool isOutOfService = false;
+    StateInteractableObject state = StateInteractableObject.NORMAL;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +25,24 @@ public class StateInteractable : MonoBehaviour
         
     }
 
-    public void SetOutOfService(bool _isOutOfService)
+    public void SetState(StateInteractableObject _state)
     {
-        Debug.Log("SetOutOfService :" + _isOutOfService);
-        isOutOfService = _isOutOfService;
-        if(isOutOfService) {
-            // Force to reset the task
-            GetComponent<TaskInteractible>().ResetTask();
+        Debug.Log("SetOutOfService :" + _state);
+        state = _state;
+        switch(state)
+        {
+            case StateInteractableObject.NORMAL:
+                break;
+            case StateInteractableObject.OUT_OF_SERVICE:
+                GetComponent<TaskInteractible>().ResetTask();
+                break;
+            case StateInteractableObject.FIXED:
+                break;
         }
+    }
+
+    public StateInteractableObject GetState()
+    {
+        return state;
     }
 }
