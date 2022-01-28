@@ -25,6 +25,10 @@ public class TaskInteractible : MonoBehaviour
     PlayerInfo playerInfo;
     PlayerTasks playerTasks;
 
+    public float stressToLevel1 = 33.0f;
+    public int nbKeyToLevel1 = 2;
+    public float stressToLevel2 = 66.0f;
+    public int nbKeyToLevel2 = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +43,16 @@ public class TaskInteractible : MonoBehaviour
     public void StartQTE()
     {
         bool isOutOfService = GetComponent<StateInteractable>().GetState() == StateInteractableObject.OUT_OF_SERVICE; // Check if the object is out of service
-        int nbKeys = defaultNbKeys; // Number of key for each QTE action
+        int nbKeys = defaultNbKeys;
+        // Add nb keys from stress
+        float stress = playerInfo.GetStress();
+        if(stress >= stressToLevel2) {
+            nbKeys +=nbKeyToLevel2;
+        }
+        else if(stress >= stressToLevel1) {
+            nbKeys +=nbKeyToLevel1;
+        }
+
         Debug.Log("Start TaskIneractible START QTE");
 
         List<string> listActions = new List<string>();
