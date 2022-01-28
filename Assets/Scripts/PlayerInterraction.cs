@@ -21,8 +21,13 @@ public class PlayerInterraction : MonoBehaviour
 
     void ShowTaskLabel(PlayerInfo playerInfo)
     {
+        StateInteractableObject state = GetComponent<StateInteractable>().GetState();
         if(playerInfo.isTricking)
         {
+            if(state == StateInteractableObject.OUT_OF_SERVICE) {
+                //The object is already of service, don't show the action text
+                return;
+            }
             TrickInteractible t = GetComponent<TrickInteractible>();
             GameObject.FindGameObjectWithTag("UI_TaskLabels").GetComponent<TaskLabel>().ShowTaskLabel(
                 t.trickLabel,
@@ -31,8 +36,11 @@ public class PlayerInterraction : MonoBehaviour
                 );
         } else
         {
+            if(state == StateInteractableObject.FIXED) {
+                //The object is already of service, don't show the action text
+                return;
+            }
             TaskInteractible t = GetComponent<TaskInteractible>();
-            Debug.Log("t " + t);
             GameObject.FindGameObjectWithTag("UI_TaskLabels").GetComponent<TaskLabel>().ShowTaskLabel(
                 t.taskLabel,
                 false,
