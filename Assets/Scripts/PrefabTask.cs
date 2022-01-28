@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PrefabTask : MonoBehaviour
 {
-
+    public GameObject vc;
     public Sprite normalSkin;
     public Sprite HSSkin;
     public Sprite cleanSkin;
@@ -27,6 +27,7 @@ public class PrefabTask : MonoBehaviour
     BoxCollider2D m_collider;
     GameObject glowingGO;
     SpriteRenderer glow;
+    float effectVolume;
 
     void Start()
     {
@@ -35,13 +36,21 @@ public class PrefabTask : MonoBehaviour
         m_collider = GetComponent<BoxCollider2D>();
         glowingGO = transform.GetChild(0).gameObject;
         glow = glowingGO.GetComponent<SpriteRenderer>();
+        effectVolume = vc.GetComponent<BG_music>().GetEffectVolume();
     }
 
     // Update is called once per frame
     void Update()
     {
         changeGlow();
+        volumeControl();
 
+
+    }
+
+    void volumeControl()
+    {
+        son.volume = vc.GetComponent<BG_music>().GetEffectVolume();
 
     }
     void OnTriggerEnter2D(Collider2D collision)
