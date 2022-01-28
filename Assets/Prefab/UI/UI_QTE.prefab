@@ -305,9 +305,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -351,9 +351,6 @@ MonoBehaviour:
   delayClean: 0.8
   slideUpDurationInS: 1
   slideUpDistance: 1000
-  failedSound: {fileID: 8300000, guid: a6788d8a242eed648bff44d0580a64a8, type: 3}
-  validSound: {fileID: 8300000, guid: b5e30be004d84af458cc977c8bde6ea9, type: 3}
-  swipeSound: {fileID: 8300000, guid: 58a70ab17e839214b87e47f24fdfa379, type: 3}
 --- !u!82 &2300225301783471935
 AudioSource:
   m_ObjectHideFlags: 0
