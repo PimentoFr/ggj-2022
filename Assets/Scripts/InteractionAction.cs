@@ -10,11 +10,13 @@ public class InteractionAction : Interactable
     GameObject thisGo;
 
     TaskInteractible taskInteractible;
+    TrickInteractible trickInteractible;
     // Start is called before the first frame update
     void Start()
     {
         playerInfo = GameObject.FindWithTag("Player").GetComponent<PlayerInfo>();
         taskInteractible = GetComponent<TaskInteractible>();
+        trickInteractible = GetComponent<TrickInteractible>();
         thisGo = gameObject;
     }
 
@@ -33,8 +35,7 @@ public class InteractionAction : Interactable
             taskInteractible.StartQTE();
         } else
         {
-            /* Launch Wait */
-            Debug.Log("Trick awaiting");
+            trickInteractible.StartTrick();
         }
     }
 

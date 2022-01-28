@@ -90,16 +90,6 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
-    public void StartTrick(TrickType _trickType, GameObject _interactedObject)
-    {
-        currentTrickType = _trickType;
-        trickMission = TrickMissions.missions[_trickType];
-        /* Spawan trick progress bar */
-
-        TrickProgressBar.LaunchProgressBar(this, trickMission, UITrick);
-        SetActionDoing(true);
-    }
-
     public void SetIsTricking(bool _isTricking)
     {
         isTricking = _isTricking;
@@ -114,15 +104,6 @@ public class PlayerInfo : MonoBehaviour
     public bool GetIsTricking()
     {
         return isTricking;
-    }
-
-    public void StopTrick(bool success)
-    {
-        if(success)
-        {
-            AddStress(trickMission.stressBonus);
-        }
-        SetActionDoing(false);
     }
 
     public void Lose()

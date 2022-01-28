@@ -95,7 +95,7 @@ public class EnemyController : MonoBehaviour
         if(player != null && player.isTricking)
         {
             son.Play();
-            if (player.isTricking && !player.IsActionDoing())
+            if (!player.IsActionDoing())
             {
                 player.AddStress(player.incrementStressValueByTick * player.onSightTickMultiplier);
                 hitbox.enabled = false;
@@ -106,13 +106,7 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-                player.AddStress(player.trickMission.stressDetected);
-                player.SetActionDoing(false);
-                hitbox.enabled = false;
-                stopTime = timeOut;
-                anim.SetBool("hasFlicked", true);
-                direction = -direction;
-
+                player.GetComponent<TrickController>().OnDetected();
             }
         }
         

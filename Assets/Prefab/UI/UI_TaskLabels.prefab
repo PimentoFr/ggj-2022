@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 7608547853011518033}
   m_Layer: 5
   m_Name: UI_TaskLabels
-  m_TagString: Untagged
+  m_TagString: UI_TaskLabels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

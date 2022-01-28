@@ -20,6 +20,7 @@ public class TaskInteractible : MonoBehaviour
 
     public GameObject prefabUI_QTE;
     public bool taskDone;
+    public bool isLong;
 
     PlayerInfo playerInfo;
     PlayerTasks playerTasks;
@@ -31,6 +32,7 @@ public class TaskInteractible : MonoBehaviour
         Debug.Log("Start TaskIneractible");
         playerInfo = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInfo>();
         playerTasks = playerInfo.GetComponent<PlayerTasks>();
+        isLong = (qteActions.Length > 1);
     }
 
 
