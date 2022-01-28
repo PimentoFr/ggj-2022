@@ -24,7 +24,7 @@ public class PlayerInfo : MonoBehaviour
     TrickType currentTrickType;
     public TrickMission trickMission;
     public float trickStartTime { get; }
-
+    bool isFrozen = false;
     //bool canEnterTrickingMode = false;
     // Start is called before the first frame update
     void Start()
@@ -70,12 +70,14 @@ public class PlayerInfo : MonoBehaviour
 
     public void Freeze()
     {
+        isFrozen = true;
         playerMove.interact(true);
     }
 
     public void Unfreeze()
     {
         playerMove.interact(false);
+        isFrozen = false;
     }
 
     public void SetActionDoing(bool actived)
