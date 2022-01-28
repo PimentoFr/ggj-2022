@@ -9,9 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6882717882876811451}
+  - component: {fileID: 6731816011536245151}
+  - component: {fileID: 8894044761283861791}
+  - component: {fileID: 1908309712623759018}
+  - component: {fileID: 2172483805604119047}
+  - component: {fileID: 7170374637215571827}
+  - component: {fileID: 8787488876554970495}
   m_Layer: 0
   m_Name: InteractableCoffee
-  m_TagString: Untagged
+  m_TagString: ItemInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +38,115 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6731816011536245151
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698068196399877199}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 10}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10}
+  m_EdgeRadius: 0
+--- !u!114 &8894044761283861791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698068196399877199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05d9a454f3445dd89f02a0907a19460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_callback: {fileID: 0}
+--- !u!114 &1908309712623759018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698068196399877199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2172483805604119047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698068196399877199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c7c9d7a3ddda47a0dd854e8b3c80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskLabel: Make a coffee
+  qteActions:
+  - Put the mug
+  - Fill the reservoir
+  - Make a coffee
+  qteSounds:
+  - {fileID: 8300000, guid: de2fa71a5efa3b14fba30606bd4ff480, type: 3}
+  - {fileID: 8300000, guid: b31ef864421955640827b5b85f031b00, type: 3}
+  - {fileID: 8300000, guid: 5e7a2716d82a7db4ab290523a86faa1c, type: 3}
+  qteActionsOutOfService:
+  - Clean the mug
+  qteSoundsOutOfService:
+  - {fileID: 8300000, guid: f6419c0d82f9eae4fa81c33bac393af0, type: 3}
+  defaultNbKeys: 3
+  prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
+  taskDone: 0
+  isLong: 1
+--- !u!114 &7170374637215571827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698068196399877199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a28c15fd5b9094cb2737fec123c302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trickLabel: Drop Methylene blue
+  stressBonus: -30
+  stressOnDetected: 50
+  isLongTask: 1
+  sound: {fileID: 8300000, guid: 1e7e42e3843cf8d469b25a31dcd017d8, type: 3}
+--- !u!114 &8787488876554970495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698068196399877199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7801a205e3a582419f61d96de7ee959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2021050853556836393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42,10 +157,6 @@ PrefabInstance:
     - target: {fileID: 1529842178079073172, guid: a853cae28bfbad84aad378391d767fe4, type: 3}
       propertyPath: m_Name
       value: HS
-      objectReference: {fileID: 0}
-    - target: {fileID: 1529842178079073172, guid: a853cae28bfbad84aad378391d767fe4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1529842178079073174, guid: a853cae28bfbad84aad378391d767fe4, type: 3}
       propertyPath: m_RootOrder
@@ -91,10 +202,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3127173203677280510, guid: a853cae28bfbad84aad378391d767fe4, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a853cae28bfbad84aad378391d767fe4, type: 3}
 --- !u!4 &664034998391765951 stripped
@@ -109,10 +216,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6882717882876811451}
     m_Modifications:
-    - target: {fileID: 4423505896013003570, guid: 8f4d7ae9b18c9b34d8699fdf6de94c7b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6283843475662689286, guid: 8f4d7ae9b18c9b34d8699fdf6de94c7b, type: 3}
       propertyPath: m_Name
       value: Normal

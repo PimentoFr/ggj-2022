@@ -9,9 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4895330206415562703}
+  - component: {fileID: 8514593507347172278}
+  - component: {fileID: 5253039753414120634}
+  - component: {fileID: 4681105377209670643}
+  - component: {fileID: 6450099376689776215}
+  - component: {fileID: 8968190515842934871}
+  - component: {fileID: 5634670537089823641}
   m_Layer: 0
   m_Name: InteractablePrinter
-  m_TagString: Untagged
+  m_TagString: ItemInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +38,117 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &8514593507347172278
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353875228451492415}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.21391213, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 10}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.5283556, y: 10}
+  m_EdgeRadius: 0
+--- !u!114 &5253039753414120634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353875228451492415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05d9a454f3445dd89f02a0907a19460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_callback: {fileID: 0}
+--- !u!114 &4681105377209670643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353875228451492415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6450099376689776215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353875228451492415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c7c9d7a3ddda47a0dd854e8b3c80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskLabel: Copy a document
+  qteActions:
+  - Put the original document
+  - Do a copy
+  - Take the document
+  qteSounds:
+  - {fileID: 8300000, guid: 957ff349e6b7e54429ef088b19d31f2d, type: 3}
+  - {fileID: 8300000, guid: b5e30be004d84af458cc977c8bde6ea9, type: 3}
+  - {fileID: 8300000, guid: e7bf57642176a614cad77578990aae65, type: 3}
+  qteActionsOutOfService:
+  - Clean the glass
+  - Throw picture
+  qteSoundsOutOfService:
+  - {fileID: 8300000, guid: b5e30be004d84af458cc977c8bde6ea9, type: 3}
+  - {fileID: 8300000, guid: 957ff349e6b7e54429ef088b19d31f2d, type: 3}
+  defaultNbKeys: 3
+  prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
+  taskDone: 0
+  isLong: 1
+--- !u!114 &8968190515842934871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353875228451492415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a28c15fd5b9094cb2737fec123c302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trickLabel: Scan your butty
+  stressBonus: -30
+  stressOnDetected: 50
+  isLongTask: 1
+  sound: {fileID: 8300000, guid: 807e38bc957ccc848a28ceb8a9a58db7, type: 3}
+--- !u!114 &5634670537089823641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353875228451492415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7801a205e3a582419f61d96de7ee959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &229492869882692923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,10 +265,6 @@ PrefabInstance:
     - target: {fileID: 6981205894926532977, guid: 3f7dbcd60a27e81409a562524dbf32b3, type: 3}
       propertyPath: m_Name
       value: HS
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981205894926532977, guid: 3f7dbcd60a27e81409a562524dbf32b3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f7dbcd60a27e81409a562524dbf32b3, type: 3}

@@ -93,9 +93,7 @@ GameObject:
   - component: {fileID: 7846074758545893223}
   - component: {fileID: 7846074758545893222}
   - component: {fileID: 7846074758545893241}
-  - component: {fileID: 1679706527146515397}
   - component: {fileID: 4876662625654299879}
-  - component: {fileID: 7143330637976452990}
   m_Layer: 0
   m_Name: InteractableRedChairTroisQuartVide
   m_TagString: Untagged
@@ -195,19 +193,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.951461, y: 10}
   m_EdgeRadius: 0
---- !u!114 &1679706527146515397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7846074758545893240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05d9a454f3445dd89f02a0907a19460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_callback: {fileID: 0}
 --- !u!114 &4876662625654299879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,17 +206,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
---- !u!114 &7143330637976452990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7846074758545893240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskType: 10
-  trickType: 10

@@ -202,9 +202,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7924372649770478839, guid: d890c7ce853047f47ac36a0c21936705, type: 3}
-    - {fileID: 6748066391104375717, guid: d890c7ce853047f47ac36a0c21936705, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d890c7ce853047f47ac36a0c21936705, type: 3}
 --- !u!1 &2476031226471507261 stripped
 GameObject:
@@ -293,53 +291,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4516707828088117495, guid: cb942b82cdd7f5049b99bd01dd344705, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5358937911912924074, guid: cb942b82cdd7f5049b99bd01dd344705, type: 3}
       propertyPath: m_Name
       value: HS
       objectReference: {fileID: 0}
-    - target: {fileID: 5358937911912924074, guid: cb942b82cdd7f5049b99bd01dd344705, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb942b82cdd7f5049b99bd01dd344705, type: 3}
---- !u!1 &4213816165177268424 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5358937911912924074, guid: cb942b82cdd7f5049b99bd01dd344705, type: 3}
-  m_PrefabInstance: {fileID: 8080793477853551458}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8580458420059226556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 519980637015431902, guid: cb942b82cdd7f5049b99bd01dd344705, type: 3}
   m_PrefabInstance: {fileID: 8080793477853551458}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &3804645169852958294
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4213816165177268424}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.32944107, y: -5.338682}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
-    newSize: {x: 10, y: 10}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 12.729654, y: 20.677364}
-  m_EdgeRadius: 0

@@ -93,16 +93,14 @@ GameObject:
   - component: {fileID: 5328280224734429096}
   - component: {fileID: 4239447584809773887}
   - component: {fileID: 3430221570480642044}
-  - component: {fileID: 4033674602893396221}
   - component: {fileID: 761393717301155248}
-  - component: {fileID: 5806860532579118500}
   m_Layer: 0
   m_Name: InteractablePrinterAssed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5328280224734429096
 Transform:
   m_ObjectHideFlags: 0
@@ -195,19 +193,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.5283556, y: 10}
   m_EdgeRadius: 0
---- !u!114 &4033674602893396221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6981205894926532977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05d9a454f3445dd89f02a0907a19460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_callback: {fileID: 0}
 --- !u!114 &761393717301155248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,17 +206,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
---- !u!114 &5806860532579118500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6981205894926532977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694f66c6705bdc64e8edbc867f78eac7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskType: 0
-  trickType: 0
