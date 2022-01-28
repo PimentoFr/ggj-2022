@@ -61,7 +61,10 @@ public class PlayerMoves : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if(!pausing.GetComponent<Pause>().getPaused())
+		
+		
+
+		if (!pausing.GetComponent<Pause>().getPaused())
         {
 			//update moveState tmp
 			handleInput();
@@ -75,10 +78,19 @@ public class PlayerMoves : MonoBehaviour
 	{
 		
 		if (!pausing.GetComponent<Pause>().getPaused())
+        {
 			move();
+			camFollow();
+			animate();
+		}
+        else
+        {
+			m_velocity.x = 0;
+			m_rigidbody.velocity = m_velocity;
+			m_anim.enabled = false;
+		}
+		
 
-        camFollow();
-		animate();
 	}
 	
 	public void interact(bool value)
@@ -148,6 +160,8 @@ public class PlayerMoves : MonoBehaviour
 
 	void animate()
 	{
+		if (!m_anim.enabled)
+			m_anim.enabled = true;
 		//set animation state
 		m_anim.SetBool("isMoving", moveState != MoveState.idle && (moveState != MoveState.interact));
 		m_anim.SetBool("isChaos", m_playerInfo.GetIsTricking());

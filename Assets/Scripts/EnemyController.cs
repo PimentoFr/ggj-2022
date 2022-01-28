@@ -11,13 +11,14 @@ public class EnemyController : MonoBehaviour
     AudioSource son;
 
     public GameObject pausing;
+    public GameObject borneLeft;
+    public GameObject borneRight;
     public int direction = 1;
     public float speed = 3.0f;
-    public float timeChange = 3.0f;
     public float timeOut = 3.0f;
     public float portee = 10.0f;
 
-    private float movingTime;
+    private float stopTime;
     private Vector2 position;
 
     void Start()
@@ -27,7 +28,7 @@ public class EnemyController : MonoBehaviour
         enemy = GetComponent<SpriteRenderer>();
         hitbox = GetComponent<BoxCollider2D>();
         son = GetComponent<AudioSource>();
-        movingTime = timeChange;
+        stopTime = 0;
         hitbox.size = new Vector2(portee, 8.0f);
     }
 
@@ -38,47 +39,51 @@ public class EnemyController : MonoBehaviour
         {
             timeManager();
         }
+        else
+        {
+            anim.enabled = false;
+        }
     }
 
     void move()
     {
-        position = rb.position;
+        if (rb.position.x < borneLeft.GetComponent<Transform>().position.x || rb.position.x > borneRight.GetComponent<Transform>().position.x)
+        {
+            direction = -direction;
+        }
 
-        position.x += speed * direction * Time.deltaTime;
+        if (direction == 1)
+            hitbox.offset = new Vector2(hitbox.size.x / 2, 0);
 
-       
-        anim.SetBool("isMoving", true);
-        enemy.flipX = (direction != 1);
-
-        if(direction==1)
-            hitbox.offset = new Vector2(hitbox.size.x / 2, 0); 
-        
         else
             hitbox.offset = new Vector2(-hitbox.size.x / 2, 0);
 
+        enemy.flipX = (direction != 1);
+
+        position = rb.position;
+        position.x += speed * direction * Time.deltaTime;
         rb.MovePosition(position);
+
+
+        anim.SetBool("isMoving", true);
 
     }
 
     void timeManager()
     {
-        if (movingTime < 0)
+        if (!anim.enabled)
+            anim.enabled = true;
+        if (stopTime > 0)
         {
-            movingTime = timeChange;
-            direction = -direction;
-            hitbox.enabled = true;
-            anim.SetBool("hasFlicked", false);
-        }
-
-        else if(hitbox.enabled)
-        {
-            move();
-            movingTime -=  Time.deltaTime;
+            stopTime -= Time.deltaTime;
+            
         }
 
         else
         {
-            movingTime -= Time.deltaTime;
+            hitbox.enabled = true;
+            anim.SetBool("hasFlicked", false);
+            move();
         }
             
     }
@@ -94,8 +99,9 @@ public class EnemyController : MonoBehaviour
             {
                 player.AddStress(player.incrementStressValueByTick * player.onSightTickMultiplier);
                 hitbox.enabled = false;
-                movingTime = timeOut;
+                stopTime = timeOut;
                 anim.SetBool("hasFlicked", true);
+                direction = -direction;
                 
             }
             else
@@ -103,10 +109,10 @@ public class EnemyController : MonoBehaviour
                 player.AddStress(player.trickMission.stressDetected);
                 player.SetActionDoing(false);
                 hitbox.enabled = false;
-                movingTime = timeOut;
+                stopTime = timeOut;
                 anim.SetBool("hasFlicked", true);
+                direction = -direction;
 
-               
             }
         }
         

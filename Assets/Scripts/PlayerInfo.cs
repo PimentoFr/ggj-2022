@@ -40,12 +40,14 @@ public class PlayerInfo : MonoBehaviour
     {
         if (!pausing.GetComponent<Pause>().getPaused())
         {
+            
             if (!isTricking && ((Time.realtimeSinceStartup - lastTick) >= riseStressTickPeriodS))
             {
                 AddStress(incrementStressValueByTick);
                 lastTick = Time.realtimeSinceStartup;
             }
         }
+        
     }
 
     public void AddStress(float amount)
