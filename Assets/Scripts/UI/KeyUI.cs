@@ -53,6 +53,7 @@ public class KeyUI : MonoBehaviour
 
     public void SetKeyText(string str)
     {
+        key_label = str;
         text.text = str;
         text.gameObject.SetActive(true);
     }
@@ -84,14 +85,14 @@ public class KeyUI : MonoBehaviour
         key.color = new Color(0.8f, 0.1f, 0.1f);
     }
 
-    public bool IsCorrectKeyPressed(KeyUISprite key_type)
+    public bool IsCorrectKeyPressed(KeyCode key)
     {
-        return ((int) key_type == index_icon);
+        return (key == KeysList.keys[key_label]);
     }
 
     public void reroll()
     {
-        SetIconIndex(Random.Range(0, 4));
+        SetKeyText(KeysList.GetRandom());
     }
 
     public void SetHardcoreMode(bool hardcoreMode)
@@ -99,7 +100,7 @@ public class KeyUI : MonoBehaviour
         isHardcoreMode = hardcoreMode;
     }
 
-    public void ShowArrow()
+    public void ShowMark()
     {
         if (!isHardcoreMode)
         {
@@ -108,7 +109,7 @@ public class KeyUI : MonoBehaviour
         icon.gameObject.SetActive(true);
     }
 
-    public void HideArrow()
+    public void HideMark()
     {
         if(!isHardcoreMode)
         {
