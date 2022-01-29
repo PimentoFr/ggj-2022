@@ -175,7 +175,8 @@ public class QTECreator : MonoBehaviour
         }
 
         // Check if the game is paused
-        if(!pauseGameObject.GetComponent<Pause>().getPaused() && !qteEnded){
+        if(!pauseGameObject.GetComponent<Pause>().getPaused() && !qteEnded)
+            {
             KeyCode kc = GetButtonPressed();
             if(kc != KeyCode.None)
             {
@@ -184,9 +185,9 @@ public class QTECreator : MonoBehaviour
             else if (ButtonIsPressed(QteKeyboardKey.LEAVE))
             {
                 Leave();
-                /* Do maybe something more to continue game */
+                //Do maybe something more to continue game
             }
-        }
+        } 
 
     }
 
