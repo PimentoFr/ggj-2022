@@ -51,7 +51,6 @@ public class PlayerInfo : MonoBehaviour
     public void AddStress(float amount)
     {
         stress = Mathf.Clamp(stress + amount, 0.0f, 100.0f);
-        Debug.Log("Stress : " + stress);
         if (stress >= 100.0f)
         {
             Lose();
