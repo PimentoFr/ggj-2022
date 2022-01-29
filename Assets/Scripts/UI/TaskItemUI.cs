@@ -8,15 +8,18 @@ public class TaskItemUI : MonoBehaviour
 
     public string taskLabel = "";
     private Text taskText;
-    private Image icon;
+    private Image UncheckImg;
+    private Image CheckImg;
     TaskInteractible task;
 
     void Awake()
     {
         taskText = transform.Find("TaskLabel").GetComponent<Text>();
-        icon = transform.Find("Icon").GetComponent<Image>();
+        UncheckImg = transform.Find("Uncheck").GetComponent<Image>();
+        CheckImg = transform.Find("Check").GetComponent<Image>();
 
-        icon.gameObject.SetActive(false);
+        UncheckImg.gameObject.SetActive(true);
+        CheckImg.gameObject.SetActive(false);
     }
 
     public void SetTask(TaskInteractible _task)
@@ -29,12 +32,14 @@ public class TaskItemUI : MonoBehaviour
     {
         if (boolean)
         {
-            icon.gameObject.SetActive(true);
+            UncheckImg.gameObject.SetActive(false);
+            CheckImg.gameObject.SetActive(true);
             taskText.color = new Color(0.16f, 0.729f, 0.16f);
         }
         else
         {
-            icon.gameObject.SetActive(false);
+            UncheckImg.gameObject.SetActive(true);
+            CheckImg.gameObject.SetActive(false);
             taskText.color = new Color(0.819f, 0.819f, 0.819f);
             //taskText.color = new Color(0.219f, 0.219f, 0.219f);
         }

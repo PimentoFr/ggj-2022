@@ -51,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01837349, y: 3.024235}
+  m_Offset: {x: 0.01837349, y: 5.264588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -62,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.448788, y: 0.0001}
+  m_Size: {x: 9.448788, y: 4.5112877}
   m_EdgeRadius: 0
 --- !u!114 &3445231792931437345
 MonoBehaviour:
@@ -111,13 +111,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e6357704e98508c449c5a4f6c449f25d, type: 3}
   - {fileID: 8300000, guid: 5065480c5c6ec7e49bad9d64b39dbc47, type: 3}
   qteActionsOutOfService:
-  - Stop Youtube
+  - Close Youtube
   qteSoundsOutOfService:
   - {fileID: 8300000, guid: b9d9b30e0e786344185fcfb43a83152a, type: 3}
   defaultNbKeys: 3
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
   isLong: 1
+  stressToLevel1: 33
+  nbKeyToLevel1: 2
+  stressToLevel2: 66
+  nbKeyToLevel2: 4
 --- !u!114 &7855375899609824875
 MonoBehaviour:
   m_ObjectHideFlags: 0

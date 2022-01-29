@@ -92,6 +92,7 @@ public class TrickController : MonoBehaviour
             return;
         }
 
+        audioSource.volume = GameObject.FindGameObjectWithTag("BG_music").GetComponent<BG_music>().GetEffectVolume();
         audioSource.PlayOneShot(trickInteractible.sound);
     }
 }
