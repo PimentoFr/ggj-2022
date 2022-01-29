@@ -51,7 +51,6 @@ public class PlayerInfo : MonoBehaviour
     public void AddStress(float amount)
     {
         stress = Mathf.Clamp(stress + amount, 0.0f, 100.0f);
-        Debug.Log("Stress : " + stress);
         if (stress >= 100.0f)
         {
             Lose();
@@ -90,6 +89,9 @@ public class PlayerInfo : MonoBehaviour
         {
             Unfreeze();
         }
+
+        // To avoid some bugs
+        RefreshCollider();
     }
 
     public void SetIsTricking(bool _isTricking)
@@ -111,6 +113,12 @@ public class PlayerInfo : MonoBehaviour
     public void Lose()
     {
         Debug.Log("To much stress, loooosser");
-        sceneGest.LostGame();
+        sceneGest.BurnOut();
+    }
+
+    public void RefreshCollider()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Collider2D>().enabled = true;
     }
 }

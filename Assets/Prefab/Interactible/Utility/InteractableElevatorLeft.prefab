@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_callback: {fileID: 0}
+  glowEnabledEverytime: 1
 --- !u!1 &3219102745015762716
 GameObject:
   m_ObjectHideFlags: 0

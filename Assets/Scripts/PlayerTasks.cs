@@ -6,6 +6,7 @@ public class PlayerTasks : MonoBehaviour
 {
     public int numberOfLongTask = 2;
     public int numberOfShortTask = 3;
+    public int stressAmountForDoingATaskYouShouldntHave = 10;
     public GameObject prefabUIObject;
 
     public List<TaskInteractible> playerTasks;
@@ -127,6 +128,14 @@ public class PlayerTasks : MonoBehaviour
         if(taskFound != null)
         {
             taskFound.taskDone = done;
+        }
+        else
+        {
+            if (!GetComponent<PlayerInfo>().isTricking)
+            {
+                GetComponent<AudioSource>().Play();
+                GetComponent<PlayerInfo>().AddStress(stressAmountForDoingATaskYouShouldntHave);
+            }
         }
 
 

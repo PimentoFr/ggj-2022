@@ -25,6 +25,10 @@ public class TaskInteractible : MonoBehaviour
     PlayerInfo playerInfo;
     PlayerTasks playerTasks;
 
+    public float stressToLevel1 = 33.0f;
+    public int nbKeyToLevel1 = 2;
+    public float stressToLevel2 = 66.0f;
+    public int nbKeyToLevel2 = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +43,22 @@ public class TaskInteractible : MonoBehaviour
     public void StartQTE()
     {
         bool isOutOfService = GetComponent<StateInteractable>().GetState() == StateInteractableObject.OUT_OF_SERVICE; // Check if the object is out of service
-        int nbKeys = defaultNbKeys; // Number of key for each QTE action
+        int nbKeys = defaultNbKeys;
+        // Add nb keys from stress
+        float stress = playerInfo.GetStress();
+        Color colorBgStress = new Color(0.458f, 0.541f, 0.231f);
+        string descriptionStressQte = "Ok";
+        if(stress >= stressToLevel2) {
+            nbKeys +=nbKeyToLevel2;
+            colorBgStress = new Color(0.811f, 0.294f, 0.2f);
+            descriptionStressQte = "TOO HIGH";
+        }
+        else if(stress >= stressToLevel1) {
+            nbKeys +=nbKeyToLevel1;
+            colorBgStress = new Color(0.760f, 0.596f, 0.4f);
+            descriptionStressQte = "High";
+        }
+
         Debug.Log("Start TaskIneractible START QTE");
 
         List<string> listActions = new List<string>();
@@ -53,7 +72,7 @@ public class TaskInteractible : MonoBehaviour
         listSounds.AddRange(qteSounds);
 
         playerInfo.SetActionDoing(true);
-        QTECreator.LaunchQTE2(prefabUI_QTE, listActions, listSounds, nbKeys, this);
+        QTECreator.LaunchQTE2(prefabUI_QTE, listActions, listSounds, nbKeys, colorBgStress, descriptionStressQte, this);
     }
 
     public void OnQuitQTE(bool success)

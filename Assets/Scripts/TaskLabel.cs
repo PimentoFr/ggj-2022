@@ -7,7 +7,7 @@ public class TaskLabel : MonoBehaviour
 {
     public GameObject backgroundGO, labelGO, skullsEasyGO, skullsHardGO;
     Text taskTxt;
-    Color greenColor, redColor;
+    Color greenColor, redColor, blueColor;
     Image backgroundImg;
 
     float percent;
@@ -21,6 +21,7 @@ public class TaskLabel : MonoBehaviour
 
         greenColor = Color.green;
         redColor = Color.red;
+        blueColor = new Color(0.3f, 0.3f, 1);
         UpdateJinxBar(0.0f);
         HideTaskLabel();
     }
@@ -45,6 +46,12 @@ public class TaskLabel : MonoBehaviour
         {
             taskTxt.color = greenColor;
         }
+
+        if (text == "Take lift")
+        {
+            taskTxt.color = blueColor;
+        }
+
         UpdateJinxBar(0.0f);
         taskTxt.enabled = true;
     }
