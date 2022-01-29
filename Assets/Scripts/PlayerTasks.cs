@@ -131,8 +131,11 @@ public class PlayerTasks : MonoBehaviour
         }
         else
         {
-            GetComponent<AudioSource>().Play();
-            GetComponent<PlayerInfo>().AddStress(stressAmountForDoingATaskYouShouldntHave);
+            if (!GetComponent<PlayerInfo>().isTricking)
+            {
+                GetComponent<AudioSource>().Play();
+                GetComponent<PlayerInfo>().AddStress(stressAmountForDoingATaskYouShouldntHave);
+            }
         }
 
 
