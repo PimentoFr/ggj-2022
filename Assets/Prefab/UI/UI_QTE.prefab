@@ -405,9 +405,9 @@ MonoBehaviour:
   upKey: 273
   downKey: 274
   leaveKey: 13
-  swipeUpAudioClip: {fileID: 8300000, guid: 58a70ab17e839214b87e47f24fdfa379, type: 3}
-  errorAudioClip: {fileID: 8300000, guid: a6788d8a242eed648bff44d0580a64a8, type: 3}
-  delayClean: 0.8
+  swipeUpAudioClip: {fileID: 8300000, guid: aa28670d64dda6d4ca4faefcb43134f7, type: 3}
+  errorAudioClip: {fileID: 8300000, guid: e817328e684f8f84ab80cb75a9ed4ded, type: 3}
+  delayClean: 1.5
   slideUpDurationInS: 1
   slideUpDistance: 1000
   caller_callback: {fileID: 0}
