@@ -18,6 +18,13 @@ TagManager:
   - UI_SoundAmbiance
   - UI_TaskLabels
   - ItemInteractable
+  - Wall
+  - Roof
+  - FloorLabel
+  - LiftSpawner
+  - PlayerSpawner
+  - DeskSpawner
+  - WallSpawner
   layers:
   - Default
   - TransparentFX
