@@ -105,7 +105,7 @@ MonoBehaviour:
   qteActions:
   - Choose the best pen
   - Damp the pen
-  - Sign the contract
+  - Sign contracts
   qteSounds:
   - {fileID: 8300000, guid: 103221a7c2b88da458f60781f2838bcb, type: 3}
   - {fileID: 8300000, guid: a71c9db4bcd5fda4983a729d29601a9d, type: 3}
@@ -118,6 +118,10 @@ MonoBehaviour:
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
   isLong: 1
+  stressToLevel1: 33
+  nbKeyToLevel1: 2
+  stressToLevel2: 66
+  nbKeyToLevel2: 4
 --- !u!114 &3047018131402002877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a28c15fd5b9094cb2737fec123c302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trickLabel: Throw pens
+  trickLabel: Throw pens away
   stressBonus: -5
   stressOnDetected: 5
   isLongTask: 0

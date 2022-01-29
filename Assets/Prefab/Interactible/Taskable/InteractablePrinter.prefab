@@ -103,16 +103,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskLabel: Copy a document
   qteActions:
-  - Put the original document
-  - Do a copy
-  - Take the document
+  - Insert white paper
+  - Make a copy
+  - Recharge paper
   qteSounds:
   - {fileID: 8300000, guid: 957ff349e6b7e54429ef088b19d31f2d, type: 3}
   - {fileID: 8300000, guid: b5e30be004d84af458cc977c8bde6ea9, type: 3}
   - {fileID: 8300000, guid: e7bf57642176a614cad77578990aae65, type: 3}
   qteActionsOutOfService:
-  - Clean the glass
-  - Throw picture
+  - Clean the scanner
+  - Throw away pictures
   qteSoundsOutOfService:
   - {fileID: 8300000, guid: b5e30be004d84af458cc977c8bde6ea9, type: 3}
   - {fileID: 8300000, guid: 957ff349e6b7e54429ef088b19d31f2d, type: 3}
@@ -120,6 +120,10 @@ MonoBehaviour:
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
   isLong: 1
+  stressToLevel1: 33
+  nbKeyToLevel1: 2
+  stressToLevel2: 66
+  nbKeyToLevel2: 4
 --- !u!114 &8968190515842934871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a28c15fd5b9094cb2737fec123c302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trickLabel: Scan your butty
+  trickLabel: Scan your booty
   stressBonus: -30
   stressOnDetected: 50
   isLongTask: 1

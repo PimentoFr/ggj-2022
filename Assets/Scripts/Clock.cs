@@ -43,7 +43,7 @@ public class Clock : MonoBehaviour
 
                 //GAMEOVER
                 Debug.Log("End of the day, Game Over");
-                sceneGest.LostGame();
+                sceneGest.Fired();
             }
         }
             

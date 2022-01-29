@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35c7c9d7a3ddda47a0dd854e8b3c80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskLabel: Place the chair
+  taskLabel: Move the chair
   qteActions:
-  - Place the chair
+  - Move the chair
   qteSounds:
   - {fileID: 8300000, guid: 50b703016a2f7d44ead4d08620bb06a3, type: 3}
   qteActionsOutOfService:
@@ -114,6 +114,10 @@ MonoBehaviour:
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
   isLong: 0
+  stressToLevel1: 33
+  nbKeyToLevel1: 2
+  stressToLevel2: 66
+  nbKeyToLevel2: 4
 --- !u!114 &5404717856809041934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a28c15fd5b9094cb2737fec123c302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trickLabel: Put a farting bag
+  trickLabel: Hide farting bag
   stressBonus: -5
   stressOnDetected: 5
   isLongTask: 0

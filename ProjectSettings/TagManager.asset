@@ -15,7 +15,7 @@ TagManager:
   - Undefined
   - UI_TrickProgressBar
   - UI_Sound
-  - UI_SoundAmbiance
+  - BG_music
   - UI_TaskLabels
   - ItemInteractable
   - Wall

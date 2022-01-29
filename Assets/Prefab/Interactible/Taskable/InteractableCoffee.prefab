@@ -103,9 +103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskLabel: Make a coffee
   qteActions:
-  - Put the mug
-  - Fill the reservoir
-  - Make a coffee
+  - Place the mug
+  - Fill coffee maker
+  - Pour a coffee
   qteSounds:
   - {fileID: 8300000, guid: de2fa71a5efa3b14fba30606bd4ff480, type: 3}
   - {fileID: 8300000, guid: b31ef864421955640827b5b85f031b00, type: 3}
@@ -118,6 +118,10 @@ MonoBehaviour:
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
   isLong: 1
+  stressToLevel1: 33
+  nbKeyToLevel1: 2
+  stressToLevel2: 66
+  nbKeyToLevel2: 4
 --- !u!114 &7170374637215571827
 MonoBehaviour:
   m_ObjectHideFlags: 0

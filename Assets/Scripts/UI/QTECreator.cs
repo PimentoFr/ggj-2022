@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class QTEItem
 {
     public string action_label { get; set; }
@@ -50,11 +51,15 @@ public class QTECreator : MonoBehaviour
     float startAskSlideUp;
     Vector3 originPosition;
 
+    bool qteEnded = false;
+
     /* Sound*/
     AudioSource audioSource;
 
     GameObject box;
     Transform boxTrans;
+
+    GameObject pauseGameObject;
 
 
     public TaskInteractible caller_callback;
@@ -63,18 +68,19 @@ public class QTECreator : MonoBehaviour
         box = transform.Find("Box").gameObject;
         boxTrans = box.GetComponent<Transform>();
         audioSource = GetComponent<AudioSource>();
-
+        pauseGameObject = GameObject.FindWithTag("BG_music");
         SetHardcoreMode(false);
     }
 
 
     static List<string> GenerateKeys(int number)
     {
-        string[] listKeys = { "UP", "DOWN", "RIGHT", "LEFT" };
+
+        List<string> listKeys = KeysList.GetKeys();
         List<string> list = new List<string>();
         for(int i = 0; i < number; i++)
         {
-            list.Add(listKeys[Random.Range(0, 4)]);
+            list.Add(listKeys[Random.Range(0, listKeys.Count)]);
         }
         return list;
     }
@@ -83,7 +89,7 @@ public class QTECreator : MonoBehaviour
         caller_callback = caller;
     }
 
-    public static QTECreator LaunchQTE2(GameObject UI_QTE,List<string> listActions, List<AudioClip> listAudioClip, int nbKeys, TaskInteractible caller_callback)
+    public static QTECreator LaunchQTE2(GameObject UI_QTE,List<string> listActions, List<AudioClip> listAudioClip, int nbKeys, Color backgroundColor, string stressDescription, TaskInteractible caller_callback)
     {
         GameObject qte =  Instantiate(UI_QTE, new Vector3(0, 0, 0), Quaternion.identity);
 
@@ -92,6 +98,12 @@ public class QTECreator : MonoBehaviour
             List<string> keys = GenerateKeys(nbKeys);
             list.Add(new QTEItem(listActions[i], keys, listAudioClip[i]));
         }
+
+        //Set color of the background
+        GameObject go = qte.transform.Find("Box").Find("background").gameObject;
+        go.GetComponent<Image>().color = backgroundColor;
+        //Set stress text
+        qte.transform.Find("Box").Find("StressDescription").gameObject.GetComponent<TextMeshProUGUI>().text = stressDescription;
 
         QTECreator qteCreator = qte.GetComponent<QTECreator>();
 
@@ -103,6 +115,16 @@ public class QTECreator : MonoBehaviour
         return qteCreator;
     }
 
+    KeyCode GetButtonPressed() {
+        KeyCode keyPressed = KeyCode.None;
+        foreach(var keycode in KeysList.GetValues()) {
+            if(Input.GetKeyDown(keycode)) {
+                keyPressed = keycode;
+                break;
+            }
+        }
+        return keyPressed;
+    }
     bool ButtonIsPressed(QteKeyboardKey key)
     {
        switch(key)
@@ -152,26 +174,18 @@ public class QTECreator : MonoBehaviour
             boxTrans.position = editedPosition;
         }
 
-        if (ButtonIsPressed(QteKeyboardKey.DOWN))
-        {
-            EventKeyTrigger(KeyUISprite.DOWN);
-        }
-        else if (ButtonIsPressed(QteKeyboardKey.UP))
-        {
-            EventKeyTrigger(KeyUISprite.UP);
-        }
-        else if (ButtonIsPressed(QteKeyboardKey.LEFT))
-        {
-            EventKeyTrigger(KeyUISprite.LEFT);
-        }
-        else if (ButtonIsPressed(QteKeyboardKey.RIGHT))
-        {
-            EventKeyTrigger(KeyUISprite.RIGHT);
-        }
-        else if (ButtonIsPressed(QteKeyboardKey.LEAVE))
-        {
-            Leave();
-            /* Do maybe something more to continue game */
+        // Check if the game is paused
+        if(!pauseGameObject.GetComponent<Pause>().getPaused() && !qteEnded){
+            KeyCode kc = GetButtonPressed();
+            if(kc != KeyCode.None)
+            {
+                EventKeyTrigger(kc);
+            }
+            else if (ButtonIsPressed(QteKeyboardKey.LEAVE))
+            {
+                Leave();
+                /* Do maybe something more to continue game */
+            }
         }
 
     }
@@ -215,10 +229,10 @@ public class QTECreator : MonoBehaviour
         qteItemUiList[current_item_index].GetKeysObj().GetComponent<KeysListUI>().Shake();
     }
 
-    void EventKeyTrigger(KeyUISprite key_type)
+    void EventKeyTrigger(KeyCode key)
     {
         QteItemUI qteItemUi = qteItemUiList[current_item_index];
-        bool res = qteItemUi.PropageKeyboardEvent(key_type);
+        bool res = qteItemUi.PropageKeyboardEvent(key);
         if(res == false)
         {
             /* The key is wrong ... reset */
@@ -264,6 +278,7 @@ public class QTECreator : MonoBehaviour
 
     void SlideUp()
     {
+        qteEnded = true;
         askSlideUp = true;
         startAskSlideUp = Time.realtimeSinceStartup;
         originPosition = boxTrans.position;
@@ -272,6 +287,7 @@ public class QTECreator : MonoBehaviour
     void playSound(AudioClip sound)
     {
         if(sound != null) {
+            audioSource.volume = GameObject.FindGameObjectWithTag("BG_music").GetComponent<BG_music>().GetEffectVolume();
             audioSource.PlayOneShot(sound);
         }
     }
