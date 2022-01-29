@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractionAction : Interactable
 {
 
     PlayerInfo playerInfo;
-    GameObject thisGo;
 
     TaskInteractible taskInteractible;
     TrickInteractible trickInteractible;
 
     StateInteractable stateInteractable;
+
+    GameObject spacebarGO;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +22,15 @@ public class InteractionAction : Interactable
         taskInteractible = GetComponent<TaskInteractible>();
         trickInteractible = GetComponent<TrickInteractible>();
         stateInteractable = GetComponent<StateInteractable>();
-        thisGo = gameObject;
+
+        spacebarGO = GameObject.FindGameObjectWithTag("SpaceBar");
     }
 
     public override void handleInteraction(bool chaos)
     {
         Debug.Log("interraction chaotique = Interaction Action " + chaos);
+
+        spacebarGO.GetComponent<Image>().enabled = false;
 
         // Has already an action done, just cancel the interaction
         if (playerInfo.IsActionDoing())
