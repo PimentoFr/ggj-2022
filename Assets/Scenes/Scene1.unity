@@ -22808,6 +22808,18 @@ PrefabInstance:
       propertyPath: pausing
       value: 
       objectReference: {fileID: 1324911443}
+    - target: {fileID: 4270812146865419764, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270812146865419764, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 37ec647d4a00aae4c8eac401e64635ae, type: 3}
+    - target: {fileID: 4270812146865419764, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
 --- !u!1 &945473086
