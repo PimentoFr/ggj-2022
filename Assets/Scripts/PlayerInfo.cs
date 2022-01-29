@@ -113,7 +113,7 @@ public class PlayerInfo : MonoBehaviour
     public void Lose()
     {
         Debug.Log("To much stress, loooosser");
-        sceneGest.LostGame();
+        sceneGest.BurnOut();
     }
 
     public void RefreshCollider()

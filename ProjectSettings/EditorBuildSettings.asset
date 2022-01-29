@@ -15,8 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/WonScene.unity
     guid: 6b371e0080015d741902313fde7bb542
   - enabled: 1
-    path: Assets/Scenes/LostScene.unity
+    path: Assets/Scenes/LostScene_Fired.unity
     guid: 65b0afcf192faff40886723655cfad22
+  - enabled: 1
+    path: Assets/Scenes/LostScene_BurnOut.unity
+    guid: 3f499377871ca2c42b46e55adb5f7123
   - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
     guid: ac5430b9fe0e5934ca928de72013c91a
