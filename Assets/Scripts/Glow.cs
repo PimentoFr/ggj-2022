@@ -6,6 +6,7 @@ public class Glow : MonoBehaviour
 {
     public Interactable m_callback;
     private Collider2D m_collider;
+    public bool glowEnabledEverytime = false;
 
     GameObject glowingGO;
     GameObject interactibleGO;
@@ -31,13 +32,13 @@ public class Glow : MonoBehaviour
         if (obj.tag == "Player")
         {
             if (obj.GetComponent<PlayerInfo>().GetIsTricking() && 
-                interactibleGO.GetComponent<StateInteractable>().GetState() != StateInteractableObject.OUT_OF_SERVICE)
+                (glowEnabledEverytime || interactibleGO.GetComponent<StateInteractable>().GetState() != StateInteractableObject.OUT_OF_SERVICE))
             {
                 glowingGO.GetComponent<SpriteRenderer>().color = new Color(1f,0f,0f,0.3f);
                 glowingGO.SetActive(true);
             }
-            else if(!obj.GetComponent<PlayerInfo>().GetIsTricking() && 
-                    interactibleGO.GetComponent<StateInteractable>().GetState() != StateInteractableObject.FIXED)
+            else if(!obj.GetComponent<PlayerInfo>().GetIsTricking() &&
+                    (glowEnabledEverytime || interactibleGO.GetComponent<StateInteractable>().GetState() != StateInteractableObject.FIXED))
             {
                 glowingGO.GetComponent<SpriteRenderer>().color = new Color(0f, 1f, 0f, 0.3f);
                 glowingGO.SetActive(true);
