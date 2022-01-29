@@ -107,13 +107,17 @@ MonoBehaviour:
   qteSounds:
   - {fileID: 8300000, guid: 698359ce5be862a409c88f6eac60d452, type: 3}
   qteActionsOutOfService:
-  - Straight the plant
+  - Straighten the plant
   qteSoundsOutOfService:
   - {fileID: 8300000, guid: 930ecd46e846b6f4e9698fa5ff3cd0f6, type: 3}
   defaultNbKeys: 3
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
   isLong: 0
+  stressToLevel1: 33
+  nbKeyToLevel1: 2
+  stressToLevel2: 66
+  nbKeyToLevel2: 4
 --- !u!114 &5982113914539757969
 MonoBehaviour:
   m_ObjectHideFlags: 0

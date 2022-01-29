@@ -114,6 +114,10 @@ MonoBehaviour:
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
   isLong: 0
+  stressToLevel1: 33
+  nbKeyToLevel1: 2
+  stressToLevel2: 66
+  nbKeyToLevel2: 4
 --- !u!114 &7504203583969324661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a28c15fd5b9094cb2737fec123c302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trickLabel: Throw files
+  trickLabel: Throw files away
   stressBonus: -5
   stressOnDetected: 5
   isLongTask: 0
