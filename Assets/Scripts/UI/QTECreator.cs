@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class QTEItem
 {
     public string action_label { get; set; }
@@ -84,7 +85,7 @@ public class QTECreator : MonoBehaviour
         caller_callback = caller;
     }
 
-    public static QTECreator LaunchQTE2(GameObject UI_QTE,List<string> listActions, List<AudioClip> listAudioClip, int nbKeys, TaskInteractible caller_callback)
+    public static QTECreator LaunchQTE2(GameObject UI_QTE,List<string> listActions, List<AudioClip> listAudioClip, int nbKeys, Color backgroundColor, string stressDescription, TaskInteractible caller_callback)
     {
         GameObject qte =  Instantiate(UI_QTE, new Vector3(0, 0, 0), Quaternion.identity);
 
@@ -93,6 +94,12 @@ public class QTECreator : MonoBehaviour
             List<string> keys = GenerateKeys(nbKeys);
             list.Add(new QTEItem(listActions[i], keys, listAudioClip[i]));
         }
+
+        //Set color of the background
+        GameObject go = qte.transform.Find("Box").Find("background").gameObject;
+        go.GetComponent<Image>().color = backgroundColor;
+        //Set stress text
+        qte.transform.Find("Box").Find("StressDescription").gameObject.GetComponent<TextMeshProUGUI>().text = stressDescription;
 
         QTECreator qteCreator = qte.GetComponent<QTECreator>();
 
