@@ -51,6 +51,8 @@ public class QTECreator : MonoBehaviour
     float startAskSlideUp;
     Vector3 originPosition;
 
+    bool qteEnded = false;
+
     /* Sound*/
     AudioSource audioSource;
 
@@ -173,7 +175,7 @@ public class QTECreator : MonoBehaviour
         }
 
         // Check if the game is paused
-        if(!pauseGameObject.GetComponent<Pause>().getPaused()){
+        if(!pauseGameObject.GetComponent<Pause>().getPaused() && !qteEnded){
             KeyCode kc = GetButtonPressed();
             if(kc != KeyCode.None)
             {
@@ -276,6 +278,7 @@ public class QTECreator : MonoBehaviour
 
     void SlideUp()
     {
+        qteEnded = true;
         askSlideUp = true;
         startAskSlideUp = Time.realtimeSinceStartup;
         originPosition = boxTrans.position;
