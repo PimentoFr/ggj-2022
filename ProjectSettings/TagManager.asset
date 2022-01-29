@@ -18,6 +18,7 @@ TagManager:
   - BG_music
   - UI_TaskLabels
   - ItemInteractable
+  - SpaceBar
   layers:
   - Default
   - TransparentFX
