@@ -104,7 +104,7 @@ MonoBehaviour:
   taskLabel: Call a client
   qteActions:
   - Type phone number
-  - Bullshit with client
+  - Bullshit the client
   - Convince the client
   qteSounds:
   - {fileID: 8300000, guid: 640f3daf6c565d044b9d14ad26da375c, type: 3}
@@ -118,6 +118,10 @@ MonoBehaviour:
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
   isLong: 1
+  stressToLevel1: 33
+  nbKeyToLevel1: 2
+  stressToLevel2: 66
+  nbKeyToLevel2: 4
 --- !u!114 &6260647277829548510
 MonoBehaviour:
   m_ObjectHideFlags: 0

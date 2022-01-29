@@ -111,13 +111,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e6357704e98508c449c5a4f6c449f25d, type: 3}
   - {fileID: 8300000, guid: 5065480c5c6ec7e49bad9d64b39dbc47, type: 3}
   qteActionsOutOfService:
-  - Stop Youtube
+  - Close Youtube
   qteSoundsOutOfService:
   - {fileID: 8300000, guid: b9d9b30e0e786344185fcfb43a83152a, type: 3}
   defaultNbKeys: 3
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
   isLong: 1
+  stressToLevel1: 33
+  nbKeyToLevel1: 2
+  stressToLevel2: 66
+  nbKeyToLevel2: 4
 --- !u!114 &7855375899609824875
 MonoBehaviour:
   m_ObjectHideFlags: 0
