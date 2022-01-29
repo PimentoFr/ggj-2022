@@ -57,6 +57,8 @@ public class QTECreator : MonoBehaviour
     GameObject box;
     Transform boxTrans;
 
+    GameObject pauseGameObject;
+
 
     public TaskInteractible caller_callback;
     void Awake()
@@ -64,7 +66,7 @@ public class QTECreator : MonoBehaviour
         box = transform.Find("Box").gameObject;
         boxTrans = box.GetComponent<Transform>();
         audioSource = GetComponent<AudioSource>();
-
+        pauseGameObject = GameObject.FindWithTag("BG_music");
         SetHardcoreMode(false);
     }
 
@@ -170,15 +172,18 @@ public class QTECreator : MonoBehaviour
             boxTrans.position = editedPosition;
         }
 
-        KeyCode kc = GetButtonPressed();
-        if(kc != KeyCode.None)
-        {
-            EventKeyTrigger(kc);
-        }
-        else if (ButtonIsPressed(QteKeyboardKey.LEAVE))
-        {
-            Leave();
-            /* Do maybe something more to continue game */
+        // Check if the game is paused
+        if(!pauseGameObject.GetComponent<Pause>().getPaused()){
+            KeyCode kc = GetButtonPressed();
+            if(kc != KeyCode.None)
+            {
+                EventKeyTrigger(kc);
+            }
+            else if (ButtonIsPressed(QteKeyboardKey.LEAVE))
+            {
+                Leave();
+                /* Do maybe something more to continue game */
+            }
         }
 
     }
