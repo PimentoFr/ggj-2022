@@ -156,8 +156,10 @@ MonoBehaviour:
   - {fileID: 6106016846046640893, guid: 151acd1c499f9374a88482df089cd53f, type: 3}
   deskTiles:
   - {fileID: 5733872481096187396, guid: 3f348cb458b39b1429fb8232c33f12b7, type: 3}
+  - {fileID: 5484153144624785181, guid: 2371135b8b9485d48a101fb089ce58de, type: 3}
+  - {fileID: 6385784107863765436, guid: 2b46d78583db656478b8850e96102a64, type: 3}
   genericTiles:
-  - {fileID: 7788906582501612164, guid: 29dd350805e311942b2066cefb7487e7, type: 3}
+  - {fileID: 4291409770688721393, guid: d22828f1e2e3f784fb9defcea541d4e0, type: 3}
   LiftRight: {fileID: 912369087219748566, guid: b6e63dea13d71594e918e80f72c548c9, type: 3}
   LiftLeft: {fileID: 6556387264515566892, guid: 37931b74ce200184ea0b0927be43d3a9, type: 3}
   playerSpawn: {fileID: 7788906582501612164, guid: 29dd350805e311942b2066cefb7487e7, type: 3}
@@ -440,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232841689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.885919, y: 8.4089775, z: -10}
+  m_LocalPosition: {x: 13.8887205, y: 8.4089775, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
