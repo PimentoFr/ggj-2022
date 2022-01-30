@@ -371,39 +371,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textes:
-  - Hey, hello there ! So you want to stop burning out at work ? You're in the right
+  - Oh, hello there ! So you want to stay burn-out free at work ? You're in the right
     place... Or maybe not...
-  - In this game, you'll have to do all the tasks on your To-do List. You will see
-    it by approaching your computer. Complete all task on the list before 6pm, or
-    you will be fired.
-  - Use the [ARROWS] to move yourself in the building. But the place is very large,
-    and you need to find where are located each of your tasks.
+  - "In this game, you'll have to complete all the tasks on your To-Do list. You
+    can check your To-Do list of the day it by approaching your computer. All tasks
+    shall be done by 6pm, or else\u2026 You will be fired."
+  - Use the [ARROWS] to walk through the corridors and offices in the building. Beware,
+    the place is very large, and you need to find where each of your tasks are located.
   - The building contains several floors, and you can take the elevators to go to
-    the next one. Just interact with it by pressing the [SPACE] key. At the last
-    floor, you will come back to the first one.
+    the next one. Just interact with it by pressing the [SPACE] key. If you use the
+    elevator on the last floor, it will bring you back down to the first one.
   - Once you find one of your tasks, press [SPACE] to start doing your job. But remember
-    that all the tasks not listed on your own "To-do List" belong to someone else...
+    that all the tasks not listed on your own To-Do list belong to someone else...
     Remember that.
   - When you start working on a task, use the right [ALPHA] keys to complete each
     sub-task. Once all done, the task is complete. You can go back to your computer
     at any moment if you forget which tasks are yours.
   - But, OH ! I forgot to tell you ! Your job is very stressful ! On the top right
-    hand corner you can see your stress growing as the time pass by, or when you
-    complete someone else's task. If your stress grows to much, you will definitely
-    BURN OUT! So, please ! Take care !
+    hand corner you can see your stress growing as time passes by, or when you complete
+    someone else's task. As your stress starts peaking, it becomes harder to complete
+    your tasks. That is a lot of stress coming in ! If your stress bar explodes,
+    you will definitely BURN OUT! So, please ! Take care !
   - As your stress is growing, it becomes harder to complete your tasks. That is
     a lot of stress coming in !
-  - But don't worry, you can unleash your dark side in order to get your stress down.
-    Get rid of your tie, break things, play tricks to your co-workers... Be fun!
-    Just press [A] whenever you want to release the pressure. Press [A] again to
-    back to normal.
-  - In your dark side state, you need to avoid your co-workers roaming in the halls,
-    otherwise they'll report you to the boss and your stress will grow. AND don't
-    be caught when you play a trick, or your stress will grow even more !
+  - But don't worry, you can unleash your chaotic side in order to get your stress
+    down. Get rid of your tie, break things, play tricks to your co-workers... Have
+    yourself a little fun! Just press [A] whenever you want to release the pressure.
+    Press [A] again to back to normal.
+  - In your chaotic side state, you need to avoid your co-workers roaming in the
+    halls, otherwise they'll report you to the boss and your stress will grow. AND
+    don't be caught when you play a trick, or your stress will grow even more !
   - You can feel the presence of a co-worker close to you, on the left or on the
-    right, when you unleash your dark side. Those exclamation points mean that someone
-    is close.
-  - If you sabotage something that is actually on your To-do List, you will need
+    right, when you unleash your chaotic side. Those exclamation points mean that
+    someone is close.
+  - If you sabotage something that is actually on your To-Do list, you will need
     to fix your sabotage by doing some additionnal sub-tasks. Sabotaging something
     on your list that you already done, will undo the task in your list, then you'll
     have to fix and redo it.
