@@ -8,6 +8,6 @@ public class GetScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Text>().text = $"You finished your day at {PlayerPrefs.GetString("Timer")}.";
+        GetComponent<Text>().text = $"You finished your day at {PlayerPrefs.GetString("Timer")}";
     }
 }
