@@ -74,6 +74,7 @@ public class TrickController : MonoBehaviour
     {
         Debug.Log("On Detected");
         playerInfo.AddStress(trickInteractible.stressOnDetected);
+        audioSource.Stop();
         Clean();
     }
 
