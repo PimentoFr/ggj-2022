@@ -46,7 +46,10 @@ public class Clock : MonoBehaviour
                 sceneGest.Fired();
             }
         }
-            
+    }
 
+    void OnDisable()
+    {
+        PlayerPrefs.SetString("Timer", TimerText.text);
     }
 }
