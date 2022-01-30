@@ -408,8 +408,8 @@ MonoBehaviour:
   swipeUpAudioClip: {fileID: 8300000, guid: aa28670d64dda6d4ca4faefcb43134f7, type: 3}
   errorAudioClip: {fileID: 8300000, guid: e817328e684f8f84ab80cb75a9ed4ded, type: 3}
   delayClean: 1.5
-  slideUpDurationInS: 1
-  slideUpDistance: 1000
+  slideUpDurationInS: 2
+  slideUpDistance: 2000
   caller_callback: {fileID: 0}
 --- !u!82 &2300225301783471935
 AudioSource:
