@@ -19,7 +19,16 @@ public class MapGenerator : MonoBehaviour
     public List<GameObject> taskableDesk;
     public List<GameObject> taskableWall;
     public GameObject pnj;
-    
+
+    [Range(-100.0f, 0.0f)]
+    public float stressBonusShortTrick = -5.0f;
+    [Range(0.0f, 100.0f)]
+    public float stressOnDetectedShortTrick = 5.0f;
+    [Range(-100.0f, 0.0f)]
+    public float stressBonusLongTrick = -30.0f;
+    [Range(0.0f, 100.0f)]
+    public float stressOnDetectedLongTrick = 20.0f ;
+
 
     int largeur = 7;
     public int etage = 3;
@@ -40,6 +49,7 @@ public class MapGenerator : MonoBehaviour
     GameObject[] liftlabels;
     GameObject[] wallspawns;
     GameObject[] deskspawns;
+    GameObject[] taskables;
     GameObject recup;
 
     void Start()
@@ -100,10 +110,30 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
+        taskables = GameObject.FindGameObjectsWithTag("ItemInteractable");
+        
+            foreach (GameObject task in taskables)
+            {
+            if (!task.GetComponent<TrickInteractible>().isLongTask)
+            {
+                task.GetComponent<TrickInteractible>().stressBonus = stressBonusShortTrick;
+                task.GetComponent<TrickInteractible>().stressOnDetected = stressOnDetectedShortTrick;
+            }
+                
+            else
+            {
+                task.GetComponent<TrickInteractible>().stressBonus = stressBonusLongTrick;
+                task.GetComponent<TrickInteractible>().stressOnDetected = stressOnDetectedLongTrick;
+            }
+                
+            }
+        
+
     }
     GameObject FindChildWithTag(GameObject parent, string tag)
     {
         GameObject child = null;
+
 
         foreach (Transform transform in parent.transform)
         {
