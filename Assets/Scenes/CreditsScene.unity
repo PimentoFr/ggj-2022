@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f308fe3ff4e424681a47a5df534db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneOnEscape: 3
+  SceneOnEscape: 4
 --- !u!114 &908354405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,7 +575,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 622eb8fc203e61b498305a6a1897df49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc4e4f96101eacd4983b66fb681f327d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
