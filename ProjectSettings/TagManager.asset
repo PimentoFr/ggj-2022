@@ -25,6 +25,9 @@ TagManager:
   - PlayerSpawner
   - DeskSpawner
   - WallSpawner
+  - SpaceBar
+  - BorneLeft
+  - BorneRight
   layers:
   - Default
   - TransparentFX
