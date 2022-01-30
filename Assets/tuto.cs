@@ -9,9 +9,11 @@ public class tuto : MonoBehaviour
     public List<string> textes;
     public List<Sprite> images;
     public Sprite finishButton;
+    public Sprite nextButton;
     public GameObject textbox;
     public GameObject imagebox;
-    public GameObject button;
+    public GameObject next;
+    public GameObject prev;
     public GameObject UImenu;
 
     int step;
@@ -19,25 +21,68 @@ public class tuto : MonoBehaviour
     void Start()
     {
         step = 0;
+        imagebox.GetComponent<Image>().sprite = images[step];
+        textbox.GetComponent<TextMeshProUGUI>().SetText(textes[step]);
+
+        prev.GetComponent<Image>().enabled = false;
     }
 
     public void nextTuto()
     {
-        if (step < textes.Count)
+        if (step < (textes.Count - 1))
         {
+            step++;
+
             imagebox.GetComponent<Image>().sprite = images[step];
             textbox.GetComponent<TextMeshProUGUI>().SetText(textes[step]);
 
-            if (step == textes.Count - 1)
-                button.GetComponent<Image>().sprite = finishButton;
+            if (step > 0)
+            {
+                prev.GetComponent<Image>().enabled = true;
+            }
+            else
+            {
+                prev.GetComponent<Image>().enabled = false;
+            }
 
-            step++;
+            if (step == textes.Count - 1)
+            {
+                next.GetComponent<Image>().sprite = finishButton;
+            }
+            else
+            {
+                next.GetComponent<Image>().sprite = nextButton;
+            }
         }
         else
         {
-            step = 0;
-            gameObject.SetActive(false);
-            UImenu.SetActive(true);
+            ExitTuto();
         } 
+    }
+
+    public void PreviousTuto()
+    {
+        if (step > 0)
+        {
+            step--;
+        }
+
+        imagebox.GetComponent<Image>().sprite = images[step];
+        textbox.GetComponent<TextMeshProUGUI>().SetText(textes[step]);
+
+        if (step == 0)
+        {
+            prev.GetComponent<Image>().enabled = false;
+        }
+    }
+
+    public void ExitTuto()
+    {
+        step = 0;
+        imagebox.GetComponent<Image>().sprite = images[step];
+        textbox.GetComponent<TextMeshProUGUI>().SetText(textes[step]);
+        next.GetComponent<Image>().sprite = nextButton;
+        gameObject.SetActive(false);
+        UImenu.SetActive(true);
     }
 }
