@@ -1312,6 +1312,10 @@ PrefabInstance:
       propertyPath: sceneGest
       value: 
       objectReference: {fileID: 495752109}
+    - target: {fileID: 997015005952063820, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
+      propertyPath: incrementStressValueByTick
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3591816160362813716, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
       propertyPath: m_Name
       value: Player
