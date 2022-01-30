@@ -108,14 +108,14 @@ MonoBehaviour:
   - Recharge paper
   qteSounds:
   - {fileID: 8300000, guid: 957ff349e6b7e54429ef088b19d31f2d, type: 3}
-  - {fileID: 8300000, guid: b5e30be004d84af458cc977c8bde6ea9, type: 3}
+  - {fileID: 8300000, guid: 678f8ff8db9287e4489058e1e35331a8, type: 3}
   - {fileID: 8300000, guid: e7bf57642176a614cad77578990aae65, type: 3}
   qteActionsOutOfService:
   - Clean the scanner
   - Throw away pictures
   qteSoundsOutOfService:
-  - {fileID: 8300000, guid: b5e30be004d84af458cc977c8bde6ea9, type: 3}
-  - {fileID: 8300000, guid: 957ff349e6b7e54429ef088b19d31f2d, type: 3}
+  - {fileID: 8300000, guid: d9eec0344407b274ab19f3e7b2f36dbb, type: 3}
+  - {fileID: 8300000, guid: 1756c35bf7a8eac45aa917b87f2ceba0, type: 3}
   defaultNbKeys: 3
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
