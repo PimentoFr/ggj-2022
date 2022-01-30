@@ -114,6 +114,10 @@ MonoBehaviour:
   prefabUI_QTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
   taskDone: 0
   isLong: 0
+  stressToLevel1: 33
+  nbKeyToLevel1: 2
+  stressToLevel2: 66
+  nbKeyToLevel2: 4
 --- !u!114 &3198027422112131833
 MonoBehaviour:
   m_ObjectHideFlags: 0
