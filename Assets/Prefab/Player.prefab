@@ -467,8 +467,8 @@ MonoBehaviour:
   pausing: {fileID: 0}
   sceneGest: {fileID: 0}
   onSightTickMultiplier: 5
-  riseStressTickPeriodS: 1
-  incrementStressValueByTick: 1
+  riseStressTickPeriodS: 0.1
+  incrementStressValueByTick: 0.2
   lastTick: 0
   isTricking: 0
   UIQTE: {fileID: 5846462860562321196, guid: 28c05babf420f994a9867c11e1b8ade9, type: 3}
@@ -561,8 +561,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 37ec647d4a00aae4c8eac401e64635ae, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
