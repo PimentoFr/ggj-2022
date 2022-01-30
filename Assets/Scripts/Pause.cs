@@ -26,4 +26,10 @@ public class Pause : MonoBehaviour
     {
         return paused;
     }
+
+    public void DoPause()
+    {
+        paused = !paused;
+        menuPause.SetActive(paused);
+    }
 }
