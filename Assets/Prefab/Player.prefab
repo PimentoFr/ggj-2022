@@ -395,7 +395,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 564887813
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: a960d86bce142ea449f241c794ebd55d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -443,8 +443,8 @@ MonoBehaviour:
   pausing: {fileID: 0}
   moveSpeedNormal: 10
   moveSpeedChaos: 10
-  leftKey: 113
-  rightKey: 100
+  leftKey: 276
+  rightKey: 275
   swapHumorKey: 97
   interactKey: 32
   normalSprite: {fileID: 21300000, guid: a960d86bce142ea449f241c794ebd55d, type: 3}
@@ -532,6 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfLongTask: 2
   numberOfShortTask: 3
+  stressAmountForDoingATaskYouShouldntHave: 10
   prefabUIObject: {fileID: 0}
   playerTasks: []
   sceneGest: {fileID: 0}
