@@ -18,6 +18,7 @@ public class MapGenerator : MonoBehaviour
     public List<Color> couleurRoofs;
     public List<GameObject> taskableDesk;
     public List<GameObject> taskableWall;
+    public GameObject pnj;
     
 
     int largeur = 7;
@@ -29,6 +30,7 @@ public class MapGenerator : MonoBehaviour
     
     int i, j;
     int rndGen;
+    float rnd;
     int tileAmount = 0;
  
     List<Vector3> coord = new List<Vector3>();
@@ -84,6 +86,19 @@ public class MapGenerator : MonoBehaviour
         playerSpawner = GameObject.FindWithTag("PlayerSpawner");
         player.GetComponent<Transform>().position = playerSpawner.transform.position;
 
+        GameObject BorneR, BorneL;
+        for (i = 0; i < etage; i++)
+        {
+            for(j = 0 ; j <= i ; j++)
+            {
+                recup = Instantiate(pnj, new Vector3(Random.Range(2 * largeurTile, 5 * largeurTile), player.GetComponent<Transform>().position.y + (i * hauteurTile), 0), Quaternion.identity);
+                BorneL = FindChildWithTag(recup, "BorneLeft");
+                BorneR = FindChildWithTag(recup, "BorneRight");
+
+                BorneL.GetComponent<Transform>().position = new Vector3(Random.Range(1 * largeurTile, recup.GetComponent<Transform>().position.x - largeurTile), BorneL.GetComponent<Transform>().position.y, 0);
+                BorneR.GetComponent<Transform>().position = new Vector3(Random.Range(recup.GetComponent<Transform>().position.x + largeurTile, 6 * largeurTile), BorneL.GetComponent<Transform>().position.y, 0);
+            }
+        }
 
     }
     GameObject FindChildWithTag(GameObject parent, string tag)

@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        pausing = GameObject.FindWithTag("BG_music");
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         enemy = GetComponent<SpriteRenderer>();
@@ -30,6 +31,9 @@ public class EnemyController : MonoBehaviour
         son = GetComponent<AudioSource>();
         stopTime = 0;
         hitbox.size = new Vector2(portee, 8.0f);
+        speed = Random.Range(3f, 8f);
+        if (Random.Range(1, 3) == 1)
+            direction = -direction;
     }
 
     

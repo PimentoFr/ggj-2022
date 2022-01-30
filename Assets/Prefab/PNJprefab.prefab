@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666064885720219514}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 1.8, z: 84.47282}
+  m_LocalPosition: {x: 0.3, y: 0.45999992, z: 84.47282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4887061804423660705}
@@ -349,8 +349,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3714902912868505816}
   m_Layer: 0
-  m_Name: Born Right
-  m_TagString: Untagged
+  m_Name: BorneRight
+  m_TagString: BorneRight
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,7 +363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5571959666143653134}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36, y: 0.8000002, z: 84.47282}
+  m_LocalPosition: {x: 36, y: -0.54, z: 84.47282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5339927549508434494}
@@ -412,8 +412,8 @@ GameObject:
   m_Component:
   - component: {fileID: 308928630738811750}
   m_Layer: 0
-  m_Name: Borne Left
-  m_TagString: Untagged
+  m_Name: BorneLeft
+  m_TagString: BorneLeft
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -426,7 +426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8707888631922551094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12, y: 0.8, z: 84.47282}
+  m_LocalPosition: {x: -12, y: -0.54, z: 84.47282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5339927549508434494}
