@@ -186,9 +186,9 @@ MonoBehaviour:
   - {fileID: 646651550057386302, guid: 34d90b0c497636345b0fb50a149458bd, type: 3}
   - {fileID: 1979520009561715111, guid: 73117eba66f6fc54b8ff1947c634ecae, type: 3}
   pnj: {fileID: 8688395187165533958, guid: 1b1b6afa0e0c2e9478dc304c6457667b, type: 3}
-  stressBonusShortTrick: -5
+  stressBonusShortTrick: -15
   stressOnDetectedShortTrick: 5
-  stressBonusLongTrick: -30
+  stressBonusLongTrick: -40
   stressOnDetectedLongTrick: 20
   etage: 3
 --- !u!4 &19441907
@@ -734,6 +734,10 @@ PrefabInstance:
       propertyPath: pausing
       value: 
       objectReference: {fileID: 208019620}
+    - target: {fileID: 3418460653509907931, guid: b40d8a7dd547a1349a48d43f736f9df1, type: 3}
+      propertyPath: clockSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3418460653698222112, guid: b40d8a7dd547a1349a48d43f736f9df1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -1005,11 +1009,11 @@ PrefabInstance:
       objectReference: {fileID: 495752109}
     - target: {fileID: 997015005952063820, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
       propertyPath: riseStressTickPeriodS
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 997015005952063820, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
       propertyPath: incrementStressValueByTick
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3591816160362813716, guid: 97f2eed64cb300251b6a5e28a319dd3d, type: 3}
       propertyPath: m_Name
