@@ -16,7 +16,7 @@ public class BG_music : MonoBehaviour
     {
         player = GameObject.Find("Player").GetComponent<PlayerInfo>();
         music = GetComponent<AudioSource>();
-        effectVolume = 0.5f;
+        effectVolume = 1f;
 
     }
 
