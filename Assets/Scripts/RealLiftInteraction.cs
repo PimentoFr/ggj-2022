@@ -11,6 +11,8 @@ public class RealLiftInteraction : Interactable
     private BoxCollider2D playerCollider;
     private float baseY;
     private int currentFloor;
+    private AudioSource audioSource;
+    public AudioClip elevatorSound;
     void Start()
     {
         
@@ -18,6 +20,7 @@ public class RealLiftInteraction : Interactable
         donnees = GameObject.Find("MapGen").GetComponent<MapGenerator>();
         playerCollider = GameObject.FindWithTag("Player").GetComponent<BoxCollider2D>();
         baseY = player.GetComponent<Transform>().position.y;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class RealLiftInteraction : Interactable
 
     public override void handleInteraction(bool chaos)
     {
+        PlaySound(elevatorSound);
        // if (player.GetComponent<Transform>().position.y != donnees.getHauteurTile() * (donnees.etage -1) )
             player.GetComponent<Transform>().position = new Vector2 (player.GetComponent<Transform>().position.x, player.GetComponent<Transform>().position.y + donnees.getHauteurTile());
         if(player.GetComponent<Transform>().position.y > donnees.getHauteurTile()* donnees.etage)
@@ -35,5 +39,11 @@ public class RealLiftInteraction : Interactable
 
         playerCollider.enabled = false;
         playerCollider.enabled = true;
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        audioSource.volume = GameObject.FindWithTag("BG_music").GetComponent<BG_music>().GetEffectVolume();
+        audioSource.PlayOneShot(clip);
     }
 }
