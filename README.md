@@ -56,4 +56,5 @@ Thanks to all contributors:
 
 # Licences
 
-The project is under license Creative Common (CC BY-NC-SA 2.0).
+The project is under license Creative Common (CC BY-NC-SA 4.0).
+https://creativecommons.org/licenses/by-nc-sa/4.0/
