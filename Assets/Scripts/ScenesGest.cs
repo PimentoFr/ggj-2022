@@ -52,7 +52,7 @@ public class ScenesGest : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Scene1");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void WonGame()
